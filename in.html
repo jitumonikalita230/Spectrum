@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<title>Spectrum</title>
+
+<style>
+/* ========== ROOT VARIABLES ========== */
+:root {
+  --bg-dark: #0a0a0a;
+  --accent: #00ffff;
+  --text-light: #f9f9f9;
+  --nav-bg: rgba(20, 20, 20, 0.7);
+  --section-bg: #fff;
+  --text-dark: #111;
+  --shadow: 0 0 20px rgba(0, 255, 255, 0.25);
+}
+
+/* ========== GENERAL ========== */
+body {
+  margin: 0;
+  font-family: "Poppins", Arial, sans-serif;
+  color: var(--text-dark);
+  scroll-behavior: smooth;
+  background: var(--bg-dark);
+  overflow-x: hidden;
+}
+
+/* ========== NAVBAR ========== */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  padding: 0.8rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 10px rgba(0, 255, 255, 0.15);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.s, .p, .e, .c, .t, .r, .u, .m {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  animation: bounce 1.5s infinite ease-in-out;
+}
+.s { color: #ff7ce5; animation-delay: 0s; }
+.p { color: #b388ff; animation-delay: 0.1s; }
+.e { color: #8093ff; animation-delay: 0.2s; }
+.c { color: #61e294; animation-delay: 0.3s; }
+.t { color: #f4f482; animation-delay: 0.4s; }
+.r { color: #ffb86b; animation-delay: 0.5s; }
+.u { color: #ff6b6b; animation-delay: 0.6s; }
+.m { color: #00ffff; animation-delay: 0.7s; }
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+/* ========== NAV LINKS ========== */
+.nav-link {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link li a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link li a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.nav-link li a:hover {
+  color: var(--accent);
+}
+.nav-link li a:hover::after {
+  width: 100%;
+}
+
+/* ========== HAMBURGER ========== */
+.menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+.menu-btn div {
+  width: 25px;
+  height: 3px;
+  background: var(--text-light);
+  transition: all 0.3s ease;
+}
+.menu-btn.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+.menu-btn.open div:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ========== HOME SECTION ========== */
+.home-content {
+  background: url("55e60493-e5d6-4b4d-9886-38821e7b2211.jpeg") center/cover no-repeat;
+  text-align: center;
+  padding: 6rem 1rem 5rem;
+  position: relative;
+  color: white;
+}
+
+.home-content::before {
+  background: linear-gradient(270deg, #ff7ce5, #00ffff, #f4f482);
+  background-size: 600% 600%;
+  animation: gradientMove 10s ease infinite;
+  mix-blend-mode: overlay;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+.home-content h1,
+.home-content p,
+.home-content .btn1 {
+  position: relative;
+  z-index: 1;
+}
+
+.home-content h1 {
+  font-size: 3rem;
+  color: var(--accent);
+  animation: fadeIn 1.5s ease-out;
+}
+.home-content p {
+  font-size: 1.15rem;
+  color: #ddd;
+  max-width: 700px;
+  margin: 0 auto 1rem;
+  animation: fadeIn 2s ease-out;
+}
+
+/* BUTTON */
+.btn1 {
+  background: var(--accent);
+  color: black;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+.btn1:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow);
+}
+
+/* ========== GALLERY ========== */
+.gallery-container {
+  overflow: hidden;
+  padding-top: 3rem;
+}
+.gallery {
+  display: flex;
+  gap: 1.5rem;
+  animation: slide 22s linear infinite;
+}
+.gallery img {
+  width: 180px;
+  height: 220px;
+  border-radius: 15px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+.gallery img:hover {
+  transform: scale(1.15);
+  box-shadow: var(--shadow);
+}
+@keyframes slide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ========== SECTIONS ========== */
+section {
+  padding: 80px 20px;
+  background: var(--section-bg);
+  text-align: center;
+  color: var(--text-dark);
+
+}
+section h2 {
+  font-size: 2.3rem;
+  margin-bottom: 25px;
+  color: #111;
+  position: relative;
+}
+section h2::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  width: 60px;
+  height: 3px;
+  background: var(--accent);
+  transform: translateX(-50%);
+  border-radius: 3px;
+}
+
+/* ========== PROFILE CARD ========== */
+.profile-card-1 {
+  display: inline-block;
+background: linear-gradient(145deg, #ffecd2, #fcb69f);
+
+  border-radius: 20px;
+  padding: 20px;
+  color: rgb(13, 13, 13);
+  transition: all 0.4s ease;
+  box-shadow: 0 5px 25px rgba(0, 255, 255, 0.25);
+}
+
+.profile-card-1:hover {
+  transform: scale(1.1) translateY(-5px);
+  box-shadow: 0 10px 35px rgba(0, 255, 255, 0.5);
+}
+
+.image1 {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 10px;
+  border: 3px solid rgba(255, 255, 255, 0.6);
+}
+.image1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.profile-card-1 h3 {
+  margin: 0.5rem 0 0;
+  color:black;
+}
+.profile-card-1 p {
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+}
+/*=======Download=======*/
+.Download-btn {
+  background: var(--accent);
+  color: black;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  border-color: #0a0a0a;
+}
+
+.Download-btn:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow);
+}
+/*=======Footer========*/
+/* ========== FOOTER ========== */
+.footer {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: var(--text-light);
+  text-align: center;
+  padding: 20px 10px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.2);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-socials {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-socials a {
+  color: var(--accent);
+  font-size: 1.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-socials a:hover {
+  transform: scale(1.2);
+  color: #fff;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== RESPONSIVE ========== */
+@media(max-width: 768px) {
+  .menu-btn { display: flex; }
+  .nav-link {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.9);
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    display: none;
+  }
+  .nav-link.active { display: flex; }
+  .home-content h1 { font-size: 2.2rem; }
+  .home-content p { font-size: 1rem; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<nav>
+  <div class="logo">
+    <div class="s">S</div><div class="p">P</div><div class="e">E</div>
+    <div class="c">C</div><div class="t">T</div><div class="r">R</div>
+    <div class="u">U</div><div class="m">M</div>
+  </div>
+
+  <div class="menu-btn" id="menu-btn">
+    <div></div><div></div><div></div>
+  </div>
+
+  <ul class="nav-link" id="nav-links">
+    <li><a href="#Home"><i class='bx bxs-home'></i> Home</a></li>
+    <li><a href="#Editorial-board"><i class='bx bxs-edit-alt' ></i> Editorial Board</a></li>
+    <li><a href="#Photo-gallery"><i class='bx bxs-photo-album' ></i> Photo Gallery</a></li>
+    <li><a href="#Article"><i class='bx bxs-pen' ></i> Articles</a></li>
+    <li><a href="#Downloadsoftcopy"><i class='bx bxs-download' ></i> Download softcopy</a></li>
+  </ul>
+</nav>
+
+<!-- ========== HOME ========== -->
+<section class="home-content" id="Home">
+  <h1>Welcome to Spectrum Volume 19</h1>
+  <p>Celebrating innovation, creativity, and teamwork from our vibrant department. Explore our memories and achievements below.</p>
+  <a href="#Article" class="btn1"><i class='bx bx-book-reader' ></i> View Articles</a>
+
+  <div class="gallery-container">
+    <div class="gallery">
+      <img src="pandu.png" alt="Pandu College">
+      <img src="naac-A.jpg" alt="NAAC A Grade">
+      <img src="phy.jpg" alt="Physics Department">
+      <img src="pandu.png" alt="Pandu College">
+      <img src="naac-A.jpg" alt="NAAC A Grade">
+      <img src="phy.jpg" alt="Physics Department">
+       <img src="pandu.png" alt="Pandu College">
+      <img src="naac-A.jpg" alt="NAAC A Grade">
+      <img src="phy.jpg" alt="Physics Department">
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== EDITORIAL BOARD ========== -->
+<section id="Editorial-board">
+  <h2><i class='bx bx-edit-alt'></i> Editorial Board</h2>
+  <div class="profile-card-1" data-aos="fade-up" data-aos-duration="1200">
+    <div class="image1">
+      <img src="p.jpg" alt="Profile Picture">
+    </div>
+    <h3>Jitu Moni Kalita</h3>
+    <p><i class='bx bxs-briefcase'></i> Website Developer</p>
+    <p><i class='bx bxl-gmail'></i> <a href="mailto:jitumoni2005@gmail.com">jitumoni2005@gmail.com</a></p>
+  </div>
+</section>
+
+<!-- ========== PHOTO GALLERY ========== -->
+<section id="Photo-gallery">
+  <h2> <i class='bx bx-photo-album' ></i> Photo Gallery</h2>
+  <p>Coming soon...</p>
+</section>
+
+<!-- ========== ARTICLES ========== -->
+<section id="Article">
+  <h2><i class='bx bx-pen'></i>Articles Section</h2>
+  <p>Here you’ll find our collection of student and faculty articles for Spectrum Volume 19. Stay tuned for updates!</p>
+</section>
+<section id="Downloadsoftcopy">
+  <h2> <i class='bx bx-download' ></i> Download Soft Copy</h2>
+  <p>The soft copy of Spectrum Volume 19 is available for download.</p>
+  <a href="#" class="Download-btn"> <i class='bx bxs-download' ></i>Download Now</a>
+</section>
+  <footer class="footer">
+  <div class="footer-container">
+    <p>&copy; 2025 Spectrum | Developed by Jitu Moni Kalita</p>
+    <div class="footer-socials">
+      <a href="https://github.com/jitumonikalita230" target="_blank"><i class='bx bxl-github'></i></a>
+      <a href="mailto:jitumoni2005@gmail.com"><i class='bx bxl-gmail'></i></a>
+      <a href="https://www.linkedin.com/in/jitumoni-kalita-b14a04308?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BuewoqLfZQSS8B6p9CVlZyQ%3D%3D"><i class='bx bxl-linkedin'></i></a>
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+ <!-- ========== ARTICLES ========== -->
+<script>
+const menuBtn = document.getElementById("menu-btn");
+const navLinks = document.getElementById("nav-links");
+
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+  menuBtn.classList.toggle("open");
+});
+</script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+</body>
+</html>
