@@ -134,62 +134,92 @@
       }
 
       /* ========== NAV LINKS ========== */
-      .nav-link {
-        list-style: none;
-        display: flex;
-        gap: 2rem;
-        margin: 0;
-        padding: 0;
-      }
+  /* NAV LINKS */
+.nav-link {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
 
-      .nav-link li a {
-        color: var(--text-light);
-        text-decoration: none;
-        font-weight: 600;
-        position: relative;
-        transition: color 0.3s ease;
-      }
+.nav-link li a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative; /* CORRECTED */
+  transition: color 0.3s ease;
+}
 
-      .nav-link li a::after {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0%;
-        height: 2px;
-        background: var(--accent);
-        transition: width 0.3s ease;
-      }
+.nav-link li a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
 
-      .nav-link li a:hover {
-        color: var(--accent);
-      }
-      .nav-link li a:hover::after {
-        width: 100%;
-      }
+.nav-link li a:hover {
+  color: var(--accent);
+}
 
-      /* ========== HAMBURGER ========== */
-      .menu-btn {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        cursor: pointer;
-      }
-      .menu-btn div {
-        width: 25px;
-        height: 3px;
-        background: var(--text-light);
-        transition: all 0.3s ease;
-      }
-      .menu-btn.open div:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 6px);
-      }
-      .menu-btn.open div:nth-child(2) {
-        opacity: 0;
-      }
-      .menu-btn.open div:nth-child(3) {
-        transform: rotate(-45deg) translate(6px, -6px);
-      }
+.nav-link li a:hover::after {
+  width: 100%;
+}
+
+/* HAMBURGER */
+.menu-btn {
+  display: none; /* visible only on mobile via media query */
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-btn div {
+  width: 25px;
+  height: 3px;
+  background: var(--text-light);
+  transition: all 0.3s ease;
+}
+
+.menu-btn.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+
+.menu-btn.open div:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* MOBILE NAV LINKS */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: flex;
+  }
+
+  .nav-link {
+    flex-direction:column;
+    background: rgba(0, 0, 0, 0.9);
+    position: fixed; /* only fixed on mobile menu */
+    top: 60px;
+    left: 0;
+    right: 0;
+    gap: 1rem;
+    padding: 1rem 0;
+    display: none; /* hidden initially */
+    z-index: 100;
+  }
+
+  .nav-link.active {
+    display: flex; /* show menu when hamburger clicked */
+  }
+}
 
       /* ========== HOME SECTION ========== */
       .home-content {
@@ -352,22 +382,36 @@
         text-decoration: none;
       }
       /*=======Download=======*/
-      .Download-btn {
-        background: var(--accent);
-        color: black;
-        padding: 12px 28px;
-        border-radius: 8px;
-        font-weight: 700;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        display: inline-block;
-        border-color: #0a0a0a;
-      }
+.Download-btn {
+    background: var(--accent);
+    color: black;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px; /* space between icon and text */
+    border: 2px solid #0a0a0a;
+    transition: all 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
 
-      .Download-btn:hover {
-        transform: scale(1.1);
-        box-shadow: var(--shadow);
-      }
+.Download-btn:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3), 0 0 15px var(--accent);
+}
+
+/* Animate Boxicon on hover */
+.Download-btn i {
+    transition: transform 0.3s ease;
+}
+
+.Download-btn:hover i {
+    transform: translateX(5px) rotate(20deg); /* slide and rotate */
+}
+
       /*=======Footer========*/
       /* ========== FOOTER ========== */
       .footer {
@@ -422,32 +466,18 @@
       }
 
       /* ========== RESPONSIVE ========== */
-      @media (max-width: 768px) {
-        .menu-btn {
-          display: flex;
-        }
-        .nav-link {
-          position: absolute;
-          top: 60px;
-          left: 0;
-          right: 0;
-          background: rgba(0, 0, 0, 0.9);
-          flex-direction: column;
-          align-items: center;
-          gap: 1rem;
-          padding: 1rem 0;
-          display: none;
-        }
-        .nav-link.active {
-          display: flex;
-        }
-        .home-content h1 {
-          font-size: 2.2rem;
-        }
-        .home-content p {
-          font-size: 1rem;
-        }
-      }
+@media (max-width: 768px) {
+  .menu-btn {
+    display: flex;
+  }
+  .nav-link {
+    display: none;
+  }
+  .nav-link.active {
+    display: flex;
+  }
+}
+
     </style>
   </head>
 
@@ -481,7 +511,7 @@
           >
         </li>
         <li>
-          <a href="#Achievements"><i class="bx bxs-trophy"></i> Achievements</a>
+          <a href="#achievements"><i class="bx bxs-trophy"></i> Achievements</a>
         </li>
         <li>
           <a href="#Photo-gallery"
@@ -567,9 +597,12 @@
     <section id="Downloadsoftcopy">
       <h2><i class="bx bx-download"></i> Download Soft Copy</h2>
       <p>The soft copy of Spectrum Volume 19 is available for download.</p>
-      <a href="#" class="Download-btn">
-        <i class="bx bxs-download"></i>Download Now</a
-      >
+    
+     <a href="https://sites.google.com/view/wallmagazineofdepartmentofphy?usp=sharing" class="Download-btn">
+  <i class="bx bxs-download"></i> Download Now
+</a>
+
+
     </section>
     <footer class="footer">
       <div class="footer-container">
@@ -589,7 +622,6 @@
       </div>
     </footer>
 
-    <!-- ========== ARTICLES ========== -->
     <script>
       const menuBtn = document.getElementById("menu-btn");
       const navLinks = document.getElementById("nav-links");
@@ -604,5 +636,12 @@
     <script>
       AOS.init();
     </script>
+    <script setup>
+import { DotLottieVue } from '@lottiefiles/dotlottie-vue'
+</script>
+
+<template>
+  <DotLottieVue style="height: 500px; width: 500px" autoplay loop src="https://path-to-lottie.lottie" />
+</template>
   </body>
 </html>
