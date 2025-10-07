@@ -31,6 +31,117 @@
         background: var(--bg-dark);
         overflow-x: hidden;
       }
+      /*header*/
+    header {
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+  background: linear-gradient(135deg, #0a0a0a, #0f2027);
+  border-bottom: 2px solid var(--accent);
+  box-shadow: 0 4px 25px rgba(0, 255, 255, 0.2);
+}
+
+/* ===== LOGO SECTION ===== */
+.header-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: nowrap; /* keeps all logos in a single row */
+  margin-bottom: 1.2rem;
+  overflow-x: auto; /* allows scroll on very small screens */
+  scrollbar-width: none; /* hide scrollbar for cleaner look */
+}
+
+.header-logos::-webkit-scrollbar {
+  display: none;
+}
+
+.header-logos img {
+  object-fit: contain;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(0, 255, 255, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* hover animation */
+/*.header-logos img:hover {
+  transform: scale(1.15) rotate(4deg);
+  box-shadow: 0 0 25px var(--accent);
+}*/
+
+/* ===== TEXT STYLES ===== */
+.header-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 2px;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+  animation: glowText 3s ease-in-out infinite alternate;
+}
+
+@keyframes glowText {
+  from {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+  }
+  to {
+    text-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
+  }
+}
+
+.header-subtitle {
+  font-size: 1.1rem;
+  color: #ccc;
+  font-weight: 500;
+  margin-top: 0.4rem;
+}
+
+/* ===== RESPONSIVE SIZES ===== */
+
+/* Desktop (large screens) */
+@media (min-width: 1024px) {
+  .header-logos img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .header-title {
+    font-size: 3.5rem;
+  }
+}
+
+/* Tablet screens */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .header-logos img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .header-title {
+    font-size: 2.6rem;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 599px) {
+  .header-logos {
+    gap: 1rem;
+  }
+
+  .header-logos img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .header-title {
+    font-size: 2rem;
+  }
+
+  .header-subtitle {
+    font-size: 0.9rem;
+  }
+}
+
 
       /* ========== NAVBAR ========== */
       nav {
@@ -45,95 +156,6 @@
         z-index: 50;
         box-shadow: 0 1px 10px rgba(0, 255, 255, 0.15);
       }
-
-      .logo {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-      }
-
-      .s,
-      .p,
-      .e,
-      .c,
-      .t,
-      .r,
-      .u,
-      .m {
-        font-size: 1.8rem;
-        font-weight: 800;
-        letter-spacing: 1px;
-
-        /* Smooth neon gradient */
-        background: linear-gradient(
-          270deg,
-          #ff4fa3,
-          #ffb347,
-          #4cffdb,
-          #00ffff,
-          #b34fff,
-          #ff4fa3
-        );
-        background-size: 1200% 1200%;
-
-        /* Text clipping for gradient effect */
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        color: transparent;
-
-        /* Animation */
-        animation: gradientFlow 5s ease infinite;
-
-        /* Stronger shadow for readability */
-        text-shadow: 0 0 8px rgba(255, 255, 255, 0.35),
-          0 0 15px rgba(0, 255, 255, 0.25);
-
-        /* Smooth hover transition */
-        transition: transform 0.3s ease, text-shadow 0.3s ease;
-      }
-
-      /* Optional hover effect */
-      .s:hover,
-      .p:hover,
-      .e:hover,
-      .c:hover,
-      .t:hover,
-      .r:hover,
-      .u:hover,
-      .m:hover {
-        transform: scale(1.15);
-        text-shadow: 0 0 20px rgba(255, 255, 255, 0.6),
-          0 0 25px rgba(0, 255, 255, 0.4);
-      }
-
-      /* Gradient animation */
-      @keyframes gradientFlow {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-
-      /* Optional hover effect for extra polish */
-      .s:hover,
-      .p:hover,
-      .e:hover,
-      .c:hover,
-      .t:hover,
-      .r:hover,
-      .u:hover,
-      .m:hover {
-        transform: scale(1.1);
-        text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-      }
-
-      /* ========== NAV LINKS ========== */
   /* NAV LINKS */
 .nav-link {
   list-style: none;
@@ -286,36 +308,7 @@
         box-shadow: var(--shadow);
       }
 
-      /* ========== GALLERY ========== */
-      .gallery-container {
-        overflow: hidden;
-        padding-top: 3rem;
-      }
-      .gallery {
-        display: flex;
-        gap: 1.5rem;
-        animation: slide 22s linear infinite;
-      }
-      .gallery img {
-        width: 150px;
-        height: 150px;
-        border-radius: 15px;
-        object-fit: cover;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-      }
-      .gallery img:hover {
-        transform: scale(1.15);
-        box-shadow: var(--shadow);
-      }
-      @keyframes slide {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-50%);
-        }
-      }
+ 
 
       /* ========== SECTIONS ========== */
       section {
@@ -482,18 +475,18 @@
   </head>
 
   <body>
+    <header>
+      <div class="header-logos" data-aos="fade-down">
+        <img src="pandu.png" alt="Pandu College Logo" />
+        <img src="naac-A.jpg" alt="NAAC A Grade Logo" />
+        <img src="phy.jpg" alt="Physics Department Logo" />
+      </div>
+      <h1 class="header-title">Spectrum</h1>
+      <p class="header-subtitle">Department of Physics, Pandu College</p>
+    </header>
     <!-- ========== NAVBAR ========== -->
     <nav>
-      <div class="logo">
-        <div class="s">S</div>
-        <div class="p">P</div>
-        <div class="e">E</div>
-        <div class="c">C</div>
-        <div class="t">T</div>
-        <div class="r">R</div>
-        <div class="u">U</div>
-        <div class="m">M</div>
-      </div>
+ 
 
       <div class="menu-btn" id="menu-btn">
         <div></div>
@@ -534,26 +527,12 @@
       <h1>Welcome to Spectrum Volume 19</h1>
       <h1>2025-26</h1>
       <p>
-        Celebrating innovation, creativity, and teamwork from our vibrant
-        department. Explore our memories and achievements below.
+    Join us in celebrating the spirit of innovation, creativity, and collaboration that defines our vibrant department. Dive into a world of memorable moments, outstanding achievements, and inspiring stories captured in this edition.
       </p>
       <a href="#Article" class="btn1"
         ><i class="bx bx-book-reader"></i> View Articles</a
       >
 
-      <div class="gallery-container">
-        <div class="gallery">
-          <img src="pandu.png" alt="Pandu College" />
-          <img src="naac-A.jpg" alt="NAAC A Grade" />
-          <img src="phy.jpg" alt="Physics Department" />
-          <img src="pandu.png" alt="Pandu College" />
-          <img src="naac-A.jpg" alt="NAAC A Grade" />
-          <img src="phy.jpg" alt="Physics Department" />
-          <img src="pandu.png" alt="Pandu College" />
-          <img src="naac-A.jpg" alt="NAAC A Grade" />
-          <img src="phy.jpg" alt="Physics Department" />
-        </div>
-      </div>
     </section>
 
     <!-- ========== EDITORIAL BOARD ========== -->
@@ -590,8 +569,7 @@
     <section id="Article">
       <h2><i class="bx bx-pen"></i>Articles Section</h2>
       <p>
-        Here you’ll find our collection of student and faculty articles for
-        Spectrum Volume 19. Stay tuned for updates!
+      Comming soon...
       </p>
     </section>
     <section id="Downloadsoftcopy">
