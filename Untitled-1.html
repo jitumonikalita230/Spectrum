@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Achievements Gallery</title>
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 2rem;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 600;
+  }
+
+  .achievements {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  }
+
+  .card img {
+    width: 100%;
+    display: block;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .card-content {
+    padding: 1rem;
+  }
+
+  .card-content h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .card-content p {
+    font-size: 0.95rem;
+    color: #555;
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 1rem; }
+    .card img { height: 150px; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Our Achievements</h1>
+
+<div class="achievements">
+  <div class="card">
+    <img src="p.jpg" alt="Cultural Event">
+    <div class="card-content">
+      <h3>Cultural Event 2025</h3>
+      <p>Students excelled in cultural performance at Pandu College.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="pandu.png" alt="College Emblem">
+    <div class="card-content">
+      <h3>College Emblem Recognition</h3>
+      <p>Pandu College Emblem received national recognition as a symbol of excellence.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="award.jpg" alt="Award">
+    <div class="card-content">
+      <h3>Best Student Award</h3>
+      <p>Our students won prestigious awards in academics and sports.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="project.jpg" alt="Project">
+    <div class="card-content">
+      <h3>Innovation Project</h3>
+      <p>Successful completion of community-driven projects and research initiatives.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
