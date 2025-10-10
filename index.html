@@ -630,13 +630,23 @@
     </footer>
 
     <script>
-      const menuBtn = document.getElementById("menu-btn");
-      const navLinks = document.getElementById("nav-links");
+   const menuBtn = document.getElementById("menu-btn");
+const navLinks = document.getElementById("nav-links");
+const navItems = navLinks.querySelectorAll("a"); // Select all links inside nav-links
 
-      menuBtn.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-        menuBtn.classList.toggle("open");
-      });
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+  menuBtn.classList.toggle("open");
+});
+
+// Close menu when any nav link is clicked
+navItems.forEach(item => {
+  item.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+    menuBtn.classList.remove("open");
+  });
+});
+
     </script>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
