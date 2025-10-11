@@ -311,7 +311,7 @@
         height: 180px;
         border-radius: 50%;
         overflow: hidden;
-        margin: 0 auto 10px;
+        margin: 0 auto ;
         border: 3px solid rgba(0, 255, 255, 0.4);
       }
 
@@ -331,68 +331,56 @@
         font-weight: 600;
       }
 /*--------Achivement---------*/
-/* ---------- Achievements Section ---------- */
 #achievements {
-  padding: 4rem 2rem;
   background: linear-gradient(145deg, #e3fdfd, #ffe6fa);
+  padding: 4rem 2rem;
+  text-align: center;
 }
 
-/* ---------- Slider Container ---------- */
 .slider-container {
   position: relative;
-  max-width: 950px;
+  max-width: 1050px;
   margin: 0 auto;
   overflow: hidden;
 }
 
-/* ---------- Slider Track ---------- */
 .slider-track {
   display: flex;
-  transition: transform 0.5s ease-in-out;
-  gap: 2rem;
-  will-change: transform;
+  transition: transform 0.5s ease;
+  gap: 1.5rem;
+  justify-content: flex-start; /* important */
 }
 
-/* ---------- Card Styling ---------- */
 .acard {
   background: #fff;
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
   flex: 0 0 300px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
   cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-.acard:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
-}
-
-/* ---------- Image Styling ---------- */
 .acard-img {
   width: 100%;
   height: 240px;
   object-fit: cover;
-  border-bottom: 4px solid #00bcd4;
   border-radius: 18px 18px 0 0;
-  transition: transform 0.4s ease, filter 0.4s ease;
+  border-bottom: 4px solid #00bcd4;
 }
+.acard:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+  }
 
-.acard:hover .acard-img {
-  transform: scale(1.06);
-  filter: brightness(1.05);
-}
-
-/* ---------- Card Content ---------- */
 .acard-content {
   padding: 1.5rem;
 }
 
-.acard-content h3 {
-  font-size: 1.3rem;
+.acard h3 {
+  font-size: 1.4rem;
   color: #006699;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.7rem;
   font-weight: 700;
   transition: color 0.3s ease;
 }
@@ -405,56 +393,32 @@
   font-size: 1rem;
   color: #444;
   line-height: 1.6;
-  text-align: justify;
 }
 
-/* ---------- Slider Buttons ---------- */
 .slider-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
+  background: rgba(0,0,0,0.5);
   color: #fff;
   border: none;
-  padding: 10px 18px;
-  font-size: 20px;
-  cursor: pointer;
   border-radius: 50%;
+  padding: 12px 18px;
+  font-size: 22px;
+  cursor: pointer;
   z-index: 10;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(4px);
 }
 
-.slider-btn:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-  transform: translateY(-50%) scale(1.1);
-}
-
-#prev {
-  left: 10px;
-}
-
-#next {
-  right: 10px;
-}
-
-/* ---------- Responsive ---------- */
-@media (max-width: 992px) {
-  .acard {
-    flex: 0 0 260px;
-  }
-}
+#prev { left: 10px; }
+#next { right: 10px; }
 
 @media (max-width: 768px) {
-  .acard {
-    flex: 0 0 80%;
-  }
+  .acard { flex: 0 0 85%; margin: 0 auto; }
+  .slider-track { gap: 1rem; }
 }
 
 @media (max-width: 480px) {
-  .acard {
-    flex: 0 0 90%;
-  }
+  .acard { flex: 0 0 90%; margin: 0 auto; }
 }
 
 /* ---------- PHOTO GALLERY ---------- */
@@ -832,59 +796,38 @@ navItems.forEach(item => {
 });
 
     </script>
-   <script>
-document.addEventListener("DOMContentLoaded", () => {
+    <script>document.addEventListener("DOMContentLoaded", () => {
   const track = document.querySelector(".slider-track");
   const cards = document.querySelectorAll(".acard");
   const prevBtn = document.getElementById("prev");
   const nextBtn = document.getElementById("next");
 
   let index = 0;
-  let cardWidth = cards[0].offsetWidth + 24; // initial width + gap
 
-  // Update cardWidth dynamically on resize
-  function updateCardWidth() {
-    const style = getComputedStyle(track);
-    const gap = parseInt(style.gap) || 0;
-    cardWidth = cards[0].offsetWidth + gap;
-  }
-
-  // Move slider to current index
   function updateSlider() {
-    const maxIndex = Math.max(
-      0,
-      cards.length - Math.floor(track.parentElement.offsetWidth / cardWidth)
-    );
-    index = Math.min(index, maxIndex);
-    track.style.transform = `translateX(${-index * cardWidth}px)`;
+    const containerWidth = track.parentElement.offsetWidth;
+    const cardStyle = getComputedStyle(cards[0]);
+    const gap = parseInt(getComputedStyle(track).gap);
+    const cardWidth = cards[0].offsetWidth + gap;
+
+    const maxIndex = cards.length - Math.floor(containerWidth / cardWidth);
+    if(index < 0) index = 0;
+    if(index > maxIndex) index = maxIndex;
+
+    // Center the visible cards
+    const visibleWidth = Math.min(containerWidth, cards.length * cardWidth - gap);
+    const translateX = -index * cardWidth + (containerWidth - cardWidth)/2;
+    track.style.transform = `translateX(${translateX}px)`;
   }
 
-  // Button event listeners
-  prevBtn.addEventListener("click", () => {
-    if (index > 0) index--;
-    updateSlider();
-  });
+  prevBtn.addEventListener("click", () => { index--; updateSlider(); });
+  nextBtn.addEventListener("click", () => { index++; updateSlider(); });
 
-  nextBtn.addEventListener("click", () => {
-    const visibleCards = Math.floor(track.parentElement.offsetWidth / cardWidth);
-    if (index < cards.length - visibleCards) index++;
-    updateSlider();
-  });
+  window.addEventListener("resize", updateSlider);
 
-  // Recalculate sizes when window resizes
-  window.addEventListener("resize", () => {
-    updateCardWidth();
-    updateSlider();
-  });
-
-  // Initialize
-  updateCardWidth();
   updateSlider();
-});
-</script>
+});</script>
 
-
-    
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
