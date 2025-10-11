@@ -330,10 +330,136 @@
         color: #0b2181;
         font-weight: 600;
       }
+/*--------Achivement---------*/
+/* ---------- Achievements Section ---------- */
+#achievements {
+  padding: 4rem 2rem;
+  background: linear-gradient(145deg, #e3fdfd, #ffe6fa);
+}
 
-      /* ---------- PHOTO GALLERY ---------- */
-      /* ---------- Gallery Layout ---------- */
-      #Photo-gallery {
+/* ---------- Slider Container ---------- */
+.slider-container {
+  position: relative;
+  max-width: 950px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* ---------- Slider Track ---------- */
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 2rem;
+  will-change: transform;
+}
+
+/* ---------- Card Styling ---------- */
+.acard {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  flex: 0 0 300px;
+  cursor: pointer;
+}
+
+.acard:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------- Image Styling ---------- */
+.acard-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-bottom: 4px solid #00bcd4;
+  border-radius: 18px 18px 0 0;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.acard:hover .acard-img {
+  transform: scale(1.06);
+  filter: brightness(1.05);
+}
+
+/* ---------- Card Content ---------- */
+.acard-content {
+  padding: 1.5rem;
+}
+
+.acard-content h3 {
+  font-size: 1.3rem;
+  color: #006699;
+  margin-bottom: 0.6rem;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.acard-content h3:hover {
+  color: #0099cc;
+}
+
+.acard-content p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* ---------- Slider Buttons ---------- */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.slider-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+#prev {
+  left: 10px;
+}
+
+#next {
+  right: 10px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 992px) {
+  .acard {
+    flex: 0 0 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .acard {
+    flex: 0 0 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .acard {
+    flex: 0 0 90%;
+  }
+}
+
+/* ---------- PHOTO GALLERY ---------- */
+/* ---------- Gallery Layout ---------- */
+#Photo-gallery {
   padding: 4rem 2rem;
   background: linear-gradient(145deg, #e3fdfd, #ffe6fa);
   text-align: center;
@@ -574,10 +700,39 @@
 
     </section>
     <!-- ========== ACHIEVEMENTS ========== -->
-    <section id="achievements">
-      <h2><i class="bx bx-trophy"></i> Achievements</h2>
-      <p>Coming soon...</p>
-    </section>
+   <section id="achievements">
+  <h2>  <i class="bx bx-trophy"></i> Achievements </h2>
+  </h2>
+  <div class="slider-container">
+    <button class="slider-btn" id="prev">&#10094;</button>
+    <div class="slider-track">
+      <div class="acard">
+        <img src="iit.jpg" alt="IIT Event" class="acard-img" />
+        <div class="acard-content">
+          <h3>IIT-Event</h3>
+          <p><strong>Jitu Moni Kalita & Alisha Das</strong> Secured 2nd place in the Poster Competition  organized by <strong>SPIE Student Corner </strong> on the occasion of the <strong>International Day of Light.</strong></p>
+        </div>
+      </div>
+
+      <div class="acard">
+        <img src="food.jpg" alt="Food Drive" class="acard-img" />
+        <div class="acard-content">
+          <h3>Food Competition</h3>
+          <p><strong>Abhinav Deka, Kapeel Bhuyan & Dhuithun Basumatari</strong> get 1st place in the food competition organized by Pandu College <strong>NSS unit.</strong></p>
+        </div>
+      </div>
+
+      <div class="acard">
+        <img src="quiz.jpg" alt="Quiz Competition" class="acard-img" />
+        <div class="acard-content">
+          <h3>Quiz Competition</h3>
+          <p><strong>Jitu Moni Kalita, Snehashish Chakraborty & Dildar Haque </strong> get prize on the inter-college quiz competition organized by our Department on the occasion of <strong>Nationl Space Day</strong></p>
+        </div>
+      </div>
+    </div>
+    <button class="slider-btn" id="next">&#10095;</button>
+  </div>
+</section>
 
     <!-- ========== PHOTO GALLERY ========== -->
    <section id="Photo-gallery">
@@ -616,6 +771,9 @@
          <strong>Editors: Alisha Das, Ayush Roy, Jitu Moni Kalita, Snehashish Chakraborty</strong> .</p>
       </div>
     </div>
+
+      </div>
+
   </div>
 </section>
 
@@ -674,6 +832,59 @@ navItems.forEach(item => {
 });
 
     </script>
+   <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.querySelector(".slider-track");
+  const cards = document.querySelectorAll(".acard");
+  const prevBtn = document.getElementById("prev");
+  const nextBtn = document.getElementById("next");
+
+  let index = 0;
+  let cardWidth = cards[0].offsetWidth + 24; // initial width + gap
+
+  // Update cardWidth dynamically on resize
+  function updateCardWidth() {
+    const style = getComputedStyle(track);
+    const gap = parseInt(style.gap) || 0;
+    cardWidth = cards[0].offsetWidth + gap;
+  }
+
+  // Move slider to current index
+  function updateSlider() {
+    const maxIndex = Math.max(
+      0,
+      cards.length - Math.floor(track.parentElement.offsetWidth / cardWidth)
+    );
+    index = Math.min(index, maxIndex);
+    track.style.transform = `translateX(${-index * cardWidth}px)`;
+  }
+
+  // Button event listeners
+  prevBtn.addEventListener("click", () => {
+    if (index > 0) index--;
+    updateSlider();
+  });
+
+  nextBtn.addEventListener("click", () => {
+    const visibleCards = Math.floor(track.parentElement.offsetWidth / cardWidth);
+    if (index < cards.length - visibleCards) index++;
+    updateSlider();
+  });
+
+  // Recalculate sizes when window resizes
+  window.addEventListener("resize", () => {
+    updateCardWidth();
+    updateSlider();
+  });
+
+  // Initialize
+  updateCardWidth();
+  updateSlider();
+});
+</script>
+
+
+    
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
