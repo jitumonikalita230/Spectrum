@@ -212,6 +212,7 @@
     .article-hero {
       position: relative;
       height: 260px;
+      width: 100%;
       border-radius: 16px;
       overflow: hidden;
       background-image: url(quantum.jpeg);
@@ -256,7 +257,7 @@
       font-weight: bold;
       float: left;
       line-height:0.5;
-      color: #7a44ff;
+      color: #4106d5;
     }
 
     /* Center Image */
@@ -291,6 +292,45 @@
         padding: 0.9rem;
       }
     }
+    
+/* References List */
+.references-list {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 1rem;
+  font-weight:700 ;
+  line-height: 1.6;
+  color:black; 
+  /* good for dark backgrounds */
+}
+
+/* Each Reference Item */
+.references-list li {
+  margin-bottom: 18px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 3px solid var(--accent, #00ffff);
+  border-radius: 6px;
+}
+
+/* Links */
+.references-list a {
+  color:rgb(1, 143, 143);
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 5px;
+  transition: 0.2s;
+}
+
+.references-list a:hover {
+  color: var(--pink, #ff00ff);
+  text-shadow: 0 0 6px var(--pink, #ff00ff);
+}
+
+/* Italics inside references */
+.references-list i {
+  color: #cfcfcf;
+}
      /* ---------- FOOTER ---------- */
       footer {
         background: #000;
@@ -417,20 +457,138 @@
   Microscopes (STM), Tunnel Diodes, and Josephson Junctions. Without tunnelling, many of the 
   technologies that shape our modern world simply would not exist.
 </p>
-    </p>
-
-    <div style="text-align:center; margin: 30px 0;">
+<div style="text-align:center; margin: 30px 0;">
       <img src="images.jpg" alt="Quantum Tunnelling Diagram">
-      <div class="figure-label"><strong>Fig:</strong> Quantum tunnelling</div>
+      <div class="figure-label"><strong>Fig 1:</strong> Quantum tunnelling</div>
     </div>
+   <div class="Heading"><strong><p>Macroscopic quantum tunneling</p></strong></div>
 
-    <p>
-      In the diagram above, the electron is represented by a wave function that extends into the 
-      potential barrier...
-    </p>
+<p>
+Quantum tunnelling is also seen on the macroscopic level using a special circuit known as 
+a <strong>Josephson Junction</strong>. In this junction, two superconductors are placed very close to 
+each other and separated by a thin insulating layer.
+</p>
 
-  </div>
-</section>
+<p>
+A superconductor is a conductor cooled to <strong>0 K</strong> (or very close to absolute zero). 
+Between 1924–1925, <strong>Albert Einstein</strong> and <strong>Satyendra Nath Bose</strong> predicted that at extremely 
+low temperatures, many bosons occupy the lowest quantum state. Thus, quantum effects such as 
+wave interference become visible on a macroscopic scale.
+</p>
+
+<p>
+Condensation refers to a large number of particles occupying one or more specific states. 
+For example, in <strong>BCS theory</strong>, a superconductor forms when <strong>Cooper pairs</strong> condense.
+</p>
+
+<p>
+If two superconductors are separated by an insulating barrier of width <strong>x = a</strong>, and taking 
+the left edge of the barrier as origin, the system is divided into three regions:
+</p>
+
+
+<p><strong>Region-1:</strong> \( x < 0 \)</p>
+<div class="region">
+<p>The Cooper-pair wavefunction in this region is:</p>
+
+<p>
+\[
+\psi_1(x) = \sqrt{n_1}\, e^{i(kx + \theta_1)}
+\]
+</p>
+
+<p>
+\[
+k = \frac{\sqrt{2mE}}{\hbar}
+\]
+</p>
+</div>
+
+
+<p><strong>Region-2:</strong> \( 0 \le x \le a \)</p>
+<div class="region">
+<p>Inside the insulating potential barrier:</p>
+
+<p>
+\[
+\psi_2(x) = e^{-\kappa x}
+\]
+</p>
+
+<p>
+\[
+\kappa = \frac{\sqrt{2m(V_0 - E)}}{\hbar}
+\]
+</p>
+</div>
+
+
+<p><strong>Region-3:</strong> \( x > a \)</p>
+<div class="region">
+<p>The transmitted Cooper-pair wavefunction is:</p>
+
+<p>
+\[
+\psi_3(x) = \sqrt{n_2}\, e^{i(kx + \theta_2)}
+\]
+</p>
+
+<p>
+\[
+k = \frac{\sqrt{2mE}}{\hbar}
+\]
+</p>
+<div style="text-align:center; margin: 30px 0;"><img src="output.png" alt="Quantum Tunnelling Diagram">
+      <div class="figure-label"><strong>Fig 2:</strong> Quantum tunnelling in Josephson junction</div>
+    </div>
+   <p>
+    The Fig-2 represent the tunneling through this junction , this junction also prove that
+quantum mechanics is not only valid in microscopic lavel but also valied in macroscopic
+lavel. This year (2025) John Clarke , Michel H. Devoret ,John M. Martinis was awarded by
+Nobel prize in physics for their experiments demonstrated quantum behavior in electrical
+circuits large enough to be seen and held, bridging the gap between the microscopic
+quantum world and macroscopic systems. This discovery has played a key role in the
+development of quantum technology and quantum computing, allowing physicists to study
+and apply quantum principles on engineered circuits and devices . Their work builds
+directly upon earlier ground-breaking research, such as the Josephson effect, and has far
+reaching implications for both fundamental physics and emerging quantum technologies.
+   </p> 
+   <div style="text-align:center; margin: 30px 0;"><img src="noble.png" alt="Nobel prize 2025">
+      <div class="figure-label"><strong>Fig 2:</strong> Nobel Prize in Physics 2025 , Source:<a href="ndtv.com">ndtv.com</a> </div>
+    </div>
+<div class="Heading">
+  <strong><p>References</p></strong>
+</div>
+
+<ol class="references-list">
+  <li>
+    Coon, S. A. (2015). 
+    Quantum Tunneling.  
+    University of Illinois at Urbana-Champaign.  
+    <a href="https://courses.physics.illinois.edu/phys485/fa2015/web/tunneling.pdf" target="_blank">
+      Download PDF
+    </a>
+  </li>
+<br>
+  <li>
+    Devoret, M. H., & Martin, R. (2023). 
+    Macroscopic superconducting circuits behave quantum mechanically.  
+    Physics, 18, 170.  
+    <a href="https://physics.aps.org/articles/v18/170" target="_blank">
+      View Article
+    </a>
+  </li>
+<br>
+  <li>
+    Wikipedia contributors. (n.d.). 
+    Josephson effect.  
+    <a href="https://en.wikipedia.org/wiki/Josephsoneffect" target="_blank">
+      Read Online
+    </a>
+  </li>
+</ol>
+
+
 </section>
     <footer class="footer">
       <div class="footer-container">
@@ -466,6 +624,14 @@
     });
   });
 </script>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+
 
 </body>
 </html>

@@ -25,7 +25,7 @@
       body {
         margin: 0;
         font-family: "Poppins", sans-serif;
-        background: var(--bg-dark);
+        bbackground: linear-gradient(135deg, #b8a5b3, #f6eff3, #f1f9f9);
         color: var(--text-light);
         scroll-behavior: smooth;
       }
@@ -54,7 +54,7 @@
         gap: 2rem;
         overflow-x:none;
         scrollbar-width: none;
-        margin-bottom: 1.2rem;
+        margin-bottom:1 rem;
       }
 
       .header-logos img {
@@ -172,7 +172,7 @@ nav {
 /* ---------- Menu Button ---------- */
 .menu-btn {
   display: none;
-  flex-direction: column;
+  flex-direction:column;
   gap: 6px;
   cursor: pointer;
   z-index: 1001;
@@ -982,13 +982,10 @@ nav {
         <img src="naac-A.jpg" alt="NAAC A Grade Logo" />
         <img src="phy.jpg" alt="Physics Department Logo" />
       </div>
-      
-
-      <h1 class="header-title">SPECTRUM</h1>
-      <p class="header-subtitle">Department of Physics, Pandu College</p>
     </header>
     <!-- ========== NAVBAR ========== -->
     <nav>
+       <div class="logo">Spectrum</div>
       <div class="menu-btn" id="menu-btn">
         <div></div>
         <div></div>
@@ -1031,7 +1028,9 @@ nav {
   <div class="home-text">
     <h1 class="main-title"><span>SPECTRUM</span> VOLUME-19</h1>
     <h2 class="sub-title">2025–26</h2>
+   
     <p class="description">
+   <strong>Department of Physics, Pandu College</strong><br><br>
       Exploring the wonders of the universe, from quantum mysteries to cosmic phenomena.
     </p>
     <a href="article.html" class="btn1">
@@ -1223,7 +1222,16 @@ nav {
           </p>
         </div>
       </div>
-
+      <div class="card">
+        <img src="WE.jpg" alt="Wrorld Environment day celebration" class="card-img" />
+        <div class="card-content">
+          <h3>World Environment Day </h3>
+          <p>
+            Snapshots from World Environment Day celebration at Dept. of Physics, Pandu College.
+          </p>
+        </div>
+      </div>
+       
       <div class="card">
         <img src="wall.jpg" alt="Previous Year Wall-Magazine" class="card-img" />
         <div class="card-content">
@@ -1235,7 +1243,7 @@ nav {
         </div>
       </div>
     </div>
-
+    
     <button class="gallery-btn" id="next-photo">
       Next <i class="bx bx-chevron-right"></i>
     </button>
