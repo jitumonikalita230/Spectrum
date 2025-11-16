@@ -1,0 +1,70 @@
+\documentclass[12pt,a4paper]{article}
+
+% Packages
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{physics}
+\usepackage{geometry}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{hyperref}
+
+% Page setup
+\geometry{margin=1in}
+
+\title{Macroscopic Quantum Mechanical Tunnelling and Energy Quantisation in an Electric Circuit}
+\author{Jitu Moni Kalita}
+\begin{document}
+\maketitle
+\section{Introduction}
+We can predict the future of the universe when we think about it classically, but when we want to observe our universe from a quantum mechanical frame of reference, it is impossible to predict the future of the universe. In the world of quantum mechanics, every event have clouds of probability, but when we observe the event, we only get one possible probability. In 1924, De Broglie proposed the matter wave hypothesis, which states that every particle in the universe has a dual nature, one is particle nature and the other is wave nature, which means every quantum mechanical particle, such as an electron, shows many quantum mechanical phenomena. 
+ Nowadays, physicists are increasingly shifting their focus from classical mechanics to quantum mechanics due to its wide range of applications. While the term quantum is typically associated with microscopic particles, quantum mechanical phenomena are not limited to the microscopic scale. One notable example is the Josephson Junction, which exhibits quantum tunnelling—a phenomenon usually considered quantum in nature—demonstrating that even macroscopic objects can display quantum mechanical behaviour. 
+\section{What is Quantum Tunnelling?}
+According to classical mechanics, it is impossible for an electron having energy E to penetrate a barrier having potential $V_0$ if $E<V_O$, due to this electron cannot spread outside of a solid because it does not have sufficient energy to overcome the barrier potential at the surface of the solid, but in the case of quantum mechanics, there should be a probability where this electron can penetrate the barrier potential, which is known as quantum tunnelling.
+\begin{figure}[H] % [H] = here exactly; use [htbp] for flexible placement
+    \centering
+    % Include your image file
+    \includegraphics[width=0.25\textwidth]{images}
+    \caption{Quantum tunneling ,Source :testbook.com }
+    \label{fig:tun}
+\end{figure}
+\section{Macroscopic quantum tunneling}
+Quantum tunnelling is also seen in macroscopic level using a special circuit known as a Josephson Junction. In this junction, we kept two superconductors nearly close to each other, separated by an insulating material. The term superconductor refers to the conductor kept at 0K tempreture. Between 1924–1925, Albert Einstein and Satyendra Nath Bose predicted that at very low temperatures, nearly approaching absolute zero, many bosons gather in the lowest quantum state. As a result, quantum effects—like wave interference—become visible on a large scale. In general, condensation refers to a large number of particles occupying one or more specific states. For instance, in BCS theory, a superconductor forms when Cooper pairs of electrons condense.  If  there are two superconductors separated at a distance of $ x=a$ by an insulating material, taking the edge of the material as origin, we divided the superconductor into three regions-
+\begin{itemize}
+\item Region-1: where \(x < 0\), in this region, the wave function of the Cooper pair is represented as
+\begin{equation}
+\psi_1(x) = n_1e^{i( k x_1 + \theta_1)},
+\quad \text{where} \quad k = \frac{\sqrt{2 m E}}{\hbar}
+\end{equation}
+\item Region-2: where \(0 \leq x \leq a\), inside the potential barrier, the wave function of the Cooper pair is represented as
+\begin{equation}
+\psi_2(x) =   e^{-\kappa x},
+\quad \text{where} \quad \kappa = \frac{\sqrt{2 m (V_0 - E)}}{\hbar}
+\end{equation}
+\item Region-3: where \(x > a\), the wave function of the Cooper pair on the other side of the barrier is represented as
+\begin{equation}
+\psi_3(x) =n_2e^{i( k x_3 + \theta_2)},
+\quad \text{where} \quad k = \frac{\sqrt{2 m E}}{\hbar}
+\end{equation}
+\end{itemize}
+\begin{figure}[H] % [H] = here exactly; use [htbp] for flexible placement
+    \centering
+    % Include your image file
+    \includegraphics[width=0.9\textwidth]{output}
+    \caption{Quantum tunnelling in Josephson junction }
+    \label{fig:tunj}
+\end{figure}
+The figure: \ref{fig:tunj} represent the tunneling through this junction , this junction also prove that quantum mechanics is not only valid in microscopic lavel but also valied in macroscopic lavel. This year (2025) John Clarke , Michel H. Devoret ,John M. Martinis was awarded by Nobel prize in physics for their experiments demonstrated quantum behavior in electrical circuits large enough to be seen and held, bridging the gap between the microscopic quantum world and macroscopic systems. This discovery has played a key role in the development of quantum technology and quantum computing, allowing physicists to study and apply quantum principles on engineered circuits and devices . Their work builds directly upon earlier ground-breaking research, such as the Josephson effect, and has far-reaching implications for both fundamental physics and emerging quantum technologies.
+\begin{figure}[H] % [H] = here exactly; use [htbp] for flexible placement
+    \centering
+    % Include your image file
+    \includegraphics[width=0.9\textwidth]{noble}
+    \caption{Nobel Prize in Physics 2025 , Source: ndtv.com }
+\end{figure}
+\section{References}
+\begin{itemize}
+\item{https://courses.physics.illinois.edu/phys485/fa2015/web/tunneling.pdf}
+\item{https://physics.aps.org/articles/v18/170}
+\item{https://en.wikipedia.org/wiki/$Josephson_effect$}
+\end{itemize}
+\end{document}

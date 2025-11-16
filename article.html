@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+  <title>Spectrum</title>
+
+  <style>
+    :root {
+      --accent: #00ffff;
+      --pink: #ff7ce5;
+      --yellow: #f4f482;
+      --text-dark: #000;
+      --text-light: #f9f9f9;
+      --bg-dark: #000;
+      --section-bg: #0a0a0a;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #b8a5b3, #f6eff3, #f1f9f9);
+      color: var(--text-light);
+      scroll-behavior: smooth;
+    }
+
+    /* ---------------- NAVBAR ---------------- */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 2rem;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(0,255,255,0.25);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 1px;
+      cursor: pointer;
+      text-shadow: 0 0 10px rgba(0,255,255,0.5);
+    }
+
+    .nav-link {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-link a {
+      color: var(--text-light);
+      font-weight: 600;
+      text-decoration: none;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    .nav-link a:hover {
+      color: var(--accent);
+    }
+
+    .nav-link a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background: var(--accent);
+      transition: 0.3s ease;
+    }
+
+    .nav-link a:hover::after {
+      width: 100%;
+    }
+
+    /* ----------- HAMBURGER ----------- */
+    .menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .menu-btn div {
+      width: 28px;
+      height: 3px;
+      background: var(--text-light);
+      border-radius: 5px;
+      transition: 0.3s ease;
+    }
+
+    .menu-btn.open div:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+    .menu-btn.open div:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-btn.open div:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    /* ----------- MOBILE NAV ----------- */
+    @media(max-width: 768px) {
+      .menu-btn { display: flex; }
+
+      .nav-link {
+        position: fixed;
+        top: 65px;
+        left: 0;
+        right: 0;
+        height: 0;
+        overflow: hidden;
+        background: rgba(0,0,0,0.95);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+        padding: 0;
+        transition: 0.4s ease;
+      }
+
+      .nav-link.active {
+        height: calc(100vh - 65px);
+        padding: 2rem 0;
+      }
+    }
+
+    /* ---------------- ARTICLE INDEX ---------------- */
+    #Article {
+      padding: 3rem 2rem;
+      background: transparent;
+      color: #000;
+    }
+
+    #Article h2 {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .articles-content {
+      background: rgba(255,255,255,0.35);
+      padding: 2rem;
+      border-radius: 16px;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.3);
+      box-shadow: 0 10px 30px rgba(0,255,255,0.2);
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .articles-content h2 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 1.3rem;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.4rem;
+    }
+
+    .articles-content ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 0;
+    }
+
+    .articles-content li {
+      background: #fff;
+      padding: 1rem 1.2rem;
+      border-radius: 12px;
+      transition: 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .articles-content li:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0,255,255,0.25);
+    }
+
+    .articles-content li a {
+      color: #000;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    /* -------------- ARTICLE UI -------------- */
+    .article-block {
+      background: rgba(255,255,255,0.9);
+      padding: 2.5rem;
+      max-width: 900px;
+      margin: 3rem auto;
+      border-radius: 18px;
+      color: #111;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.18);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    /* HERO */
+    .article-hero {
+      position: relative;
+      height: 260px;
+      border-radius: 16px;
+      overflow: hidden;
+      background-image: url(quantum.jpeg);
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .article-hero .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.75));
+    }
+
+    .article-text {
+      position: relative;
+      text-align: center;
+      color: #fff;
+      padding: 0 1rem;
+    }
+
+    .article-text h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      line-height: 1.3;
+      margin: 0;
+    }
+
+    /* ARTICLE BODY */
+    .article-body p {
+      font-size: 1.08rem;
+      text-align: justify;
+      line-height: 1.6;
+      color: #222;
+    }
+
+    /* Dropcap */
+    .article-body .Heading p:first-letter {
+      font-size: 2rem;
+      font-weight: bold;
+      float: left;
+      line-height:0.5;
+      color: #7a44ff;
+    }
+
+    /* Center Image */
+    .article-block img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      transition: 0.3s ease;
+    }
+
+    .article-block img:hover {
+      transform: scale(1.03);
+    }
+
+    .figure-label {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #444;
+      margin-top: 0.5rem;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width: 600px) {
+      .article-block {
+        padding: 1.6rem;
+      }
+      .article-text h2 {
+        font-size: 1.4rem;
+      }
+      .articles-content li {
+        padding: 0.9rem;
+      }
+    }
+     /* ---------- FOOTER ---------- */
+      footer {
+        background: #000;
+        color: var(--text-light);
+        text-align: center;
+        padding: 20px 10px;
+        box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.2);
+      }
+
+      .footer-socials {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .footer-socials a {
+        color: var(--accent);
+        font-size: 1.5rem;
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+
+      .footer-socials a:hover {
+        color: #fff;
+        transform: scale(1.2);
+      }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">Spectrum</div>
+
+    <div class="menu-btn" id="menu-btn">
+      <div></div><div></div><div></div>
+    </div>
+
+    <ul class="nav-link" id="nav-links">
+      <li><a href="index.html#Home"><i class="bx bxs-home"></i> Home</a></li>
+      <li><a href="index.html#Editorial-board"><i class="bx bxs-user"></i> Editorial Board</a></li>
+      <li><a href="index.html#achievements"><i class="bx bxs-trophy"></i> Achievements</a></li>
+      <li><a href="index.html#photogallery"><i class="bx bxs-photo-album"></i> Photo Gallery</a></li>
+      <li><a href="index.html#Downloadsoftcopy"><i class="bx bxs-download"></i> Download Softcopy</a></li>
+      <li><a href="#Article"><i class="bx bx-pen"></i> Index</a></li>
+    </ul>
+  </nav>
+
+  <!-- ARTICLE INDEX -->
+  <section id="Article">
+    <h2><i class="bx bx-pen"></i> Articles Section</h2>
+
+    <div class="articles-content">
+      <h2>Index</h2>
+      <ul class="index">
+        <li><a href="#article1"><strong>Article 1:</strong> Macroscopic Quantum Mechanical Tunnelling and Energy Quantisation in Electric Circuits <br><i><strong>~ Jitu Moni Kalita</strong></i></a></li>
+
+        <li><a href="#article2"><strong>Article 2:</strong> Understanding Quantum Physics</a></li>
+
+        <li><a href="#article3"><strong>Article 3:</strong> The Wonders of Black Holes</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ARTICLE 1 -->
+<section class="article-block" id="article1">
+
+  <div class="article-hero">
+    <div class="overlay"></div>
+
+    <div class="article-text">
+      <h2>
+        Macroscopic Quantum Mechanical Tunnelling and Energy Quantisation in an Electric Circuit
+        <br><br>
+        <i>~ Jitu Moni Kalita</i>
+      </h2>
+    </div>
+  </div>
+
+  <div class="article-body">
+
+    <div class="Heading"><strong><p>Introduction:</p></strong></div>
+    <p>
+      In classical physics, it is often possible to predict the future behaviour of a system with 
+  great accuracy. However, when we examine the universe from a quantum mechanical 
+  perspective, such certainty disappears. Instead of definite outcomes, quantum mechanics 
+  describes events in terms of probabilities. An event can exist in many possible states until 
+  it is observed, at which point only a single outcome becomes real—an effect commonly known 
+  as the collapse of the wave function.<br><br>
+
+  In 1924, Louis de Broglie introduced the revolutionary concept of matter waves, proposing 
+  that every particle in the universe possesses both particle-like and wave-like behaviour. 
+  This dual nature is responsible for a wide range of quantum phenomena that cannot be 
+  explained using classical mechanics. Electrons, atoms, and even larger systems display 
+  interference, diffraction, and quantisation due to their wave properties.<br><br>
+
+  With advancements in modern technology, physicists are increasingly shifting from classical 
+  models to quantum-based approaches. Although the term “quantum” is usually associated with 
+  microscopic particles, quantum mechanical behaviour is not limited to the microscopic 
+  realm. A remarkable example is the <strong>Josephson Junction</strong>, a macroscopic device 
+  in which electrons tunnel through an insulating barrier. This demonstrates that quantum 
+  effects, such as tunnelling and energy quantisation, can appear even in systems visible to 
+  the naked eye, bridging the gap between microscopic physics and the macroscopic world.
+    </p>
+
+    <div class="Heading"><strong><p>What is Quantum Tunnelling?</p></strong></div>
+    <p>
+      According to classical mechanics, a particle with energy <em>E</em> cannot cross a potential 
+  barrier of height <em>V₀</em> if <em>E &lt; V₀</em>. For example, an electron inside a solid 
+  should never escape the surface if its energy is below the barrier potential. Classical 
+  theory would predict a strict boundary beyond which the particle cannot exist.<br><br>
+
+  Quantum mechanics, however, tells a very different story. Since particles also behave as 
+  waves, their wave functions extend beyond classical boundaries. Even when <em>E &lt; V₀</em>, 
+  the wave function does not abruptly drop to zero at the barrier. Instead, it decays 
+  gradually inside the barrier, leading to a small but non-zero probability that the particle 
+  can appear on the other side. This phenomenon is called 
+  <strong>quantum tunnelling</strong>.<br><br>
+
+  Quantum tunnelling plays a crucial role in numerous natural and technological processes. 
+  It enables nuclear fusion inside stars, allows electrons to move between atoms in 
+  semiconductors, and forms the operating principle of devices such as Scanning Tunnelling 
+  Microscopes (STM), Tunnel Diodes, and Josephson Junctions. Without tunnelling, many of the 
+  technologies that shape our modern world simply would not exist.
+</p>
+    </p>
+
+    <div style="text-align:center; margin: 30px 0;">
+      <img src="images.jpg" alt="Quantum Tunnelling Diagram">
+      <div class="figure-label"><strong>Fig:</strong> Quantum tunnelling</div>
+    </div>
+
+    <p>
+      In the diagram above, the electron is represented by a wave function that extends into the 
+      potential barrier...
+    </p>
+
+  </div>
+</section>
+</section>
+    <footer class="footer">
+      <div class="footer-container">
+        <p>&copy; 2025 Spectrum |👨‍💻 Developed by Jitu Moni Kalita</p>
+        <div class="footer-socials">
+          <a href="https://github.com/jitumonikalita230" target="_blank"
+            ><i class="bx bxl-github"></i
+          ></a>
+          <a href="mailto:jitumoni2005@gmail.com"
+            ><i class="bx bxl-gmail"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/jitumoni-kalita-b14a04308?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BuewoqLfZQSS8B6p9CVlZyQ%3D%3D"
+            ><i class="bx bxl-linkedin"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+<script>
+  const menuBtn = document.getElementById("menu-btn");
+  const navLinks = document.getElementById("nav-links");
+
+  menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    menuBtn.classList.toggle("open");
+  });
+
+  document.querySelectorAll(".nav-link a").forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+      menuBtn.classList.remove("open");
+    });
+  });
+</script>
+
+</body>
+</html>
