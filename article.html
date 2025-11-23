@@ -59,6 +59,7 @@
     .nav-link a {
       color: var(--text-light);
       font-weight: 600;
+      display: b;
       text-decoration: none;
       position: relative;
       transition: 0.3s;
@@ -115,17 +116,18 @@
 
       .nav-link {
         position: fixed;
+        inset:64px 12px auto 12px;
         top: 65px;
         left: 0;
         right: 0;
         height: 0;
         overflow: hidden;
-        background: rgba(0,0,0,0.95);
+        background: rgb(12, 0, 0);
         backdrop-filter: blur(20px);
         flex-direction: column;
         gap: 1.5rem;
         text-align: center;
-        padding: 0;
+        padding:0;
         transition: 0.4s ease;
       }
 
@@ -386,9 +388,10 @@
     <h2><i class="bx bx-pen"></i> Articles Section</h2>
 
     <div class="articles-content">
-      <h2>Index</h2>
+      <h2><i class='bx bx-file'></i>Index</h2>
       <ul class="index">
-        <li><a href="#article1"><strong>Article 1:</strong> Macroscopic Quantum Mechanical Tunnelling and Energy Quantisation in Electric Circuits <br><i><strong>~ Jitu Moni Kalita</strong></i></a></li>
+        <li><a href="#article1"><strong>Article 1:</strong> <br>Macroscopic Quantum Mechanical Tunnelling and Energy Quantisation in Electric Circuits<br>
+<i class='bx bxs-user'></i>Jitu Moni Kalita <i class='bx bxs-graduation'><strong>Bsc 3rd year</strong></i></a></li>
 
         <li><a href="#article2"><strong>Article 2:</strong> Understanding Quantum Physics</a></li>
 
@@ -407,7 +410,10 @@
       <h2>
         Macroscopic Quantum Mechanical Tunnelling and Energy Quantisation in an Electric Circuit
         <br><br>
-        <i>~ Jitu Moni Kalita</i>
+        <i><i class='bx bxs-user'> Jitu Moni Kalita</i></i>
+        <br>
+        <i><i class='bx bxs-graduation'>Bsc 3rd year</i>
+</i>
       </h2>
     </div>
   </div>
@@ -623,13 +629,24 @@ reaching implications for both fundamental physics and emerging quantum technolo
     });
   });
 </script>
+<!-- MATHJAX FIXED CONFIG -->
 <script>
-window.MathJax = {
-  tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
-  svg: { fontCache: 'global' }
-};
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      packages: {'[+]': ['ams']}
+    },
+    svg: {
+      fontCache: 'global',
+      scale: 1.2    // makes math symbols clearer and bigger
+    }
+  };
 </script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
 
 
 
