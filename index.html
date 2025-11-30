@@ -1252,6 +1252,12 @@ nav {
 
 
     </section>
+    <div id="welcome-box"
+     style="position:fixed; top:20px; right:20px; background:#00ffff; color:#000;
+     padding:15px 20px; border-radius:10px; font-weight:700; 
+     box-shadow:0 0 15px aqua; display:none; z-index:9999;">
+</div>
+
     <footer class="footer">
       <div class="footer-container">
         <p>&copy; 2025 Spectrum |👨‍💻 Developed by Jitu Moni Kalita</p>
@@ -1269,7 +1275,24 @@ nav {
         </div>
       </div>
     </footer>
+    <script>
+function smartWelcome() {
+  const hr = new Date().getHours();
+  let txt;
 
+  if (hr < 12) txt = "Good Morning!";
+  else if (hr < 18) txt = "Good Afternoon!";
+  else txt = "Good Evening!";
+
+  alert(txt + " Welcome to our website!");
+}
+
+// use it
+smartWelcome();
+
+
+
+    </script>
     <script>
    const menuBtn = document.getElementById("menu-btn");
 const navLinks = document.getElementById("nav-links");
