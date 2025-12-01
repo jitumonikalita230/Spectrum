@@ -939,6 +939,34 @@ nav {
 
   border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; /* space between icon and text */ border: 2px solid #0a0a0a; transition: all 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; position: relative; overflow: hidden; } .Download-btn:hover { transform: scale(1.1) translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.3), 0 0 15px var(--accent); } /* Animate Boxicon on hover */ .Download-btn i { transition: transform 0.3s ease; } .Download-btn:hover i { transform: translateX(5px) rotate(20deg); /* slide and rotate */ }
 
+  .offline {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+  padding: 25px 35px;
+  border-radius: 18px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0,255,255,0.4);
+  z-index: 99999;
+  animation: pop 0.4s ease-out;
+}
+
+@keyframes pop {
+  0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+.offline p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  font-weight: 600;
+}
       /* ---------- FOOTER ---------- */
       footer {
         background: #000;
@@ -1257,6 +1285,18 @@ nav {
      padding:15px 20px; border-radius:10px; font-weight:700; 
      box-shadow:0 0 15px aqua; display:none; z-index:9999;">
 </div>
+<div id="offline-box" class="offline">
+  <lottie-player
+    src="https://assets10.lottiefiles.com/packages/lf20_qpsnmykx.json"
+    background="transparent"
+    speed="1"
+    style="width: 200px; height: 200px;"
+    loop
+    autoplay>
+  </lottie-player>
+
+  <p>No Internet Connection</p>
+</div>
 
     <footer class="footer">
       <div class="footer-container">
@@ -1293,6 +1333,23 @@ smartWelcome();
 
 
     </script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+<script>
+function checkConnection() {
+  const box = document.getElementById("offline-box");
+
+  if (navigator.onLine) {
+    box.style.display = "none";
+  } else {
+    box.style.display = "flex";
+  }
+}
+
+window.addEventListener("load", checkConnection);
+window.addEventListener("online", checkConnection);
+window.addEventListener("offline", checkConnection);
+</script>
     <script>
    const menuBtn = document.getElementById("menu-btn");
 const navLinks = document.getElementById("nav-links");
