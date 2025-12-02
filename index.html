@@ -1365,14 +1365,26 @@ nav {
  <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
 
 <script>
-  document.getElementById("downloadBtn").addEventListener("click", function () {
-      const overlay = document.getElementById("downloadOverlay");
-      
-      overlay.style.display = "flex"; // Show centered animation
+  const downloadBtn = document.getElementById("downloadBtn");
+  const overlay = document.getElementById("downloadOverlay");
 
-      // Auto hide after 5 seconds
+  downloadBtn.addEventListener("click", function () {
+
+      // 1. Show animation in the middle
+      overlay.style.display = "flex";
+
+      // 2. Disable button temporarily (optional)
+      downloadBtn.style.pointerEvents = "none";
+      downloadBtn.style.opacity = "0.6";
+
+      // 3. Reset button + hide animation after 5 seconds
       setTimeout(() => {
           overlay.style.display = "none";
+
+          // Reset button to normal
+          downloadBtn.style.pointerEvents = "auto";
+          downloadBtn.style.opacity = "1";
+
       }, 5000);
   });
 </script>
