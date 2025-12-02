@@ -942,55 +942,77 @@ nav {
   border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; /* space between icon and text */ border: 2px solid #0a0a0a; transition: all 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; position: relative; overflow: hidden; } .Download-btn:hover { transform: scale(1.1) translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.3), 0 0 15px var(--accent); } /* Animate Boxicon on hover */ .Download-btn i { transition: transform 0.3s ease; } .Download-btn:hover i { transform: translateX(5px) rotate(20deg); /* slide and rotate */ }
  
 /* Fullscreen overlay – responsive */
+/* Fullscreen overlay */
+/* Fullscreen centered overlay */
 #downloadOverlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.75); /* dim background */
+
+    background: rgba(0, 0, 0, 0.55);
+
     display: none;
-    justify-content: center;
-    align-items: center;
+    justify-content: center;   /* CENTER HORIZONTALLY  */
+    align-items: center;       /* CENTER VERTICALLY    */
+
     z-index: 99999;
-    padding: 20px;
+
+    /* Remove padding to avoid shifting */
+    padding: 0;
     box-sizing: border-box;
+
+    /* GPU boost */
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    will-change: opacity, transform;
 }
 
-/* Enable overlay with class */
+/* When active */
 #downloadOverlay.active {
     display: flex;
 }
 
-/* Animation box container */
+/* Box containing the animation */
 #downloadOverlay .anim-box {
     width: 90%;
-    max-width: 480px;   /* Good size for desktops */
-    height: auto;
-    background: rgba(0, 0, 0, 0.85);
-    border-radius: 20px;
-    padding: 25px 15px;
-    box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+    max-width: 350px;
+    background: rgba(0, 0, 0, 0.75);
+
+    border-radius: 18px;
+    padding: 22px 10px;
+
     text-align: center;
+
+    /* Perfect centering helper */
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+
+    /* GPU boost */
+    transform: translateZ(0);
+    will-change: transform, opacity;
+
+    /* Smooth shadow */
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.25);
 }
 
-/* Lottie animation responsive */
+/* Lottie animation responsiveness */
 #downloadOverlay dotlottie-wc {
-    width: 250px;
-    height: 250px;
-    max-width: 100%;
+    width: 65vw;
+    max-width: 200px;
+    height: auto;
 }
 
-/* Text under animation */
+/* Text */
 #downloadOverlay .anim-text {
     color: white;
-    font-size: 1.2rem;
-    margin-top: 15px;
+    font-size: 1.1rem;
+    margin-top: 14px;
 }
+
 
 
 
@@ -1340,17 +1362,17 @@ nav {
   <p>Thanks for visiting our website 😊!</p>
 
   <!-- Fullscreen centered animation overlay -->
-  <div id="downloadOverlay">
-      <div class="anim-box">
-          <dotlottie-wc 
-            src="https://lottie.host/30dadcb4-20f5-4d47-825a-e6f64f137ebf/XvMzJtFj1U.lottie" 
-            style="width: 250px; height: 250px;" 
-            autoplay 
+ <div id="downloadOverlay">
+    <div class="anim-box">
+        <dotlottie-wc
+            src="https://lottie.host/30dadcb4-20f5-4d47-825a-e6f64f137ebf/XvMzJtFj1U.lottie"
+            autoplay
             loop>
-          </dotlottie-wc>
-          <p style="color:white; font-size:20px; margin-top:15px;">Your download is starting…</p>
-      </div>
-  </div>
+        </dotlottie-wc>
+        <p class="anim-text">Your download is starting…</p>
+    </div>
+</div>
+
 </section>
 
 
