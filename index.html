@@ -7,6 +7,8 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
     <title>Spectrum</title>
 
     <style>
@@ -938,8 +940,27 @@ nav {
   margin-bottom: 10px;
 
   border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; /* space between icon and text */ border: 2px solid #0a0a0a; transition: all 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; position: relative; overflow: hidden; } .Download-btn:hover { transform: scale(1.1) translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.3), 0 0 15px var(--accent); } /* Animate Boxicon on hover */ .Download-btn i { transition: transform 0.3s ease; } .Download-btn:hover i { transform: translateX(5px) rotate(20deg); /* slide and rotate */ }
+ 
+#downloadOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
 
-  .offline {
+#downloadOverlay .anim-box {
+    text-align: center;
+}
+
+
+
+.offline {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -967,6 +988,7 @@ nav {
   margin-top: 10px;
   font-weight: 600;
 }
+
       /* ---------- FOOTER ---------- */
       footer {
         background: #000;
@@ -1270,13 +1292,38 @@ nav {
 </section>
     <!--=====Download=================-->
     <section id="Downloadsoftcopy">
-      <h2><i class="bx bx-download"></i> Download Soft Copy</h2>
-      <p>The soft copy of Spectrum Volume 19 is available for download.</p>
-    
-     <a href="https://sites.google.com/view/wallmagazineofdepartmentofphy?usp=sharing" class="Download-btn">
-  <i class="bx bxs-download"></i> Download Now
-</a>
-<p>Thanks for visiting our website😊! <br>
+  <h2><i class="bx bx-download"></i> Download Soft Copy</h2>
+  <p>The soft copy of Spectrum Volume 19 is available for download.</p>
+
+  <!-- Download button -->
+  <a href="your-pdf-link-here.pdf" 
+     class="Download-btn" 
+     id="downloadBtn"
+     download>
+      <i class="bx bxs-download"></i> Download Now
+  </a>
+
+  <p>Thanks for visiting our website 😊!</p>
+
+  <!-- Fullscreen centered animation overlay -->
+  <div id="downloadOverlay">
+      <div class="anim-box">
+          <dotlottie-wc 
+            src="https://lottie.host/30dadcb4-20f5-4d47-825a-e6f64f137ebf/XvMzJtFj1U.lottie" 
+            style="width: 250px; height: 250px;" 
+            autoplay 
+            loop>
+          </dotlottie-wc>
+          <p style="color:white; font-size:20px; margin-top:15px;">Your download is starting…</p>
+      </div>
+  </div>
+</section>
+
+
+      <p style="font-size:18px; margin-top:10px;">Your download is starting...</p>
+  </div>
+</section>
+
 
 
     </section>
@@ -1285,6 +1332,7 @@ nav {
      padding:15px 20px; border-radius:10px; font-weight:700; 
      box-shadow:0 0 15px aqua; display:none; z-index:9999;">
 </div>
+
 <div id="offline-box" class="offline">
   <lottie-player
     src="https://assets10.lottiefiles.com/packages/lf20_qpsnmykx.json"
@@ -1297,7 +1345,6 @@ nav {
 
   <p>No Internet Connection</p>
 </div>
-
     <footer class="footer">
       <div class="footer-container">
         <p>&copy; 2025 Spectrum |👨‍💻 Developed by Jitu Moni Kalita</p>
@@ -1315,6 +1362,23 @@ nav {
         </div>
       </div>
     </footer>
+ <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
+
+<script>
+  document.getElementById("downloadBtn").addEventListener("click", function () {
+      const overlay = document.getElementById("downloadOverlay");
+      
+      overlay.style.display = "flex"; // Show centered animation
+
+      // Auto hide after 5 seconds
+      setTimeout(() => {
+          overlay.style.display = "none";
+      }, 5000);
+  });
+</script>
+
+
+
     <script>
 function smartWelcome() {
   const hr = new Date().getHours();
@@ -1329,11 +1393,8 @@ function smartWelcome() {
 
 // use it
 smartWelcome();
-
-
-
-    </script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</script>
+   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
 <script>
 function checkConnection() {
@@ -1350,6 +1411,7 @@ window.addEventListener("load", checkConnection);
 window.addEventListener("online", checkConnection);
 window.addEventListener("offline", checkConnection);
 </script>
+
     <script>
    const menuBtn = document.getElementById("menu-btn");
 const navLinks = document.getElementById("nav-links");
