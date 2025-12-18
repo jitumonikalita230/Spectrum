@@ -108,9 +108,9 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(10, 10, 10, 0.85);
+ background-color: #000;
   backdrop-filter: blur(15px);
-  box-shadow: 0 4px 20px rgba(0, 255, 255, 0.15);
+
   padding: 0.8rem 2rem;
   position: sticky;
   top: 0;
@@ -259,9 +259,11 @@ nav {
   position: relative;
   text-align: center;
   padding: 6rem 1rem;
-  background: url("spectrum.jpg") no-repeat center center/cover;
+  background: url("spectrum.png") no-repeat center center/cover;
   overflow: hidden;
   font-family: "Poppins", sans-serif;
+  
+  box-shadow:  0 0 15px rgba(0, 0, 0, 0.692);
 }
 
 .home-content::before {
@@ -279,6 +281,7 @@ nav {
   max-width: 800px;
   margin: 0 auto;
   color: white;
+  backdrop-filter: blur(0.5px);
 }
 
 .home-text .main-title {
@@ -316,7 +319,7 @@ nav {
 
 /* ---------- MESSAGE SECTION ---------- */
 .messages-section {
- background: linear-gradient(145deg, #e3fdfd, #ffe6fa);
+ background: linear-gradient(145deg, #000b0b6c, #ffe6fa);
   padding: 4rem 1rem;
 }
 
@@ -326,7 +329,7 @@ nav {
   justify-content: space-between;
   background: linear-gradient(145deg, #e3fdfd, #ffe6fa);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(7, 4, 4, 0.15);
+  border: 2px solid rgba(7, 4, 4, 0.15);
   border-radius: 16px;
   box-shadow: 0 0 25px rgba(0, 255, 255, 0.15);
   margin: 2rem auto;
@@ -496,7 +499,7 @@ nav {
       }
 
       .profile-card-1 {
-        background: linear-gradient(145deg, #ffecd2, #fcb69f);
+        background: linear-gradient(145deg, #ffecd2, #ee8866);
         border-radius: 20px;
         padding: 20px;
         color: #111;
@@ -513,10 +516,10 @@ nav {
       .image1 {
         width: 160px;
         height: 180px;
-        border-radius: 50%;
+        border-radius:30%;
         overflow: hidden;
         margin: 0 auto ;
-        border: 3px solid rgba(0, 255, 255, 0.4);
+        border: 3px solid rgba(198, 194, 203, 0.4);
         box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
 
@@ -536,11 +539,11 @@ nav {
       }
 
       .profile-card-1 a {
-        color: #0b2181;
+        color: #0d0605;
         font-weight: 600;
         text-decoration: none;
       }
-/*--------Achivement---------*/
+
 /* ---------- Achievements Section ---------- */
 #achievements {
   background: linear-gradient(145deg, #e3fdfd, #ffe6fa);
@@ -1078,8 +1081,9 @@ nav {
     <header>
       <div class="header-logos" data-aos="fade-down">
         <img src="pandu.png" alt="Pandu College Logo" />
+         <img src="phy.jpg" alt="Physics Department Logo" />
         <img src="naac-A.jpg" alt="NAAC A Grade Logo" />
-        <img src="phy.jpg" alt="Physics Department Logo" />
+       
       </div>
     </header>
     <!-- ========== NAVBAR ========== -->
@@ -1133,15 +1137,18 @@ nav {
       Exploring the wonders of the universe, from quantum mysteries to cosmic phenomena.
     </p>
     <a href="article.html" class="btn1">
-      <i class="bx bx-book-reader"></i> View Articles
+      <i class="bx bxs-book-reader"></i> View Articles
     </a>
   </div>
 </section>
 
 <section class="messages-section" id="Home">
   <div class="message">
+       
     <div class="message-content">
-      <h1><strong>📌 Message From Principal:</strong></h1>
+      <h1><strong>✒️ Message From Principal:</strong></h1>
+      <img src="lo.jpeg" alt="Principal of Pandu College" />
+      <p><strong>Dr. XYZ</strong><br>Principal, Pandu College, Guwahati–12</p>
       <p>
         I am delighted to know that the Department of Physics is publishing the 19th edition of its magazine,
         <strong>E-Spectrum</strong>. This magazine stands as a reflection of the creativity, knowledge, and
@@ -1152,17 +1159,20 @@ nav {
         bringing this edition to life. I wish E-Spectrum continues to grow and shine as a source of inspiration
         for all its readers.
       </p>
-      <p><strong>Dr. XYZ</strong><br>Principal, Pandu College, Guwahati–12</p>
+      
     </div>
-    <img src="lo.jpeg" alt="Principal of Pandu College" />
+ 
   </div>
 
   <div class="message">
     <div class="message-content">
-      <h1><strong>📌 Message from HoD:</strong></h1>
+      <h1><strong>✒️ Message from HoD:</strong></h1>
+      <img src="hod.png" alt="HoD of Physics Department, Pandu College" />
+       <p><strong>Dr. Bandana Das</strong><br>Head, Department of Physics<br>Pandu College, Guwahati–12</p>
       <p>
         <i>
-          “The purpose of education is to make good human beings with skill and expertise… Enlightened human beings can be created by teachers.” — A. P. J. Abdul Kalam
+          “The purpose of education is to make good human beings with skill and expertise… Enlightened human beings can be created by teachers.”
+           — A. P. J. Abdul Kalam
         </i>
       </p>
       <p>
@@ -1173,14 +1183,16 @@ nav {
       <p>
         I wish this publication inspires readers and promotes enthusiasm for physics and science at large.
       </p>
-      <p><strong>Dr. Bandana Das</strong><br>Head, Department of Physics<br>Pandu College, Guwahati–12</p>
+     
     </div>
-    <img src="hod.png" alt="HoD of Physics Department, Pandu College" />
+    
   </div>
 
   <div class="message">
     <div class="message-content">
-      <h1><strong>📌From the Editor's Desk:</strong></h1>
+      <h1><strong>✒️From the Editor's Desk:</strong></h1>
+       <img src="lo.jpeg" alt="Editors" />
+         <p><strong>The Editorial Team</strong></p>
       <p>
         Welcome to <strong>Spectrum-19!</strong> As 3rd-year B.Sc. Physics students, we are thrilled to share our
         journey of learning and discovery through this edition.
@@ -1193,16 +1205,16 @@ nav {
         We invite you to dive in and enjoy what we’ve crafted with enthusiasm and curiosity. Your support keeps us
         inspired to explore further.
       </p>
-      <p><strong>The Editorial Team</strong></p>
+    
     </div>
-    <img src="lo.jpeg" alt="Editors" />
+   
   </div>
 </section>
 
 
     <!-- ========== EDITORIAL BOARD ========== -->
     <section id="Editorial-board">
-      <h2><i class="bx bx-edit-alt"></i> Editorial Board</h2>
+      <h2><i class="bx bxs-edit-alt"></i> Editorial Board</h2>
         <div class="editor-grid">
           <div class="profile-card-1" data-aos="zoom-in">
           <div class="image1"><img src="hod.png" alt="HoD of Physics Department, Pandu College " /></div>
@@ -1233,7 +1245,7 @@ nav {
     </section>
     <!-- ========== ACHIEVEMENTS ========== -->
    <section id="achievements">
-  <h2><i class="bx bx-trophy"></i> Achievements</h2>
+  <h2><i class="bx bxs-trophy"></i> Achievements</h2>
 
   <div class="slider-container">
     <button class="slider-btn" id="prev"><i class="bx bx-chevron-left"></i> Previous</button>
@@ -1256,7 +1268,7 @@ nav {
         <div class="acard-content">
           <h3>Cooking Competition</h3>
           <p>
-            <strong>Abhinav Deka, Kapeel Bhuyan & Dhuithun Basumatari</strong> secured 1st place in the
+            <strong>Abhinab Deka, Kapil Bhuyan & Dwinthun Basumatary</strong> secured 1st place in the
             cooking competition organized by Pandu College <strong>NSS Unit.</strong>
           </p>
         </div>
@@ -1267,7 +1279,7 @@ nav {
         <div class="acard-content">
           <h3>Quiz Competition</h3>
           <p>
-            <strong>Jitu Moni Kalita, Snehashish Chakraborty & Dildar Haque</strong> received recognition
+            <strong>Jitu Moni Kalita, Snehashish Chakraborty & Dildar Hoque</strong> received recognition
             in the inter-college quiz competition organized by our Department on the occasion of
             <strong>National Space Day.</strong>
           </p>
@@ -1281,10 +1293,10 @@ nav {
 
     <!-- ========== PHOTO GALLERY ========== -->
  <section id="photogallery">
-  <h2><i class="bx bx-photo-album"></i> Photo Gallery</h2>
+  <h2><i class="bx bxs-photo-album"></i> Photo Gallery</h2>
   <div class="gallery-container">
     <button class="gallery-btn" id="prev-photo">
-      <i class="bx bx-chevron-left"></i> Previous
+      <i class="bx bxs-chevron-left"></i> Previous
     </button>
 
     <div class="gallery-track">
@@ -1351,14 +1363,14 @@ nav {
 
     </div>    
     <button class="gallery-btn" id="next-photo">
-      Next <i class="bx bx-chevron-right"></i>
+      Next <i class="bx bxs-chevron-right"></i>
     </button>
   </div>
 </section>
 
     <!--=====Download=================-->
     <section id="Downloadsoftcopy">
-  <h2><i class="bx bx-download"></i> Download Soft Copy</h2>
+  <h2><i class="bx bxs-download"></i> Download Soft Copy</h2>
   <p>The soft copy of Spectrum Volume 19 is available for download.</p>
 
   <!-- Download button -->
@@ -1466,6 +1478,8 @@ nav {
    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
 <script>
+
+/*
 function checkConnection() {
   const box = document.getElementById("offline-box");
 
@@ -1478,7 +1492,7 @@ function checkConnection() {
 
 window.addEventListener("load", checkConnection);
 window.addEventListener("online", checkConnection);
-window.addEventListener("offline", checkConnection);
+window.addEventListener("offline", checkConnection);*/
 </script>
 
     <script>
