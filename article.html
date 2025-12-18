@@ -6,6 +6,10 @@
   
 
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
   <title>Spectrum</title>
 
   <style>
@@ -21,10 +25,14 @@
 
     body {
       margin: 0;
-      font-family: "Poppins", sans-serif;
+      font-family: 'Inter', system-ui, sans-serif;
+      letter-spacing: 0.2px;
       background: linear-gradient(135deg, #b8a5b3, #f6eff3, #f1f9f9);
       color: var(--text-light);
       scroll-behavior: smooth;
+    }
+    h1, h2, h3, .logo {
+  font-family: 'Poppins', sans-serif;
     }
 
     /* ---------------- NAVBAR ---------------- */
@@ -59,7 +67,10 @@
     .nav-link a {
       color: var(--text-light);
       font-weight: 600;
-      display: b;
+      .nav-link a {
+  display: inline-block;
+}
+
       text-decoration: none;
       position: relative;
       transition: 0.3s;
@@ -137,8 +148,84 @@
       }
     }
 
-    /* ---------------- ARTICLE INDEX ---------------- */
+     .article-head{
+      height: 55vh;
+      background: url("https://images.unsplash.com/photo-1532012197267-da84d127e765") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+    .article-t {
+      background: rgba(5, 5, 5, 0.663);
+      padding: 1.4rem 2rem;
+      border-radius: 13px;
+      backdrop-filter: blur(2px);
+      color: white;
+      text-align: center;
+      max-width: 90%;
+    }
+
+    .article-t h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+/* ---------- INDEX SECTION ---------- */
+.index-section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 1.5rem 2rem;
+
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 18px;
+
+  box-shadow:
+    0 15px 40px rgba(0,0,0,0.12),
+    0 0 0 1px rgba(0,255,255,0.15);
+}
+
+.index-section h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #0f172a;
+}
+
+.index-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.index-section li {
+  margin-bottom: 0.7rem;
+  padding-left: 1rem;
+  border-left: 4px solid var(--accent);
+}
+
+.index-section li a {
+  text-decoration: none;
+  color: #111827;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.index-section li a:hover {
+  color: #2563eb;
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 600px) {
+  .index-section {
+    padding: 1.2rem 1.4rem;
+  }
+}
+
     #Article {
+      font-size: 1rem;        /* was 0.9rem */
+      line-height: 1.75;
+      color: #1f1f1f;
       padding: 3rem 2rem;
       background: transparent;
       color: #000;
@@ -153,7 +240,65 @@
       
       
     }
-   
+   .article-index {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.article-index li a {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  text-decoration: none;
+  background: #e4d9d9;
+  padding: 1.2rem;
+  border-radius: 14px;
+  color: #111;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  transition: 0.3s ease;
+}
+
+.article-index li a:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(10, 11, 11, 0.25);
+}
+
+.article-index .num {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color:#000;
+  min-width: 40px;
+}
+
+.article-index h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.article-index p {
+  margin: 0.2rem 0 0;
+  font-size: 0.85rem;
+  color: #030202fa;
+}
+
+/* Active highlight */
+.article-index a.active {
+  border-left: 5px solid var(--accent);
+  background: rgba(0,255,255,0.08);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .article-index li a {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
     .articles-content {
       background: rgba(255,255,255,0.35);
       padding: 2rem;
@@ -216,11 +361,9 @@
     /* HERO */
     .article-hero {
       position: relative;
-      height: 260px;
       width: 100%;
       border-radius: 16px;
       overflow: hidden;
-     
       background-size: cover;
       background-position: center;
       display: flex;
@@ -229,9 +372,8 @@
     }
 
     .article-hero .overlay {
-      position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.75));
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0,0,0,0.75));
     }
 
     .article-text {
@@ -425,27 +567,59 @@ color: green;
       <li><a href="#Article"><i class="bx bx-file"></i> Index</a></li>
     </ul>
   </nav>
+  <section class="article-head">
+  <div class="article-t">
+    <h1>Academic Article Collection</h1>
+  </div>
+</section>
+
 
   <!-- ARTICLE INDEX -->
-  <section id="Article">
-    <h2><i class="bx bx-pen"></i> Articles Section</h2>
+ <section id="Article" class="index-section">
+  <h2><i class="bx bx-list-ul"></i> Article Index</h2>
 
-    <div class="articles-content">
-      <h2><i class='bx bx-file'></i>Index</h2>
-      <ul class="index">
-        <li><a href="#my"><strong>Article 1:</strong> <br>Macroscopic Quantum Mechanical Tunnelling and Energy Quantisation in Electric Circuits<br>
-<i class='bx bxs-user'></i>Jitu Moni Kalita <i class='bx bxs-graduation'><strong>Bsc 3rd year</strong></i></a></li>
+  <ul class="article-index">
+    <li>
+      <a href="#my">
+        <span class="num">01</span>
+        <div class="meta">
+          <h3>Macroscopic Quantum Mechanical Tunnelling and Energy Quantisation</h3>
+          <p>
+            <i class="bx bxs-user"></i> Jitu Moni Kalita · 
+            <i class="bx bxs-graduation"></i> BSc 3rd Year
+          </p>
+        </div>
+      </a>
+    </li>
 
-        <li><a href="#nikita"><strong>Article 2:</strong> Wormholes in the Lab? Quantum Simulation of Exotic Spacetime <br>
-  <i class='bx bxs-user'></i>Nikitha Guntla <i class='bx bxs-graduation'><strong>Bsc 2nd year</strong></i></a></li>
-        
-</a></li>
+    <li>
+      <a href="#nikita">
+        <span class="num">02</span>
+        <div class="meta">
+          <h3>Wormholes in the Lab? Quantum Simulation of Exotic Spacetime</h3>
+          <p>
+            <i class="bx bxs-user"></i> Nikitha Guntla · 
+            <i class="bx bxs-graduation"></i> BSc 2nd Year
+          </p>
+        </div>
+      </a>
+    </li>
 
-        <li><a href="#dharmendra"><strong>Article 3:</strong> Nanosensors: Enhancing Environmental Monitoring <br>
-        <i class='bx bxs-user'></i> Dharmendra Bania <i class='bx bxs-graduation'><strong>Bsc 1st year</strong></i></a></li>
-      </ul>
-    </div>
-  </section>
+    <li>
+      <a href="#dharmendra">
+        <span class="num">03</span>
+        <div class="meta">
+          <h3>Nanosensors: Enhancing Environmental Monitoring</h3>
+          <p>
+            <i class="bx bxs-user"></i> Dharmendra Bania · 
+            <i class="bx bxs-graduation"></i> BSc 1st Year
+          </p>
+        </div>
+      </a>
+    </li>
+  </ul>
+</section>
+
 
   <!-- my-->
 <section class="article-block" id="my">
@@ -701,7 +875,7 @@ A "Wormhole" is a theoretical passage that connects two separate regions of spac
 <!-----Dharmendra -->
 <section class="article-block" id="dharmendra">
 
-  <div class="article-hero" data-bg="nano.jpg" >
+  <div class="article-hero" data-bg="nano-bg.jpg" blur="5%">
     <div class="overlay"></div>
 
    <div class="article-text" >
@@ -776,7 +950,7 @@ corrective actions. </p>
 <p>Nanosensors is one of the most promising frontiers in environmental science and 
 technology and ability to detect pollutants for maintaining environmental safety and 
 sustainability. </p>
-
+ </section>
 </section>
 <div id="offline-box" class="offline">
   <lottie-player
@@ -790,6 +964,29 @@ sustainability. </p>
 
   <p>No Internet Connection</p>
 </div>
+<script>
+const indexLinks = document.querySelectorAll(".article-index a");
+const sections = [...indexLinks].map(link =>
+  document.querySelector(link.getAttribute("href"))
+);
+
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach(section => {
+    const top = section.offsetTop - 120;
+    if (scrollY >= top) current = section.id;
+  });
+
+  indexLinks.forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === "#" + current) {
+      link.classList.add("active");
+    }
+  });
+});
+</script>
+
 
 
     <footer class="footer">
@@ -812,7 +1009,7 @@ sustainability. </p>
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
 <script>
-function checkConnection() {
+/*function checkConnection() {
   const box = document.getElementById("offline-box");
 
   if (navigator.onLine) {
@@ -824,7 +1021,7 @@ function checkConnection() {
 
 window.addEventListener("load", checkConnection);
 window.addEventListener("online", checkConnection);
-window.addEventListener("offline", checkConnection);
+window.addEventListener("offline", checkConnection);*/
 </script>
 
 <script>
@@ -867,9 +1064,5 @@ document.querySelectorAll(".article-hero").forEach(hero => {
   if (bg) hero.style.backgroundImage = `url(${bg})`;
 });
 </script>
-
-
-
-
 </body>
 </html>
