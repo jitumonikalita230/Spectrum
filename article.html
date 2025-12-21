@@ -166,7 +166,7 @@
 
     .article-t h1 {
       font-family: 'Poppins', sans-serif;
-      font-size: 2rem;
+      font-size: 3rem;
       margin-bottom: 0.5rem;
     }
 
@@ -186,7 +186,7 @@
 
 .index-section h2 {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.4rem;
+  font-size: 2.5 rem;
   margin-bottom: 1rem;
   color: #0f172a;
 }
@@ -218,11 +218,16 @@
 @media (max-width: 600px) {
   .index-section {
     padding: 1.2rem 1.4rem;
+    
+  }
+  .index-section h2{
+    font-size: 0.58rem;
+    
   }
 }
 
     #Article {
-      font-size: 1rem;        /* was 0.9rem */
+      font-size:1.5rem;        /* was 0.9rem */
       line-height: 1.75;
       color: #000000;
       padding: 3rem 2rem;
@@ -231,21 +236,31 @@
     }
 
     #Article h2 {
-     font-family: Arial, Helvetica, sans-serif;
+     font-family:'Times New Roman', Times, serif;
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 2rem;
+      font-size: 2.5rem;
       font-weight: 700;
       color: #000;
       
     }
    .article-index {
+    counter-reset: item;
   list-style: none;
   padding: 0;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+}
+.article-index li {
+  counter-increment: item;
+}
+
+.article-index li .num::before {
+  content: counter(item, decimal-leading-zero);
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .article-index li a {
@@ -312,7 +327,7 @@
 
     .articles-content h2 {
       text-align: center;
-      font-size: 1.8rem;
+      font-size:rem;
       margin-bottom: 1.3rem;
       border-bottom: 2px solid var(--accent);
       padding-bottom: rem;
@@ -348,8 +363,8 @@
 
     /* -------------- ARTICLE UI -------------- */
     .article-block {
-      background: rgba(255,255,255,0.9);
-      padding: 2.5rem;
+      background: rgb(255, 240, 240);
+      padding:3rem;
       max-width: 900px;
       margin: 3rem auto;
       border-radius: 18px;
@@ -362,6 +377,7 @@
     .article-hero {
       position: relative;
       width: 100%;
+      height:300%;
       border-radius: 16px;
       overflow: hidden;
       background-size: cover;
@@ -381,13 +397,13 @@
     .article-text {
       position: relative;
       text-align: center;
-      color: #fff;
+      color:white;
       padding: 0 1rem;
-      backdrop-filter:blur(2px);
+      backdrop-filter:blur(px);
     }
 
     .article-text h2 {
-
+      
       font-size: 1.8rem;
       font-weight: 600;
       line-height: 1.3;
@@ -396,19 +412,28 @@
 
     /* ARTICLE BODY */
     .article-body p {
-      font-size:0.9rem;
+     
       text-align: justify;
       line-height: 1.6;
-      color: #222;
+      color: #000000;
     }
+    
+    .article-body .Heading p{
+      font-size: large;
+   
+    
+      
 
+    }
     /* Dropcap */
     .article-body .Heading p:first-letter {
       font-size: 2rem;
       font-weight: bold;
       float: left;
       line-height:0.5;
-      color: #4106d5;
+      color:blue;
+    
+    
     }
     .article-body .notation h1{
 font-size:15px;
@@ -563,12 +588,14 @@ color: green;
     </div>
 
     <ul class="nav-link" id="nav-links">
+      
       <li><a href="index.html#Home"><i class="bx bxs-home"></i> Home</a></li>
+      <li><a href="#Article"><i class="bx bx-file"></i> Index</a></li>
       <li><a href="index.html#Editorial-board"><i class="bx bxs-user"></i> Editorial Board</a></li>
       <li><a href="index.html#achievements"><i class="bx bxs-trophy"></i> Achievements</a></li>
       <li><a href="index.html#photogallery"><i class="bx bxs-photo-album"></i> Photo Gallery</a></li>
       <li><a href="index.html#Downloadsoftcopy"><i class="bx bxs-download"></i> Download Softcopy</a></li>
-      <li><a href="#Article"><i class="bx bx-file"></i> Index</a></li>
+      
     </ul>
   </nav>
   <section class="article-head">
@@ -585,7 +612,7 @@ color: green;
   <ul class="article-index">
     <li>
       <a href="#my">
-        <span class="num">01</span>
+        <span class="num"></span>
         <div class="meta">
           <h3>Macroscopic Quantum Mechanical Tunnelling and Energy Quantisation</h3>
           <p>
@@ -598,7 +625,7 @@ color: green;
 
     <li>
       <a href="#nikita">
-        <span class="num">02</span>
+        <span class="num"></span>
         <div class="meta">
           <h3>Wormholes in the Lab? Quantum Simulation of Exotic Spacetime</h3>
           <p>
@@ -611,11 +638,36 @@ color: green;
 
     <li>
       <a href="#dharmendra">
-        <span class="num">03</span>
+        <span class="num"></span>
         <div class="meta">
           <h3>Nanosensors: Enhancing Environmental Monitoring</h3>
           <p>
             <i class="bx bxs-user"></i> Dharmendra Bania · 
+            <i class="bx bxs-graduation"></i> BSc 1st Year
+          </p>
+        </div>
+      </a>
+    </li>
+       <li>
+      <a href="#pachwan">
+        <span class="num"></span>
+        <div class="meta">
+          <h3>Space-time : The four dimensions 
+universe </h3>
+          <p>
+            <i class="bx bxs-user"></i> Sunil Kumar Paswan · 
+            <i class="bx bxs-graduation"></i> BSc 1st Year
+          </p>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a href="#Fariha">
+        <span class="num"></span>
+        <div class="meta">
+          <h3>Electricity: The Lifeline of Modern Civilization  </h3>
+          <p>
+            <i class="bx bxs-user"></i> Fariha Ahmed· 
             <i class="bx bxs-graduation"></i> BSc 1st Year
           </p>
         </div>
@@ -822,7 +874,7 @@ reaching implications for both fundamental physics and emerging quantum technolo
 <!-----Nikita -->
 <section class="article-block" id="nikita">
 
-  <div class="article-hero" data-bg="Wormhole.webp" >
+  <div class="article-hero" data-bg="Wormhole.png" >
     <div class="overlay"></div>
 
    <div class="article-text" >
@@ -879,7 +931,7 @@ A "Wormhole" is a theoretical passage that connects two separate regions of spac
 <!-----Dharmendra -->
 <section class="article-block" id="dharmendra">
 
-  <div class="article-hero" data-bg="nano-bg.jpg" blur="5%">
+  <div class="article-hero" data-bg="nan.png" blur="5%">
     <div class="overlay"></div>
 
    <div class="article-text" >
@@ -948,12 +1000,321 @@ corrective actions. </p>
 <ol><li>Nanosensors can detect pollutants at very low concentrations. 
 </li> 
 <br>
-<li>Nanosensors provide immediate feedback during environmental emergencies.</li>  </ol>
+<li>Nanosensors provide immediate feedback during environmental emergencies.</li>  </ol></p>
 
 <div class="Heading"><strong><p>Conclusion:</p></strong></div>
 <p>Nanosensors is one of the most promising frontiers in environmental science and 
 technology and ability to detect pollutants for maintaining environmental safety and 
 sustainability. </p>
+ </section>
+ <!----------pachwan---->
+ <section class="article-block" id="pachwan">
+
+  <div class="article-hero" data-bg="pac.png" blur="5%">
+    <div class="overlay"></div>
+
+   <div class="article-text" >
+  <h2 class="article-heading">
+   Space-time : The four dimensions 
+universe<br><br>
+    <i class='bx bxs-user'> Sunil Kumar Paswan </i><br>
+    <i class='bx bxs-graduation'> BSc 1st year</i>
+  </h2>
+</div>
+
+  </div>
+
+  <div class="article-body">
+    <br>
+    
+
+    <div class="Heading"><strong><p>Introduction:</p></strong></div>
+    <p>
+If we want to search deep in the space,the basic physics is applied to all across the universe is 
+concept of space-time . space and time seem like two completely different things. Space 
+describes about the area where an object or anything could be present ,it has dimensions such 
+as length , breath and height  , on the other hand time, tells us when things happen: the past, 
+present, or future. For centuries, scientists believed that space and time were completely 
+separate, absolute entities-with a universal clock ticking everywhere in the universe at the same 
+rate, and an unchanging, rigid stage where the events of our universe play out. 
+But this view changed forever in the early 20th century, thanks to the revolutionary work of 
+Albert Einstein. Einstein showed that space and time are not independent-they are deeply 
+connected, and together form a single, four-dimensional continuum: “space-time"
+<br>
+Before Einstein’s work, the prevailing view in physics was that light, as a wave, must travel 
+through a medium called the “luminiferous aether”. Einstein’s theory of special relativity
+<br>
+eliminated the need for this concept, while his theory of general relativity offered a radically new 
+understanding of gravity.  
+    <div class="Heading"><strong><p>Why space-time introduced :</p></strong></div>
+    <p>
+   The need to unite space and time came from odd results in physics experiments about motion 
+and light. For example, the famous Michelson-Morley experiment showed that the speed of light 
+is always the same-no matter how an observer moves relative to the light source. This was 
+shocking, and it broke the rules of classical physics . 
+To explain this, Einstein proposed that measurements of distance and time depend on the 
+observer's motion. Two people moving at different speeds could disagree about how far apart 
+two events are, or how much time passes between them. However, everyone would agree on a 
+single quantity, combining space and time- what's now called the "space-time interval." This 
+new theory merged three dimensions of space and one of time into a four-dimensional 
+framework. 
+<br>
+The Building Blocks: Events and the Interval In everyday life, we describe the position of an 
+object using three numbers (for example, coordinates x, y, z). To completely specify an event 
+(like a thunderclap or lightning strike), we also need to state when it happened (t). In space
+time, every “event” is described by four coordinates: (x, y, z, t). But these coordinates alone are 
+not enough. Different observers, moving relative to one another, will assign different 
+coordinates to the same event. What stays constant is the “interval” between two events,calculated by: (Δs)² = (cΔt)² – (∆x)² - (Δy)² -  (Δz)²Here, c is the speed of light. This quantity, the 
+space-time interval, is the same for all observers and forms the foundation for Einstein’s theory 
+of relativity.  
+
+
+
+<div class="Heading"><strong><p>New Picture: Relativity and The ‘Fabric’ of Reality :</p></strong></div>
+<p>Einstein's ideas created a new way to look at gravity. Earlier, Isaac Newton pictured gravity as 
+a "force" pulling  toward each other across space. Einstein suggested something more subtle 
+and beautiful: massive objects, like planets and stars, actually bend and curve the fabric of 
+space-time. What we feel as gravity is just objects following the curves in this fabric. This idea is 
+called the "general theory of relativity," and it has been confirmed by experiments, such as the 
+bending of light near the sun or the detection of gravitational waves.<br>
+A common analogy is to imagine space-time as a stretched rubber sheet. Placing a heavy ball 
+(a planet or star) on the sheet creates a dip, curving the surface. Marbles rolling nearby will 
+curve around the dip, just as Earth orbits the sun-not because of a mysterious force, but 
+because the sun has curved space-time around it.
+</p>
+<div style="text-align:center; margin: 30px 0;"><img src="spacefebric.png" alt="Bending of space febric due to heavy planet ">
+      <div class="figure-label"><strong>Fig 1:</strong> Bending of space febric due to heavy planet </div>
+    </div>
+
+<div class="Heading"><strong><p>Light Cones, World-Lines, and Causality  </p></strong></div>
+<p>Physicists use "light cones" to visualize space-time. Imagine an event (like a firecracker 
+explosion): the light from this event spreads out in all directions at speed c, forming a cone in 
+space-time diagrams. Everything inside the "future light cone" can potentially be influenced by 
+this event; everything inside the "past light cone" could have affected it. Lines drawn through 
+space-time to represent the path of an object are called "world-lines." Every particle or person 
+traces out a unique world-line as they move through the universe. </p>
+
+<div class="Heading"><strong><p>The Big Picture: Black Holes, Cosmology, and Beyond :</p></strong></div>
+ <p>Space-time is central to some of the most fascinating questions in physics: Black Holes: These 
+mysterious objects are regions where space-time is so fiercely curved that nothing, not even 
+light, can escape. The Expanding Universe: The entire universe is described as a vast, 
+"stretching" space-time, with galaxies moving apart as space itself expands. Gravitational 
+Waves: Ripples in space-time, created by violent astrophysical events, were first observed in 
+2015-confirming Einstein's prediction a century earlier. Contemporary research is probing the 
+very structure of space-time on the smallest scales, searching for a quantum theory of gravity 
+and new, deeper laws. </p>
+
+<div class="Heading"><strong><p>Conclusion:</p></strong></div>
+<p>Space-time is not just a concept of physics it is the fabric of universe that exists in every part of 
+universe ,it is often referred as fabric of reality and visualised as four dimensional block ,it 
+describes anything happens in the universe along the propagation of electro magnetic waves 
+such as light . It challenges our common-sense ideas, unites gravity and motion, and is central 
+to both our understanding of the cosmos and the technology we use each day.  </p>
+ </section>
+ <!---------Farhira-->
+ <section class="article-block" id="Fariha">
+
+  <div class="article-hero" data-bg="far.jpg" blur="5%">
+    <div class="overlay"></div>
+
+   <div class="article-text" >
+  <h2 class="article-heading">
+  Electricity: The Lifeline of Modern Civilization <br><br>
+    <i class='bx bxs-user'>Fariha Ahmed </i><br>
+    <i class='bx bxs-graduation'> BSc 1st year</i>
+  </h2>
+</div>
+
+  </div>
+
+  <div class="article-body">
+    <br>
+    
+
+    <div class="Heading"><strong><p>Introduction:</p></strong></div>
+    <p> Electricity is one of the most powerful and essential discoveries in human 
+history. It is the invisible force that lights up our homes powers industries, 
+drives communication and fuels modern technology. From the moment we 
+wake up and switch on a light bulb to the time we charge our phones 
+before going to bed, electricity plays a crucial role in our daily lives. Without 
+it, the world as we know it would come to a standstill. This article explores 
+the nature of electricity, its generation, uses, importance, and challenges in 
+the modern world.</p>
+    <div class="Heading"><strong><p>What is Electricity? :</p></strong></div>
+    <p>
+   Electricity is a form of energy resulting from the movement of charged 
+particles, mainly electrons, through a conductor such as a wire. It can be 
+static, like the spark we fee after rubbing certain materials, or current 
+electricity, which flows continuously through circuits and is used for 
+practical purposes 
+Though electricity has existed in nature for 
+millions of years in the form of lightning or 
+electric eels, humans only began to understand 
+and harness it in the last few centuries. 
+Scientists like Benjamin Franklin, Alessandro 
+Volta, Michael Faraday, and Thomas Edison 
+made significant contributions that transformed 
+electricity from a natural phenomenon into a 
+practical utility.
+
+<div style="text-align:center; margin: 30px 0;"><img src="simpleckt.png" alt="simple circuit">
+      <div class="figure-label"><strong>Fig 1:</strong> Simple circuit</div>
+    </div>
+
+<div class="Heading"><strong><p>There are two main types of electricity: </p></strong></div>
+ <p>
+<ol><li><strong> Electricity :</strong>This is the buildup of electric charge on the surface of 
+an object. You’ve likely experienced static electricity when you rub a 
+balloon on your hair or walk across a carpet and then touch a metal 
+doorknob.   
+</li> 
+<br>
+<li><strong>Current Electricity :</strong> This is the flow of electric charge through a 
+conductor. It is the form of electricity that powers our homes and devices.
+</li>  </ol></p>
+
+
+<div class="Heading"><strong><p>How Electricity Is Generated: </p></strong></div>
+<p>Electricity is not a primary energy source; it must be generated using other 
+sources of energy. Most electricity is produced in power plants where 
+mechanical energy is converted into electrical energy using generators. 
+The primary sources of energy for electricity generation include:
+<ol><li><strong> Fossil Fuels (Coal, Oil, Natural Gas):</strong>These are burned to produce steam, 
+which drives turbines connected to generators.    
+</li> 
+<br>
+<li><strong>Nuclear Energy: </strong>  In nuclear power plants, nuclear reactions release heat, 
+which also produces steam for turbines.
+</li>  <br>
+<li> 
+  <strong>Renewable Energy Sources: </strong> 
+  <br>
+<ul> <li><strong>Hydropower :</strong> Uses flowing water to spin turbines. </li><br>
+<li><strong>Wind Energy :</strong>Wind turns the blades of wind turbines to generate 
+electricity.</li>
+<br>
+<li>
+  <strong>Solar Power :</strong> Photovoltaic cells convert sunlight directly into 
+electricity.
+</li>
+<br>
+<li>
+  <strong>Geothermal Energy </strong>Uses heat from beneath the Earth’s surface. 
+
+</li>
+</ul> 
+</li></ol> <p>With growing concerns about pollution and climate change, there is an increasing shift towards cleaner and renewable energy sources.</p>
+
+</p>
+
+<div class="Heading"><strong><p>Transmission and Distribution:</p></strong></div>
+ <p>Once electricity is generated, it must be transported to where it’s needed. 
+This is done through a complex system known as the electrical grid. Here’s 
+how it works:
+<ol>
+  <li>
+    <strong>Generation:</strong>Electricity is produced at power stations.
+  </li>
+  <br> 
+  <li>
+    <strong> Transmission: </strong> High-voltage power lines carry electricity over long 
+distances
+  </li>
+  <br>
+  <li>
+   <strong>Distribution:</strong> Substations reduce the voltage, and distribution lines deliver 
+electricity to homes, schools, and businesses. 
+  </li>
+
+</ol>
+<p>Maintaining a stable supply of electricity requires a balance between 
+demand (how much electricity people are using) and supply (how much is 
+being generated). This system is managed in real time by utility companies. </p> </p>
+<div class="Heading"><strong><p>Uses of Electricity:</p></strong></div>
+<p>
+  Electricity has countless uses in modern life. Some of the most common 
+include:
+<ul>
+  <li>
+    <strong>Lighting :</strong>Electric lights brighten homes, streets, and cities.
+  </li>
+  <br>
+  <li>
+    <strong> Heating and Cooling :</strong>Electric heaters, air conditioners, and 
+refrigerators help maintain comfortable living conditions. 
+  </li>
+  <br>
+  <li>
+    <strong>Communication :</strong>Devices like phones, computers, and the internet 
+all rely on electricity. 
+  </li>
+  <br>
+  <li>
+    <strong>Industry :</strong>Factories and workshops use electricity to power machines 
+and tools. 
+  </li>
+</ul>
+<p>The convenience and versatility of electricity have made it indispensable to 
+both economic development and personal comfort.</p>
+</p>
+<div class="Heading"><strong><p>The Future of Electricity: </p></strong></div>
+<p>
+As the global population grows and technology advances, the demand for 
+electricity continues to rise. At the same time, there's a growing push to 
+reduce carbon emissions and combat climate change. This means the 
+future of electricity will involve:
+<ol>
+  <li>
+    <strong>
+      Cleaner Energy Sources :
+    </strong>Expanding the use of solar, wind, and other 
+renewable sources.
+  </li>
+  <br>
+  <li>
+    <strong>
+       Smart Grids 
+    </strong>Upgrading the electrical grid to be more efficient and 
+reliable using digital technology.
+  </li>
+  <br>
+  <li>
+    <strong>Energy Storage </strong>Improving battery technology to store electricity for use 
+when generation is low. 
+  </li>
+  <br>
+  <li>
+    <strong>
+       Electrification of Transport
+    </strong>Replacing 
+gasoline-powered vehicles with electric 
+ones. 
+  </li>
+  <br>
+  <li>
+    <strong>
+       Decentralized Generation 
+    </strong>
+    Homes and 
+businesses generating their own electricity 
+using solar panels and other local systems. 
+  </li>
+</ol>
+</p>
+<div style="text-align:center; margin: 30px 0;"><img src="useofe.png" alt="simple circuit">
+    <div class="figure-label"><strong>Fig 1:</strong>Use of electricity</div>
+    <p>
+      These trends promise a more sustainable and energy
+efficient future. 
+
+    </p>
+<div class="Heading"><strong><p>Conclusion:</p></strong></div>
+<p>Electricity is a remarkable form of energy that powers the modern world. 
+From its basic principles to its complex infrastructure, electricity enables 
+much of what we take for granted. As we look to the future, balancing our 
+growing energy needs with environmental sustainability will be one of the 
+great challenges—and opportunities of our time. Understanding electricity 
+is the first step toward using it wisely and responsibly.</p>
  </section>
 </section>
 <div id="offline-box" class="offline">
