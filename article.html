@@ -50,13 +50,15 @@
     }
 
     .logo {
-      font-size: 1.5rem;
-      font-weight:700;
-      color: var(--accent);
-      letter-spacing: 1px;
-      cursor: pointer;
-      text-shadow: 0 0 10px rgba(0,255,255,0.5);
-    }
+     display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent, aqua);
+  cursor: pointer;
+}
+    
 
     .nav-link {
       list-style: none;
@@ -399,12 +401,13 @@
       text-align: center;
       color:white;
       padding: 0 1rem;
-      backdrop-filter:blur(0.5px);
+    
+
     }
 
     .article-text h2 {
-      
-      font-size: 1.8rem;
+      font-weight: bolder;
+      font-size:2rem;
       font-weight: 600;
       line-height: 1.3;
       margin: 0;
@@ -412,29 +415,26 @@
 
     /* ARTICLE BODY */
     .article-body p {
-     
+      
       text-align: justify;
       line-height: 1.6;
       color: #000000;
     }
     
-    .article-body .Heading p{
-      font-size: large;
+    .article-body .Heading p {
+      font-size :larger;
+     text-align: justify;
+     line-height: 1.4;
+     margin-top: 0.8em;
+     
+
    
     
       
 
     }
     /* Dropcap */
-    .article-body .Heading p:first-letter {
-      font-size: 2rem;
-      font-weight: bold;
-      float: left;
-      line-height:0.5;
-      color:blue;
-    
-    
-    }
+  
     .article-body .notation h1{
 font-size:15px;
 font-weight:800;
@@ -900,7 +900,7 @@ A "Wormhole" is a theoretical passage that connects two separate regions of spac
     <p>
      In 2022, researchers from Caltech, Google, Fermilab, and others made headlines by using  Google's quantum computer, Sycamore, to simulate a( toy model of a wormhole) kind of baby wormhole .While no real holes in spacetime were created, this experiment marked a major milestone in the field of quantum simulation and theoretical physics.To be clear, they didn't create a real wormhole. But they simulated a simplified version of one.The team used a theoretical model known as the Sachdev Ye Kitaev (SYK) system, which has deep connections to black hole physics and quantum gravity.In their setup, they encoded a bit of quantum information a qubit into one part of an entangled quantum system. That qubid later reappeared in another part, simulating how information might transverse a wormhole. Although this resembles quantum teleportation, the experiment was also inspired by a theoretical idea called the ER=EPR conjecture. 
  EP=EPR  is a theory that suggests wormholes (Einstein Rosen bridges, ER) and quantum entanglement (EPR-named after Einstein ,Podolsky, and Rosen again)might  actually be two sides of the same coin. Basically, it says if two parts are entangled, they might be connected by a sort of microscopic wormhole. The experiment with Sycamore didn't prove this ,but it did demonstrated that  quantum computers can simulate it's predicted behavior, offering a rare and valuable opportunity to test aspects of quantum gravity in a lab setting. That's groundbreaking, considering that quantum gravity -an attempt to unify gravity with quantum mechanics remains one of the biggest unsolved puzzles in physics. 
-<div class="Heading"><strong><p>Why Quantum Wormhole Simulations Matter? :</p></strong></div>
+<div class="Heading"><strong><p>Why Quantum Wormhole Simulations Matter?:</p></strong></div>
 <p>Firstly, quantum simulations like this bridge gap between quantum mechanics( which exlains particles and forces on the smallest scales) and general relativity (which explains gravity), two fundamental theories that currently don't align. If we can simulate aspects of gravity using controllable quantum systems, we may begin to test and refine theories that have previously existed only on chalkboards and in abstract mathematics.
   <br><br> Secondly, these experiments showcase the evolving power of quantum computers. These simulations are a proof of concept that quantum computers can be used for more than just factoring large numbers or optimizing logistics. Once seen mainly as tools for code breaking or solving optimization problems, quantum devices are now stepping into the realm of fundamental physics helping Scientists explore the nature of spacetime itself.
 </p>
