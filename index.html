@@ -486,19 +486,36 @@ nav {
   margin-top: 2rem;
 }
 
+
+
 .stat-item {
+  display: flex;                 /* FIX */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #222;                   /* FIX: force visible color */
+  text-decoration: none;  
   background: rgba(0, 255, 255, 0.05);
   padding: 1rem;
   border-radius: 12px;
   text-align: center;
-  border: 1px solid rgba(0, 255, 255, 0.2);
+  border: 1px solid rgba(0, 255, 255, 0.2);       /* remove underline */
 }
 
 .stat-item i {
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: #008b8b;
   display: block;
-  margin-bottom: 0.5rem;
+}
+
+.stat-item small {
+  font-size: 0.75rem;
+  color: #555;
+}
+.stat-item:hover {
+  background: rgba(0, 255, 255, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2);
 }
 
 .stat-item span {
@@ -1318,11 +1335,14 @@ nav {
           <span>Students</span>
           <small>view</small>
         </a>
-        <a href="lab.html" class="stat-item">
-          <i class='bx bx-flask'></i>
-          <span>Lab assistant</span>
-          <small>view</small>
-        </a>
+          <a href="lab.html" class="stat-item">
+ <i class="bx bxs-flask"></i>
+
+  <span>Lab Assistant</span>
+  <small>view</small>
+</a>
+
+
         <a href="faculty.html" class="stat-item">
           <i class='bx bx-group'></i>
           <span>Expert Faculty</span>
