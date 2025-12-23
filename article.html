@@ -376,26 +376,25 @@
     }
 
     /* HERO */
-    .article-hero {
-      position: relative;
-      width: 100%;
-      height:300%;
-      border-radius: 16px;
-      overflow: hidden;
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      
-    }
+  .article-hero {
+  background-color: #b8a5b3;
+  position: relative;
+  min-height: 300px;
+  max-width:100%;
+  border-radius: 16px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
 
-    .article-hero .overlay {
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0,0,0,0.75));
-      
-    }
-
+.article-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(9, 9, 9, 0.4), rgba(0,0,0,0.75));
+}
     .article-text {
       position: relative;
       text-align: center;
@@ -421,21 +420,21 @@
       color: #000000;
     }
     
-    .article-body .Heading p {
-      font-size :larger;
-     text-align: justify;
-     line-height: 1.4;
-     margin-top: 0.8em;
-     
-
-   
-    
-      
-
-    }
-    /* Dropcap */
+   .Heading h1 {
+  font-size: 1.2rem;
+  line-height: 1.65;
+  margin: 0.8em auto 1.2em;
+  max-width: 72ch;          /* perfect reading width */
+  color: #181bb4;
+  text-align: justify;
+  hyphens: auto;
   
-    .article-body .notation h1{
+}
+
+
+
+  
+.article-body .notation h1{
 font-size:15px;
 font-weight:800;
 justify-content: center;
@@ -590,6 +589,11 @@ color: green;
     <ul class="nav-link" id="nav-links">
       
       <li><a href="index.html#Home"><i class="bx bxs-home"></i> Home</a></li>
+       <li>
+          <a href="index.html#dept-glimpse"
+            ><i class='bx  bx-happy-beaming'></i>  Department at a Glance</a
+          >
+        </li>
       <li><a href="#Article"><i class="bx bx-file"></i> Index</a></li>
       <li><a href="index.html#Editorial-board"><i class="bx bxs-user"></i> Editorial Board</a></li>
       <li><a href="index.html#achievements"><i class="bx bxs-trophy"></i> Achievements</a></li>
@@ -698,7 +702,7 @@ universe </h3>
 
   <div class="article-body">
 
-    <div class="Heading"><strong><p>Introduction:</p></strong></div>
+    <div class="Heading"><h1>Introduction:</h1></div>
     <p>
       In classical physics, it is often possible to predict the future behaviour of a system with 
   great accuracy. However, when we examine the universe from a quantum mechanical 
@@ -722,7 +726,7 @@ universe </h3>
   the naked eye, bridging the gap between microscopic physics and the macroscopic world.
     </p>
 
-    <div class="Heading"><strong><p>What is Quantum Tunnelling?</p></strong></div>
+    <div class="Heading"><h1>What is Quantum Tunnelling?</h1></div>
     <p>
       According to classical mechanics, a particle with energy <em>E</em> cannot cross a potential 
   barrier of height <em>V₀</em> if <em>E &lt; V₀</em>. For example, an electron inside a solid 
@@ -734,7 +738,7 @@ universe </h3>
   the wave function does not abruptly drop to zero at the barrier. Instead, it decays 
   gradually inside the barrier, leading to a small but non-zero probability that the particle 
   can appear on the other side. This phenomenon is called 
-  <strong>quantum tunnelling</strong>.<br><br>
+  quantum tunnelling.<br><br>
 
   Quantum tunnelling plays a crucial role in numerous natural and technological processes. 
   It enables nuclear fusion inside stars, allows electrons to move between atoms in 
@@ -743,7 +747,8 @@ universe </h3>
   technologies that shape our modern world simply would not exist.
 </p>
 
-   <div class="Heading"><strong><p>Macroscopic quantum tunneling</p></strong></div>
+   <div class="Heading">
+    <h1>Macroscopic quantum tunneling :</h1></div>
 
 <p>
 Quantum tunnelling is also seen on the macroscopic level using a special circuit known as 
@@ -840,7 +845,7 @@ reaching implications for both fundamental physics and emerging quantum technolo
       <div class="figure-label"><strong>Fig 2:</strong> Nobel Prize in Physics 2025 , Source:<a href="ndtv.com">ndtv.com</a> </div>
     </div>
 <div class="Heading">
-  <strong><p>References</p></strong>
+  <h1>References</h1>
 </div>
 
 <ol class="references-list">
@@ -893,25 +898,26 @@ reaching implications for both fundamental physics and emerging quantum technolo
       <p>John Mailthot</p></i>
     </div>
 
-    <div class="Heading"><strong><p>Introduction:</p></strong></div>
+    <div class="Heading"><h1>Introduction:</h1></div>
     <p>
 A "Wormhole" is a theoretical passage that connects two separate regions of spacetime, like a tunnel or bridge through a mountain.In theoretical physics, a wormhole is a solution to Einstein's equation of General Relativity that connects two separate points in spacetime.Think of a tunnel with two mouths, each located at different locations or even different times in the universe. Theoretically, you could enter one mouth and come out the other,skipping vast distances or timelines.<br> While theoretically possible solutions to physical equations, wormholes have been never observed or detected in the real universe. Wormholes might not just be figments of imagination or products of far future physics anymore. Because Recent advances in quantum computing and simulation suggest that we might be able to model, and even mimic, aspects of wormholes right here in our laboratories. Now before you get too excited about teleporting to another galaxy, here's the catch. Wormholes, as far as we know, are incredibly unstable.They'd collapse almost immediately after forming. Scientists believe that in order to keep one open, you'd need something called exotic matter -a hypothetical type of matter with negative energy density and pressure. That kind of stuff hasn't been discovered yet.So for now, real wormhole travel is still off the table.
-    <div class="Heading"><strong><p>Baby Wormhole on a Quantum Computer:</p></strong></div>
+    <div class="Heading"><h1>Baby Wormhole on a Quantum Computer:</h1></div>
     <p>
      In 2022, researchers from Caltech, Google, Fermilab, and others made headlines by using  Google's quantum computer, Sycamore, to simulate a( toy model of a wormhole) kind of baby wormhole .While no real holes in spacetime were created, this experiment marked a major milestone in the field of quantum simulation and theoretical physics.To be clear, they didn't create a real wormhole. But they simulated a simplified version of one.The team used a theoretical model known as the Sachdev Ye Kitaev (SYK) system, which has deep connections to black hole physics and quantum gravity.In their setup, they encoded a bit of quantum information a qubit into one part of an entangled quantum system. That qubid later reappeared in another part, simulating how information might transverse a wormhole. Although this resembles quantum teleportation, the experiment was also inspired by a theoretical idea called the ER=EPR conjecture. 
  EP=EPR  is a theory that suggests wormholes (Einstein Rosen bridges, ER) and quantum entanglement (EPR-named after Einstein ,Podolsky, and Rosen again)might  actually be two sides of the same coin. Basically, it says if two parts are entangled, they might be connected by a sort of microscopic wormhole. The experiment with Sycamore didn't prove this ,but it did demonstrated that  quantum computers can simulate it's predicted behavior, offering a rare and valuable opportunity to test aspects of quantum gravity in a lab setting. That's groundbreaking, considering that quantum gravity -an attempt to unify gravity with quantum mechanics remains one of the biggest unsolved puzzles in physics. 
-<div class="Heading"><strong><p>Why Quantum Wormhole Simulations Matter?:</p></strong></div>
+<div class="Heading">
+  <h1>Why Quantum Wormhole Simulations Matter?:</h1></div>
 <p>Firstly, quantum simulations like this bridge gap between quantum mechanics( which exlains particles and forces on the smallest scales) and general relativity (which explains gravity), two fundamental theories that currently don't align. If we can simulate aspects of gravity using controllable quantum systems, we may begin to test and refine theories that have previously existed only on chalkboards and in abstract mathematics.
   <br><br> Secondly, these experiments showcase the evolving power of quantum computers. These simulations are a proof of concept that quantum computers can be used for more than just factoring large numbers or optimizing logistics. Once seen mainly as tools for code breaking or solving optimization problems, quantum devices are now stepping into the realm of fundamental physics helping Scientists explore the nature of spacetime itself.
 </p>
-<div class="Heading"><strong><p>Limits and Misconceptions: No Real Spaceships Yet :</p></strong></div>
+<div class="Heading"><h1>Limits and Misconceptions: No Real Spaceships Yet :</h1></div>
 <p>The experiment was conducted with only a few qubits and was based on a highly simplified model. Real spacetime is vastly more complex, and again, just to be super clear: we didn't open a wormhole. We didn't send a scapeship or even a photon across the galaxy. We sent a qubit through a simulation. But still baby steps. Many physicists caution that While the analogy between quantum teleportation and wormholes is mathematically intriguing, it may not generalize to realistic physical scenarios. In short, we're exploring shadows of wormholes not the real thing.
 </p>
  <div style="text-align:center; margin: 30px 0;"><img src="hole.jpg" alt="worm-hole">
       <div class="figure-label"><strong>Fig 1:</strong> Visual representation of worm-hole, Source:<a href="https://www.astronomy.com/science/what-are-wormholes-an-astrophysicist-explains-these-shortcuts-through-space/">astronomy.com</a> </div>
     </div>
 <div class="Heading">
-  <strong><p>References</p></strong>
+  <h1>References</h1>
 </div>
 
 <ol class="references-list">
@@ -948,13 +954,13 @@ A "Wormhole" is a theoretical passage that connects two separate regions of spac
     <br>
     
 
-    <div class="Heading"><strong><p>Introduction:</p></strong></div>
+    <div class="Heading"><h1>Introduction:</h1></div>
     <p>
 Nanosensors are highly sensitive devices that can detect and measure physical, chemical or 
 biological information and converts it into a usable signal. 
 Environmental monitoring aims to measure various parameters in air, water and soil to 
 ensure the quality of the environment. 
-    <div class="Heading"><strong><p>Air Quality Monitoring:</p></strong></div>
+    <div class="Heading"><h1>Air Quality Monitoring:</h1></div>
     <p>
     Air pollution is one of the most environmental issues, causing 
 millions of premature deaths annually. Nanosensors can detect air pollutants like Nitrogen 
@@ -969,7 +975,7 @@ nitrous oxide (N<sub>2</sub>O) which contributes to global warming. Graphine bas
 detect these gases at extremely low concentration, high sensitivity and selectivity make 
 them ideal for environmental monitoring that track global climate parameters. </p>
 
-<div class="Heading"><strong><p>Water Quality monitoring: :</p></strong></div>
+<div class="Heading"><h1>Water Quality monitoring: :</h1></div>
 <p>Water pollution causes from industrial waste, pesticides, heavy 
 metals and microorganism. Water nanosensors can identity harmful substances like lead, 
 arsenic or bacteria in drinking water. 
@@ -977,7 +983,7 @@ arsenic or bacteria in drinking water.
 <div style="text-align:center; margin: 30px 0;"><img src="nano2.png" alt="Water Quality Monitor Using Nanosensor">
       <div class="figure-label"><strong>Fig 1:</strong> Water Quality Monitor Using Nanosensor </div>
     </div>
-<div class="Heading"><strong><p>Soil Quality Monitoring: </p></strong></div>
+<div class="Heading"><h1>Soil Quality Monitoring: </h1></div>
 <p>Nanosensors can detect pathogens in the soil. Soil Contaminates 
 from fertilizers, pesticides, and heavy metals affects crop productivity and food safety. 
  
@@ -995,14 +1001,14 @@ corrective actions. </p>
 <div style="text-align:center; margin: 30px 0;"><img src="nano3.png" alt="Soil Quality Monitor Using Nanosensor">
       <div class="figure-label"><strong>Fig 1:</strong> Soil Quality Monitor Using Nanosensor </div>
     </div>
-<div class="Heading"><strong><p>Advantages of Nanosensors: </p></strong></div>
+<div class="Heading"><h1>Advantages of Nanosensors: </h1></div>
  <p>
 <ol><li>Nanosensors can detect pollutants at very low concentrations. 
 </li> 
 <br>
 <li>Nanosensors provide immediate feedback during environmental emergencies.</li>  </ol></p>
 
-<div class="Heading"><strong><p>Conclusion:</p></strong></div>
+<div class="Heading"><h1>Conclusion:</h1></div>
 <p>Nanosensors is one of the most promising frontiers in environmental science and 
 technology and ability to detect pollutants for maintaining environmental safety and 
 sustainability. </p>
@@ -1028,7 +1034,7 @@ universe<br><br>
     <br>
     
 
-    <div class="Heading"><strong><p>Introduction:</p></strong></div>
+    <div class="Heading"><h1>Introduction:</h1></div>
     <p>
 If we want to search deep in the space,the basic physics is applied to all across the universe is 
 concept of space-time . space and time seem like two completely different things. Space 
@@ -1046,7 +1052,7 @@ through a medium called the “luminiferous aether”. Einstein’s theory of sp
 <br>
 eliminated the need for this concept, while his theory of general relativity offered a radically new 
 understanding of gravity.  
-    <div class="Heading"><strong><p>Why space-time introduced :</p></strong></div>
+    <div class="Heading"><h1>Why space-time introduced :</h1></div>
     <p>
    The need to unite space and time came from odd results in physics experiments about motion 
 and light. For example, the famous Michelson-Morley experiment showed that the speed of light 
@@ -1070,7 +1076,7 @@ of relativity.
 
 
 
-<div class="Heading"><strong><p>New Picture: Relativity and The ‘Fabric’ of Reality :</p></strong></div>
+<div class="Heading"><h1>New Picture: Relativity and The ‘Fabric’ of Reality :</h1></div>
 <p>Einstein's ideas created a new way to look at gravity. Earlier, Isaac Newton pictured gravity as 
 a "force" pulling  toward each other across space. Einstein suggested something more subtle 
 and beautiful: massive objects, like planets and stars, actually bend and curve the fabric of 
@@ -1086,7 +1092,7 @@ because the sun has curved space-time around it.
       <div class="figure-label"><strong>Fig 1:</strong> Bending of space febric due to heavy planet </div>
     </div>
 
-<div class="Heading"><strong><p>Light Cones, World-Lines, and Causality  </p></strong></div>
+<div class="Heading"><h1>Light Cones, World-Lines, and Causality  </h1></div>
 <p>Physicists use "light cones" to visualize space-time. Imagine an event (like a firecracker 
 explosion): the light from this event spreads out in all directions at speed c, forming a cone in 
 space-time diagrams. Everything inside the "future light cone" can potentially be influenced by 
@@ -1094,7 +1100,7 @@ this event; everything inside the "past light cone" could have affected it. Line
 space-time to represent the path of an object are called "world-lines." Every particle or person 
 traces out a unique world-line as they move through the universe. </p>
 
-<div class="Heading"><strong><p>The Big Picture: Black Holes, Cosmology, and Beyond :</p></strong></div>
+<div class="Heading"><h1>The Big Picture: Black Holes, Cosmology, and Beyond :</h1></div>
  <p>Space-time is central to some of the most fascinating questions in physics: Black Holes: These 
 mysterious objects are regions where space-time is so fiercely curved that nothing, not even 
 light, can escape. The Expanding Universe: The entire universe is described as a vast, 
@@ -1104,7 +1110,7 @@ Waves: Ripples in space-time, created by violent astrophysical events, were firs
 very structure of space-time on the smallest scales, searching for a quantum theory of gravity 
 and new, deeper laws. </p>
 
-<div class="Heading"><strong><p>Conclusion:</p></strong></div>
+<div class="Heading"><h1>Conclusion:</h1></div>
 <p>Space-time is not just a concept of physics it is the fabric of universe that exists in every part of 
 universe ,it is often referred as fabric of reality and visualised as four dimensional block ,it 
 describes anything happens in the universe along the propagation of electro magnetic waves 
@@ -1131,7 +1137,7 @@ to both our understanding of the cosmos and the technology we use each day.  </p
     <br>
     
 
-    <div class="Heading"><strong><p>Introduction:</p></strong></div>
+    <div class="Heading"><h1>Introduction:</h1></div>
     <p> Electricity is one of the most powerful and essential discoveries in human 
 history. It is the invisible force that lights up our homes powers industries, 
 drives communication and fuels modern technology. From the moment we 
@@ -1140,7 +1146,7 @@ before going to bed, electricity plays a crucial role in our daily lives. Withou
 it, the world as we know it would come to a standstill. This article explores 
 the nature of electricity, its generation, uses, importance, and challenges in 
 the modern world.</p>
-    <div class="Heading"><strong><p>What is Electricity? :</p></strong></div>
+    <div class="Heading"><h1>What is Electricity? :</h1></div>
     <p>
    Electricity is a form of energy resulting from the movement of charged 
 particles, mainly electrons, through a conductor such as a wire. It can be 
@@ -1161,7 +1167,7 @@ practical utility.
       <div class="figure-label"><strong>Fig 1:</strong> Simple circuit</div>
     </div>
 
-<div class="Heading"><strong><p>There are two main types of electricity: </p></strong></div>
+<div class="Heading"><h1>There are two main types of electricity: </h1></div>
  <p>
 <ol><li><strong> Electricity :</strong>This is the buildup of electric charge on the surface of 
 an object. You’ve likely experienced static electricity when you rub a 
@@ -1174,7 +1180,7 @@ conductor. It is the form of electricity that powers our homes and devices.
 </li>  </ol></p>
 
 
-<div class="Heading"><strong><p>How Electricity Is Generated: </p></strong></div>
+<div class="Heading"><h1>How Electricity Is Generated: </h1></div>
 <p>Electricity is not a primary energy source; it must be generated using other 
 sources of energy. Most electricity is produced in power plants where 
 mechanical energy is converted into electrical energy using generators. 
@@ -1207,7 +1213,7 @@ electricity.
 
 </p>
 
-<div class="Heading"><strong><p>Transmission and Distribution:</p></strong></div>
+<div class="Heading"><h1>Transmission and Distribution:</h1></div>
  <p>Once electricity is generated, it must be transported to where it’s needed. 
 This is done through a complex system known as the electrical grid. Here’s 
 how it works:
@@ -1230,7 +1236,7 @@ electricity to homes, schools, and businesses.
 <p>Maintaining a stable supply of electricity requires a balance between 
 demand (how much electricity people are using) and supply (how much is 
 being generated). This system is managed in real time by utility companies. </p> </p>
-<div class="Heading"><strong><p>Uses of Electricity:</p></strong></div>
+<div class="Heading"><h1>Uses of Electricity:</h1></div>
 <p>
   Electricity has countless uses in modern life. Some of the most common 
 include:
@@ -1257,7 +1263,7 @@ and tools.
 <p>The convenience and versatility of electricity have made it indispensable to 
 both economic development and personal comfort.</p>
 </p>
-<div class="Heading"><strong><p>The Future of Electricity: </p></strong></div>
+<div class="Heading"><h1>The Future of Electricity: </h1></div>
 <p>
 As the global population grows and technology advances, the demand for 
 electricity continues to rise. At the same time, there's a growing push to 
@@ -1308,7 +1314,7 @@ using solar panels and other local systems.
 efficient future. 
 
     </p>
-<div class="Heading"><strong><p>Conclusion:</p></strong></div>
+<div class="Heading"><h1>Conclusion:</h1></div>
 <p>Electricity is a remarkable form of energy that powers the modern world. 
 From its basic principles to its complex infrastructure, electricity enables 
 much of what we take for granted. As we look to the future, balancing our 
@@ -1351,12 +1357,10 @@ window.addEventListener("scroll", () => {
   });
 });
 </script>
-
-
-
     <footer class="footer">
       <div class="footer-container">
-        <p>&copy; 2025 Spectrum |👨‍💻 Developed by Jitu Moni Kalita</p>
+        <p>&copy; <strong>2025 Spectrum |👨‍💻 Developed by</strong> 
+          <br><strong>~ Jitu Moni Kalita</strong><br></p>
         <div class="footer-socials">
           <a href="https://github.com/jitumonikalita230" target="_blank"
             ><i class="bx bxl-github"></i
