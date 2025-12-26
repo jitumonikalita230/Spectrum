@@ -13,10 +13,17 @@
 
     <style>
       /* 1. Essential Reset to remove the "black portion" gaps */
+/* Add this to the very top of your CSS */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html, body {
+  /* This prevents any white/black space at the edges */
+  overflow-x: hidden;
+  width: 100%;
 }
       /* ---------- ROOT ---------- */
       :root {
