@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
@@ -12,19 +12,6 @@
     <title>Spectrum</title>
 
     <style>
-      /* 1. Essential Reset to remove the "black portion" gaps */
-/* Add this to the very top of your CSS */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  /* This prevents any white/black space at the edges */
-  overflow-x: hidden;
-  width: 100%;
-}
       /* ---------- ROOT ---------- */
       :root {
         --accent: #00ffff;
@@ -99,115 +86,119 @@ html, body {
         font-size: 1rem;
         text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
       }
-     
-
+      /*.spectrum {
+        display:;
+        align-items: center;
+        overflow-x:none;
+        scrollbar-width: none;
+        margin-bottom:0;
+      }
+      .spectrum img {
+        width: 70px;
+        height: 70px;
+        border-radius: 12px;
+        border: 2px solid rgba(0, 255, 255, 0.4);
+        background: rgba(255, 255, 255, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      /* ---------- NAVBAR ---------- */
+    /* ---------- Base Navbar ---------- */
+/* ---------- Base Navbar ---------- */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 5%;
-  background: rgb(0, 0, 0);
+ background-color: #000;
+  backdrop-filter: blur(15px);
 
-  border-bottom: 1px solid rgb(8, 8, 8);
+  padding: 0.8rem 2rem;
   position: sticky;
   top: 0;
-  z-index: 9999;
-  height: 70px; /* Consistent bar height */
+  z-index: 999;
 }
 
+/* ---------- Logo ---------- */
 .logo {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800;
-  color: var(--accent);
-  letter-spacing: 2px;
-  font-size: 1.4rem;
-}
-
-/* --- Desktop Styles --- */
-.nav-link {
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-link a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 500;
   display: flex;
   align-items: center;
-  gap: 8px;
-  transition: 0.3s;
-  opacity:1;
-}
-
-.nav-link a i {
-  color: white;
-  font-size: 1.1rem;
-}
-
-.nav-link a:hover {
-  opacity: 1;
-  transform: translateY(-2px);
-}
-
-/* --- Menu Button UI --- */
-.menu-btn {
-  display: none; /* Hidden on desktop */
-  flex-direction: column;
-  gap: 6px;
+  gap: 0.6rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent, aqua);
   cursor: pointer;
 }
 
-.menu-btn span {
-  width: 28px;
-  height:4px;
-  background: white;
+.logo i {
+  font-size: 1.6rem;
+}
+
+/* ---------- Links ---------- */
+.nav-link {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2rem;
+  transition: all 0.3s ease;
+  margin-left: auto;
+}
+
+.nav-link a {
+  color: var(--text-light, #fff);
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--accent, aqua);
   border-radius: 4px;
-  transition: var(--transition);
+  transition: width 0.3s ease;
 }
 
-/* --- Mobile Side Drawer UI --- */
-@media (max-width: 992px) {
-  .menu-btn {
-    display: flex;
-  }
-
-  .nav-link {
-    position: fixed;
-    top: 0;
-    right: -100%; /* Keeps it hidden off-screen */
-    width: 280px;
-    height: 100%;
-    background: rgba(10, 10, 10, 0.98);
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 100px 2rem;
-    gap: 1rem;
-    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
-    transition: var(--transition);
-  }
-
-  /* When the active class is added via JS */
-  .nav-link.active {
-    right: 0;
-  }
-
-  .nav-link a {
-    font-size: 1.1rem;
-    padding: 15px;
-    width: 100%;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-  }
-
-  /* Hamburger Animation to 'X' */
-  .menu-btn.open span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
-  .menu-btn.open span:nth-child(2) { opacity: 0; }
-  .menu-btn.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+.nav-link a:hover {
+  color: var(--accent, aqua);
 }
+
+.nav-link a:hover::after {
+  width: 100%;
+}
+
+/* ---------- Menu Button ---------- */
+.menu-btn {
+  display: none;
+  flex-direction:column;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu-btn div {
+  width: 28px;
+  height: 3px;
+  background: var(--text-light, #fff);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Hamburger animation */
+.menu-btn.open div:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+.menu-btn.open div:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
 /* ---------- Tablet breakpoint (iPad fix) ---------- */
 @media (max-width: 1024px) and (min-width: 769px) {
   nav {
@@ -231,61 +222,37 @@ nav {
 }
 
 /* ---------- Mobile Layout ---------- */
-@media (max-width: 770px) {
+@media (max-width: 768px) {
   .menu-btn {
     display: flex;
   }
 
   .nav-link {
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    
     position: fixed;
-    /* 1. Start it off-screen ABOVE the top bar */
-    top: -100%; 
+    top: 65px;
     left: 0;
     right: 0;
-    
-    /* 2. Set height to cover the screen or a specific portion */
-    height: 100vh; 
-    background: rgba(0, 0, 0, 0.98);
-    backdrop-filter: blur(5px);
-    padding-top: 100px; /* Space for the top bar */
-    gap: 1.rem;
-    
-    /* 3. Smooth transition */
-    transition: top 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-    z-index: 999;
+    height: 0;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.95);
+ 
+    padding: 0;
+    gap: 1.5rem;
+    transition: all 0.4s ease;
   }
 
-  /* 4. When active, bring it down to the top of the screen */
   .nav-link.active {
-    top: 0; 
+    height: calc(100vh - 65px);
+    padding: 2rem 0;
   }
 
   .nav-link a {
-    font-size: 1.2rem;
-    width: 80%;
-    text-align: center;
-    padding: 15px;
-    border-bottom: 1px solid rgb(12, 12, 12);
+    font-size: 1.1rem;
   }
 }
- @media (min-width: 768px) {
-      .nav-link {
-        position: static;
-        flex-direction: row;
-        width: auto;
-        height: auto;
-        background: transparent;
-        box-shadow: none;
-      }
-      .menu-btn { display: none; }
-      .nav-link a { font-size:1rem; }
-      .hero { height: 45vh; }
-    }
 
 /* ---------- HOME SECTION ---------- */
 .home-content {
@@ -486,7 +453,7 @@ nav {
 /* ---------- DEPARTMENT GLIMPSE ---------- */
 .dept-glimpse {
   padding: 5rem 2rem;
-  background:linear-gradient(rgb(250, 158, 174),rgb(158, 94, 105),360deg);
+  background: #fdfdfd;
   border-radius: 15px;
 }
 
@@ -497,7 +464,6 @@ nav {
   max-width: 1100px;
   margin: 0 auto;
   text-align: left;
-  border-radius: 5px;
 }
 
 .glimpse-text {
@@ -530,7 +496,7 @@ nav {
   justify-content: center;
   color: #222;                   /* FIX: force visible color */
   text-decoration: none;  
-  background: rgba(1, 12, 12, 0.05);
+  background: rgba(0, 255, 255, 0.05);
   padding: 1rem;
   border-radius: 12px;
   text-align: center;
@@ -539,13 +505,13 @@ nav {
 
 .stat-item i {
   font-size: 2rem;
-  color: #1b7777;
+  color: #008b8b;
   display: block;
 }
 
 .stat-item small {
   font-size: 0.75rem;
-  color: #150e0e;
+  color: #555;
 }
 .stat-item:hover {
   background: rgba(0, 255, 255, 0.1);
@@ -1231,25 +1197,50 @@ nav {
       </div>
     </header>
     <!-- ========== NAVBAR ========== -->
-   <nav>
-    <div class="logo">SPECTRUM</div>
-    <div class="menu-btn" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </div>
-    <ul class="nav-link" id="navLinks">
-       <li><a href="index.html#Home"><i class="bx bxs-home"></i> Home</a></li>
-       <li>
-          <a href="index.html#dept-glimpse"
-            ><i class='bx bx-camera'></i> Glimpse</a
+    <nav>
+       <div class="logo">Spectrum</div>
+      <div class="menu-btn" id="menu-btn">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <ul class="nav-link" id="nav-links">
+        <li>
+          <a href="#Home"><i class="bx bxs-home"></i> Home</a>
+        </li>
+   <li>
+          <a href="#dept-glimpse"
+            ><i class='bx  bx-camera'></i> Glimpse</a
           >
         </li>
-      <li> <a href="article.html"><i class="bx bxs-book-reader"></i>Article</a></li>
-      <li><a href="index.html#Editorial-board"><i class="bx bxs-user"></i> Editorial Board</a></li>
-      <li><a href="index.html#achievements"><i class="bx bxs-trophy"></i> Achievements</a></li>
-      <li><a href="index.html#photogallery"><i class="bx bxs-photo-album"></i> Photo Gallery</a></li>
-      <li><a href="index.html#Downloadsoftcopy"><i class="bx bxs-download"></i> PDF</a></li>
-    </ul>
-  </nav>
+        <li>
+          <a href="#Editorial-board"
+            ><i class='bx bxs-user'></i> Editorial Board</a
+          >
+        </li>
+       
+        <li>
+          <a href="#achievements"><i class="bx bxs-trophy"></i> Achievements</a>
+        </li>
+        <li>
+          <a href="#photogallery"
+            ><i class="bx bxs-photo-album"></i> Photo Gallery</a
+          >
+          
+        </li>
+        <li>
+          <a href="article.html"><i class="bx bxs-pen"></i> Articles</a>
+        </li>
+        <li>
+          <a href="#Downloadsoftcopy"
+            ><i class="bx bxs-download"></i> Download softcopy</a
+          >
+        </li>
+
+      </ul>
+    </nav>
+
     <!-- ========== HOME ========== -->
  <section class="home-content" id="Home">
   <div class="home-text">
@@ -1340,7 +1331,6 @@ nav {
       <p>The Department of Physics at Pandu College is a hub of scientific inquiry...</p>
       
       <div class="stats-grid">
-        
         <a href="faculty.html" class="stat-item">
           <i class='bx bx-group'></i>
           <span>Expert Faculty</span>
@@ -1358,6 +1348,7 @@ nav {
   <span>Lab Facility</span>
   <small>view</small>
 </a>
+
 
       </div>
     </div>
@@ -1642,27 +1633,43 @@ nav {
 
    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
+<script>
 
-  <script>
-   function toggleMenu() {
-  const nav = document.getElementById('navLinks');
-  const btn = document.querySelector('.menu-btn');
-  
-  nav.classList.toggle('active');
-  btn.classList.toggle('open');
+/*
+function checkConnection() {
+  const box = document.getElementById("offline-box");
+
+  if (navigator.onLine) {
+    box.style.display = "none";
+  } else {
+    box.style.display = "flex";
+  }
 }
 
-// Automatically close menu when a link is clicked
-document.querySelectorAll('.nav-link a').forEach(link => {
-  link.addEventListener('click', () => {
-    const nav = document.getElementById('navLinks');
-    const btn = document.querySelector('.menu-btn');
-    
-    nav.classList.remove('active');
-    btn.classList.remove('open');
+window.addEventListener("load", checkConnection);
+window.addEventListener("online", checkConnection);
+window.addEventListener("offline", checkConnection);*/
+</script>
+
+    <script>
+   const menuBtn = document.getElementById("menu-btn");
+const navLinks = document.getElementById("nav-links");
+const navItems = navLinks.querySelectorAll("a"); // Select all links inside nav-links
+
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+  menuBtn.classList.toggle("open");
+});
+
+// Close menu when any nav link is clicked
+navItems.forEach(item => {
+  item.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+    menuBtn.classList.remove("open");
   });
 });
-  </script>
+
+    </script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const track = document.querySelector(".slider-track");
