@@ -1,118 +1,459 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Students - Spectrum</title>
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            padding: 40px 15px;
-            font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #b8a5b3, #f6eff3, #f1f9f9);
-            color: #333;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Spectrum | Department Batches</title>
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-        h1 {
-            text-align: center;
-            margin-bottom: 50px;
-            color: #000;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+    :root {
+         
+        --accent: #00ffff;
+        --pink: #ff7ce5;
+        --yellow: #f4f482;
+        --bg-dark: black;
+        --text-light: #f9f9f9;
+        --text-dark: #111;
+        --section-bg: #fff;
+      
 
-        /* --- Group Section Layout --- */
-        .group-section {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin-bottom: 50px;
-            border: 1px solid rgba(0, 255, 255, 0.3);
-        }
+      --accent: #00ffff;
+      --bg-dark: #0a0a0a;
+      --card-bg: #ffffff;
+      --text-main: #2d3436;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-        .year-header {
-            background: #000;
-            color: #f6fbfb;
-            padding: 15px 20px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
-        .group-photo {
-            height: 100%;
-            width: 100%;
-            display: block;
-            border-bottom: 5px solid #00ffff;
-        }
+    body {
+        margin: 0;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #b8a5b3, #f6eff3, #f1f9f9);
+        color: var(--text-light);
+        scroll-behavior: smooth;
+      }
 
-        .names-area {
-            padding: 25px;
-            background: #fff;
-            text-align: center;
-        }
+    /* ----------- MOBILE-FIRST NAV ----------- */
+    nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  background: rgb(0, 0, 0);
 
-        .names-area p {
-            line-height: 1.8;
-            font-size: 1.05rem;
-            color: #444;
-            margin: 0;
-        }
+  border-bottom: 1px solid rgb(8, 8, 8);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 70px; /* Consistent bar height */
+}
 
-        .names-area strong {
-            color: #000;
-            display: block;
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            opacity: 0.6;
-        }
+.logo {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: 2px;
+  font-size: 1.4rem;
+}
 
-        /* Back Button */
-        .back-home {
-            display: block;
-            width: fit-content;
-            margin: 20px auto;
-            text-decoration: none;
-            color: #000;
-            font-weight: bold;
-            background: #00ffff;
-            padding: 12px 30px;
-            border-radius: 50px;
-            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
-        }
-    </style>
+/* --- Desktop Styles --- */
+.nav-link {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.3s;
+  opacity:1;
+}
+
+.nav-link a i {
+  color: white;
+  font-size: 1.1rem;
+}
+
+.nav-link a:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* --- Menu Button UI --- */
+.menu-btn {
+  display: none; /* Hidden on desktop */
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.menu-btn span {
+  width: 28px;
+  height:4px;
+  background: white;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+/* --- Mobile Side Drawer UI --- */
+@media (max-width: 992px) {
+  .menu-btn {
+    display: flex;
+  }
+
+  .nav-link {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Keeps it hidden off-screen */
+    width: 280px;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.98);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 100px 2rem;
+    gap: 1rem;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+    transition: var(--transition);
+  }
+
+  /* When the active class is added via JS */
+  .nav-link.active {
+    right: 0;
+  }
+
+  .nav-link a {
+    font-size: 1.1rem;
+    padding: 15px;
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  /* Hamburger Animation to 'X' */
+  .menu-btn.open span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+  .menu-btn.open span:nth-child(2) { opacity: 0; }
+  .menu-btn.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+}
+/* ---------- Tablet breakpoint (iPad fix) ---------- */
+@media (max-width: 1024px) and (min-width: 769px) {
+  nav {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .nav-link {
+    gap: 1.2rem;
+    justify-content: center;
+    margin-left: 0;
+    flex: 1;
+  }
+
+  .nav-link a {
+    font-size: 1rem;
+  }
+}
+
+/* ---------- Mobile Layout ---------- */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: flex;
+  }
+
+  .nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    
+    position: fixed;
+    /* 1. Start it off-screen ABOVE the top bar */
+    top: -100%; 
+    left: 0;
+    right: 0;
+    
+    /* 2. Set height to cover the screen or a specific portion */
+    height: 100vh; 
+    background: rgba(0, 0, 0, 0.98);
+    backdrop-filter: blur(5px);
+    padding-top: 100px; /* Space for the top bar */
+    gap: 1.rem;
+    
+    /* 3. Smooth transition */
+    transition: top 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 999;
+  }
+
+  /* 4. When active, bring it down to the top of the screen */
+  .nav-link.active {
+    top: 0; 
+  }
+
+  .nav-link a {
+    font-size: 1.2rem;
+    width: 80%;
+    text-align: center;
+    padding: 15px;
+    border-bottom: 1px solid rgb(12, 12, 12);
+  }
+}
+ @media (min-width: 768px) {
+      .nav-link {
+        position: static;
+        flex-direction: row;
+        width: auto;
+        height: auto;
+        background: transparent;
+        box-shadow: none;
+      }
+      .menu-btn { display: none; }
+      .nav-link a { font-size:1.rem; }
+      .hero { height: 45vh; }
+    }
+
+
+    /* ----------- HERO SECTION ----------- */
+    .hero {
+      height: 35vh;
+      min-height: 250px;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                  url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&q=80&w=1000');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1.8rem, 8vw, 3rem);
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    /* ----------- BATCH CARDS ----------- */
+    .container {
+      padding: 20px 15px 80px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .group-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      margin-bottom: 30px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .card-header {
+      background: var(--bg-dark);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .card-header i { color: var(--accent); font-size: 1.3rem; }
+
+    .group-img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit:fill;
+      display: block;
+      border-bottom: 4px solid var(--accent);
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-content h3 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: #888;
+      letter-spacing: 1.5px;
+      margin: 0 0 10px 0;
+    }
+
+    .card-content p {
+      margin: 0;
+      line-height: 1.6;
+      font-size: 1rem;
+      color: #444;
+    }
+
+    /* ----------- BACK BUTTON ----------- */
+    .btn-fixed {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border-radius: 30px;
+  background: linear-gradient(45deg, var(--pink), var(--accent));
+  border: none;
+  color: #000;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  margin-left: 30px;
+    }
+    .btn-fixed:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px var(--accent), 0 0 40px var(--pink);
+}
+
+
+    /* ----------- DESKTOP ADJUSTMENTS ----------- */
+    @media (min-width: 768px) {
+      .nav-link {
+        position: static;
+        flex-direction: row;
+        width: auto;
+        height: auto;
+        background: transparent;
+        box-shadow: none;
+      }
+      .menu-btn { display: none; }
+      .nav-link a { font-size: 0.9rem; }
+      .hero { height: 45vh; }
+    }
+     footer {
+        background: #000;
+        color: var(--text-light);
+        text-align: center;
+        padding: 20px 10px;
+        box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.2);
+      }
+
+      .footer-socials {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .footer-socials a {
+        color: var(--accent);
+        font-size: 1.5rem;
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+
+      .footer-socials a:hover {
+        color: #fff;
+        transform: scale(1.2);
+      }
+  </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Faculty Member's</h1>
-
-    <div class="group-section">
-        <div class="year-header"><i class='bx bxs-graduation'></i>Faculty Member's</div>
-        <img src="faculty.png" alt="faculty member's" class="group-photo">
-        <div class="names-area">
-            <strong>Names:</strong>
-            <p>Dr. Jayanta Hazarika, Dr. Pranita Das, Dr. Bandana Das, Dr. Jhuma Biswas, Dhritimaan Gogoi
-
-<br>(From left to right)<br></p>
-        </div>
+  <nav>
+    <div class="logo">SPECTRUM</div>
+    <div class="menu-btn" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
     </div>
+    <ul class="nav-link" id="navLinks">
+       <li><a href="index.html#Home"><i class="bx bxs-home"></i> Home</a></li>
+       <li>
+          <a href="index.html#dept-glimpse"
+            ><i class='bx bx-camera'></i> Glimpse</a
+          >
+        </li>
+      
+      <li><a href="index.html#Editorial-board"><i class="bx bxs-user"></i> Editorial Board</a></li>
+      <li><a href="index.html#achievements"><i class="bx bxs-trophy"></i> Achievements</a></li>
+      <li><a href="index.html#photogallery"><i class="bx bxs-photo-album"></i> Photo Gallery</a></li>
+      <li><a href="index.html#Downloadsoftcopy"><i class="bx bxs-download"></i> PDF</a></li>
+    </ul>
+  </nav>
 
+  <header class="hero">
+    <h1>Expart <br>
+    Faculty</h1>
+  </header>
+
+  <main class="container">
     
+    <article class="group-card">
+      <div class="card-header">
+        <i class='bx bxs-graduation'></i> Faculty
+      </div>
+      <img src="faculty.png" alt="Batch 2022" class="group-img">
+      <div class="card-content">
+        <h3>Name</h3>
+        <p>Dr. Jayanta Hazarika, Dr. Pranita Das, Dr. Bandana Das, Dr. Jhuma Biswas, Dhritimaan Gogoi</p>
+      </div>
+    </article>
 
-    <a href="index.html#dept-glimpse" class="back-home">Back to Magazine</a>
-</div>
+   
+ 
+
+  <a href="index.html#dept-glimpse" class="btn-fixed">
+    <i class='bx bxs-left-arrow-alt'></i> BACK TO MAGAZINE
+  </a>
+   </main>
+ <footer class="footer">
+      <div class="footer-container">
+        <p>&copy; <strong>2025 Spectrum |👨‍💻 Developed by</strong> 
+          <br><strong>~ Jitu Moni Kalita</strong><br></p>
+        <div class="footer-socials">
+          <a href="https://github.com/jitumonikalita230" target="_blank"
+            ><i class="bx bxl-github"></i
+          ></a>
+          <a href="mailto:jitumoni2005@gmail.com"
+            ><i class="bx bxl-gmail"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/jitumoni-kalita-b14a04308?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BuewoqLfZQSS8B6p9CVlZyQ%3D%3D"
+            ><i class="bx bxl-linkedin"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+  <script>
+   function toggleMenu() {
+  const nav = document.getElementById('navLinks');
+  const btn = document.querySelector('.menu-btn');
+  
+  nav.classList.toggle('active');
+  btn.classList.toggle('open');
+}
+
+// Automatically close menu when a link is clicked
+document.querySelectorAll('.nav-link a').forEach(link => {
+  link.addEventListener('click', () => {
+    const nav = document.getElementById('navLinks');
+    const btn = document.querySelector('.menu-btn');
+    
+    nav.classList.remove('active');
+    btn.classList.remove('open');
+  });
+});
+  </script>
 
 </body>
 </html>

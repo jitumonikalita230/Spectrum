@@ -13,6 +13,11 @@
   <title>Spectrum</title>
 
   <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
     :root {
       --accent: #00ffff;
       --pink: #ff7ce5;
@@ -36,116 +41,192 @@
     }
 
     /* ---------------- NAVBAR ---------------- */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.8rem 2rem;
-      background: rgb(0, 0, 0);
-      backdrop-filter: blur(12px);
-      
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-
-    .logo {
-     display: flex;
+   nav {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 0.6rem;
+  padding: 0 5%;
+  background: rgb(0, 0, 0);
+
+  border-bottom: 1px solid rgb(8, 8, 8);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 70px; /* Consistent bar height */
+}
+
+.logo {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: 2px;
   font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--accent, aqua);
+}
+
+/* --- Desktop Styles --- */
+.nav-link {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.3s;
+  opacity: 0.8;
+}
+
+.nav-link a i {
+  color: white;
+  font-size: 1.1rem;
+}
+
+.nav-link a:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* --- Menu Button UI --- */
+.menu-btn {
+  display: none; /* Hidden on desktop */
+  flex-direction: column;
+  gap: 6px;
   cursor: pointer;
 }
+
+.menu-btn span {
+  width: 28px;
+  height:4px;
+  background: white;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+/* --- Mobile Side Drawer UI --- */
+@media (max-width: 992px) {
+  .menu-btn {
+    display: flex;
+  }
+
+  .nav-link {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Keeps it hidden off-screen */
+    width: 280px;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.98);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 100px 2rem;
+    gap: 1rem;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+    transition: var(--transition);
+  }
+
+  /* When the active class is added via JS */
+  .nav-link.active {
+    right: 0;
+  }
+
+  .nav-link a {
+    font-size: 1.1rem;
+    padding: 15px;
+    width: 100%;
+    border-bottom: 1px solid rgba(7, 7, 7, 0.995);
+  }
+
+  /* Hamburger Animation to 'X' */
+  .menu-btn.open span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+  .menu-btn.open span:nth-child(2) { opacity: 0; }
+  .menu-btn.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+}
+/* ---------- Tablet breakpoint (iPad fix) ---------- */
+@media (max-width: 1024px) and (min-width: 769px) {
+  nav {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .nav-link {
+    gap: 1.2rem;
+    justify-content: center;
+    margin-left: 0;
+    flex: 1;
+  }
+
+  .nav-link a {
+    font-size: 1rem;
+  }
+}
+
+/* ---------- Mobile Layout ---------- */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: flex;
+  }
+
+  .nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     
+    position: fixed;
+    /* 1. Start it off-screen ABOVE the top bar */
+    top: -100%; 
+    left: 0;
+    right: 0;
+    
+    /* 2. Set height to cover the screen or a specific portion */
+    height: 100vh; 
+    background: rgba(0, 0, 0, 0.98);
+    backdrop-filter: blur(15px);
+    padding-top: 100px; /* Space for the top bar */
+    gap: 1.rem;
+    
+    /* 3. Smooth transition */
+    transition: top 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 999;
+  }
 
-    .nav-link {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-    }
+  /* 4. When active, bring it down to the top of the screen */
+  .nav-link.active {
+    top: 0; 
+  }
 
-    .nav-link a {
-      color: var(--text-light);
-      font-weight: 600;
-      display: inline-block;
-      text-decoration: none;
-      position: relative;
-      transition: 0.3s;
-    }
-
-    .nav-link a:hover {
-      color: var(--accent);
-    }
-
-    .nav-link a::after {
-      content: "";
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -4px;
-      left: 0;
-      background: var(--accent);
-      transition: 0.3s ease;
-    }
-
-    .nav-link a:hover::after {
-      width: 100%;
-    }
-
-    /* ----------- HAMBURGER ----------- */
-    .menu-btn {
-      display: none;
-      flex-direction: column;
-      gap: 6px;
-      cursor: pointer;
-    }
-
-    .menu-btn div {
-      width: 28px;
-      height: 3px;
-      background: var(--text-light);
-      border-radius: 5px;
-      transition: 0.3s ease;
-    }
-
-    .menu-btn.open div:nth-child(1) {
-      transform: rotate(45deg) translate(6px, 6px);
-    }
-    .menu-btn.open div:nth-child(2) {
-      opacity: 0;
-    }
-    .menu-btn.open div:nth-child(3) {
-      transform: rotate(-45deg) translate(6px, -6px);
-    }
-
-    /* ----------- MOBILE NAV ----------- */
-    @media(max-width: 768px) {
-      .menu-btn { display: flex; }
-
+  .nav-link a {
+    font-size: 1.2rem;
+    width: 80%;
+    text-align: center;
+    padding: 15px;
+    border-bottom: 1px solid rgb(10, 10, 10);
+  }
+}
+ @media (min-width: 768px) {
       .nav-link {
-        position: fixed;
-        inset:64px 12px auto 12px;
-        top: 65px;
-        left: 0;
-        right: 0;
-        height: 0;
-        overflow: hidden;
-        background: rgb(12, 0, 0);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        gap: 1.5rem;
-        text-align: center;
-        padding:0;
-        transition: 0.4s ease;
+        position: static;
+        flex-direction: row;
+        width: auto;
+        height: auto;
+        background: transparent;
+        box-shadow: none;
       }
-
-      .nav-link.active {
-        height: calc(100vh - 65px);
-        padding: 2rem 0;
-      }
+      .menu-btn { display: none; }
+      .nav-link a { font-size:1rem; }
+      .hero { height: 45vh; }
     }
+
 
      .article-head{
       height: 55vh;
@@ -488,7 +569,7 @@ color: green;
   font-weight:700 ;
   line-height: 1.6;
   color:black; 
-  /* good for dark backgrounds */
+ 
 }
 
 /* Each Reference Item */
@@ -579,27 +660,23 @@ color: green;
 <body>
 
   <!-- NAVBAR -->
-  <nav>
-    <div class="logo">Spectrum</div>
-
-    <div class="menu-btn" id="menu-btn">
-      <div></div><div></div><div></div>
+<nav>
+    <div class="logo">SPECTRUM</div>
+    <div class="menu-btn" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
     </div>
-
-    <ul class="nav-link" id="nav-links">
-      
-      <li><a href="index.html#Home"><i class="bx bxs-home"></i> Home</a></li>
+    <ul class="nav-link" id="navLinks">
+       <li><a href="index.html#Home"><i class="bx bxs-home"></i> Home</a></li>
        <li>
           <a href="index.html#dept-glimpse"
-            ><i class='bx  bx-happy-beaming'></i>  Department at a Glance</a
+            ><i class='bx bx-camera'></i> Glimpse</a
           >
         </li>
       <li><a href="#Article"><i class="bx bx-file"></i> Index</a></li>
       <li><a href="index.html#Editorial-board"><i class="bx bxs-user"></i> Editorial Board</a></li>
       <li><a href="index.html#achievements"><i class="bx bxs-trophy"></i> Achievements</a></li>
       <li><a href="index.html#photogallery"><i class="bx bxs-photo-album"></i> Photo Gallery</a></li>
-      <li><a href="index.html#Downloadsoftcopy"><i class="bx bxs-download"></i> Download Softcopy</a></li>
-      
+      <li><a href="index.html#Downloadsoftcopy"><i class="bx bxs-download"></i> PDF</a></li>
     </ul>
   </nav>
   <section class="article-head">
@@ -1394,20 +1471,24 @@ window.addEventListener("offline", checkConnection);*/
 </script>
 
 <script>
-  const menuBtn = document.getElementById("menu-btn");
-  const navLinks = document.getElementById("nav-links");
+  function toggleMenu() {
+  const nav = document.getElementById('navLinks');
+  const btn = document.querySelector('.menu-btn');
+  
+  nav.classList.toggle('active');
+  btn.classList.toggle('open');
+}
 
-  menuBtn.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    menuBtn.classList.toggle("open");
+// Automatically close menu when a link is clicked
+document.querySelectorAll('.nav-link a').forEach(link => {
+  link.addEventListener('click', () => {
+    const nav = document.getElementById('navLinks');
+    const btn = document.querySelector('.menu-btn');
+    
+    nav.classList.remove('active');
+    btn.classList.remove('open');
   });
-
-  document.querySelectorAll(".nav-link a").forEach(link => {
-    link.addEventListener("click", () => {
-      navLinks.classList.remove("active");
-      menuBtn.classList.remove("open");
-    });
-  });
+});
 </script>
 <!-- MATHJAX FIXED CONFIG -->
 <script>
