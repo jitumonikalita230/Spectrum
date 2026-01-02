@@ -1048,84 +1048,132 @@ nav {
 #Downloadsoftcopy, #Library, #photogallery, #achievements, #Editorial-board, #dept-glimpse {
   background: linear-gradient(135deg, #f6bbe5, #f6eff3, #c4f1f1);
 }/* Container sizing */
+/* Container & Section Base */
 .library-section {
-  padding: 40px 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 60px 20px;
+  background-color: #ffffff;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1a202c;
+  margin-bottom: 40px;
+}
 
-
-/* Responsive Grid Layout */
+/* Grid Logic */
 .library-grid {
   display: grid;
-  gap: 20px;
+  gap: 24px;
   max-width: 1000px;
   margin: 0 auto;
-  /* 1 column by default (mobile) */
-  grid-template-columns: 1fr; 
+  /* Auto-responsive: 1 col on mobile, 2 on tablet+ */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-/* Tablet and Desktop: Switch to 2 columns */
-@media (min-width: 768px) {
-  .library-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* Card Styling */
+/* Card Styling - Fixed for White Background */
 .library-cardl {
-  background: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 12px;
+  background: #ffffff;
+  /* Stronger border for visibility on white */
+  border: 1.5px solid #d1d5db; 
+  border-radius: 16px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .library-cardl:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  border-color: #2563eb; /* Accent Blue */
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
+/* Content Layout */
 .cardl-content {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  gap: 15px;
+  margin-bottom: 25px;
 }
 
 .index {
-  background: #2c3e50;
+  background: #1a202c;
   color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  margin-right: 15px;
+  min-width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
 }
 
 .item-name {
-  font-weight: 600;
+  font-weight: 700;
   margin: 0;
-  color: #2c3e50;
+  color: #1a202c;
+  font-size: 1.1rem;
 }
 
-/* Button Styling (Touch-friendly size) */
+.item-meta {
+  color: #64748b;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --- Improved Read More Button --- */
 .view-btn {
-  border: 2px solid #0a0a0a;
-  display: inline-block;
-   background: var(--accent);;
-  color: #070707;
-  text-align: center;
-   padding: 12px 28px; 
-  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:px;
+  background: #2563eb;
+  color: #ffffff;
+  padding: 8px 8px;
+  border-radius: 12px;
   text-decoration: none;
   font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  border: none; /* Removed the messy border */
+}
 
+.view-btn i {
+  font-size: 1.2rem;
 }
 
 .view-btn:hover {
-  background-color: #7f8d9a;
+  background: #2563eb;
+  transform: scale(1.02);
+}
+
+/* Special Highlight for Wall Magazine */
+.library-cardl.featured {
+  border-left: 6px solid #ffa406; /* Gold accent */
+}
+
+/* --- Mobile Fixes --- */
+@media (max-width: 600px) {
+  .library-section {
+    padding: 40px 15px;
+  }
+  
+  .library-cardl {
+    padding: 20px;
+  }
+
+  .view-btn {
+    width:85%; /* Full width for easy thumb tap */
+    padding: 16px;
+    font-size: 1.05rem;
+  }
 }
       /* ---------- DOWNLOAD ---------- */
 
@@ -1596,9 +1644,9 @@ nav {
       <div class="card">
         <img src="wall (2).jpg" alt="Previous Year Wall-Magazine" class="card-img" />
         <div class="card-content">
-          <h3>Innaguration of Previous Year Wall Magazine</h3>
+          <h3>Inaguration of Previous Year Wall Magazine</h3>
           <p>
-           Innaguration of Wall Magazine 2025-26 of Dept. of Physics, Pandu College by <strong>Dr. Sanchay Jyoti Bora (Principal, Pandu College, Guwahati-12)</strong>.
+           Inaguration of Wall Magazine 2025-26 of Dept. of Physics, Pandu College by <strong>Dr. Sanchay Jyoti Bora (Principal, Pandu College, Guwahati-12)</strong>.
            
           </p>
         </div>
@@ -1622,56 +1670,85 @@ nav {
 <!---Library-->
  <section id="Library" class="library-section">
   <div class="container">
-    <h2 class="section-title"><i class="bx bxs-book-reader"></i> Library</h2>
+    <h2 class="section-title"><i class="bx bxs-book-reader"></i> Library </h2>
     
     <div class="library-grid">
-      <div class="library-cardl">
+      <div class="library-cardl featured">
         <div class="cardl-content">
           <span class="index">01</span>
-          <p class="item-name"> Spectrum Volume-18</p>
+          <div class="text-group">
+            <p class="item-name">Spectrum Volume-18</p>
+            <small class="item-meta">Last Edition</small>
+          </div>
         </div>
-        <a href="https://sites.google.com/view/spectrum18/articles?authuser=0" class="view-btn" target="_blank">
-          <i class="bx bxs-book-reader"></i> View Now
+        <a href="https://sites.google.com/view/spectrum18/home" class="view-btn" target="_blank">
+          View Now <i class="bx bx-right-arrow-alt"></i>
         </a>
       </div>
-      <div class="library-cardl">
+      
+      <div class="library-cardl featured">
         <div class="cardl-content">
           <span class="index">02</span>
-          <p class="item-name"> Spectrum Volume-17</p>
+          <div class="text-group">
+            <p class="item-name">Spectrum Volume-17</p>
+            <small class="item-meta">2023-24 Edition</small>
+          </div>
         </div>
-        <a href="https://sites.google.com/view/spectrum18/articles?authuser=0" class="view-btn" target="_blank">
-          <i class="bx bxs-book-reader"></i> View Now
+        <a href="https://sites.google.com/view/spectrum17/home" class="view-btn" target="_blank">
+          View Now <i class="bx bx-right-arrow-alt"></i>
         </a>
       </div>
-      <div class="library-cardl">
+       <div class="library-cardl featured">
         <div class="cardl-content">
           <span class="index">03</span>
-          <p class="item-name"> Spectrum Volume-16</p>
+          <div class="text-group">
+            <p class="item-name">Spectrum Volume-16</p>
+            <small class="item-meta">2022-23 Edition</small>
+          </div>
         </div>
-        <a href="https://sites.google.com/view/spectrum18/articles?authuser=0" class="view-btn" target="_blank">
-          <i class="bx bxs-book-reader"></i> View Now
-        </a>
-      </div>
-      <div class="library-cardl">
-        <div class="cardl-content">
-          <span class="index">04</span>
-          <p class="item-name">Spectrum Volume-15</p>
-        </div>
-        <a href="https://sites.google.com/view/spectrum18/articles?authuser=0" class="view-btn" target="_blank">
-          <i class="bx bxs-book-reader"></i> View Now
+        <a href="https://parthax.github.io/spectrum/" class="view-btn" target="_blank">
+          View Now <i class="bx bx-right-arrow-alt"></i>
         </a>
       </div>
 
-      <div class="library-cardl">
+            <div class="library-cardl featured">
         <div class="cardl-content">
-          <span class="index">02</span>
-          <p class="item-name">Previous Year Wall Magazine 2025-26</p>
+          <span class="index">04</span>
+          <div class="text-group">
+            <p class="item-name">Spectrum Volume-15</p>
+            <small class="item-meta">2021-22 Edition</small>
+          </div>
         </div>
-        <a href="#" class="view-btn" target="_blank">
-          <i class="bx bxs-book-reader"></i> View Now
+        <a href="https://sites.google.com/view/spectrum15" class="view-btn" target="_blank">
+          View Now <i class="bx bx-right-arrow-alt"></i>
         </a>
       </div>
-    </div>
+       <div class="library-cardl featured">
+        <div class="cardl-content">
+          <span class="index">05</span>
+          <div class="text-group">
+            <p class="item-name">Spectrum Volume-14</p>
+            <small class="item-meta">2020-21 Edition</small>
+          </div>
+        </div>
+        <a href="https://sites.google.com/view/spectrum-14/home" class="view-btn" target="_blank">
+          View Now <i class="bx bx-right-arrow-alt"></i>
+        </a>
+      </div>
+      <div class="library-cardl featured">
+        <div class="cardl-content">
+          <span class="index"><i class="bx bxs-star"></i></span>
+          <div class="text-group">
+            <p class="item-name">Previous Year Wall Magazine</p>
+            <small class="item-meta">2025-2026 Edition</small>
+          </div>
+        </div>
+        <a href="https://sites.google.com/view/wallmagazineofdepartmentofphy/home" class="view-btn" target="_blank">
+          View Now <i class="bx bx-right-arrow-alt"></i>
+        </a>
+      </div>
+      
+      </div>
   </div>
 </section>
     <!--=====Download=================-->
