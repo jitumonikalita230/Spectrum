@@ -26,7 +26,7 @@
       /* ---------- GENERAL ---------- */
       body {
         margin: 0;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         background: linear-gradient(135deg, #b8a5b3, #f6eff3, #f1f9f9);
         color: var(--text-light);
         scroll-behavior: smooth;
@@ -505,7 +505,7 @@ nav {
 
 .stat-item i {
   font-size: 2rem;
-  color: #008b8b;
+  color: #337171;
   display: block;
 }
 
@@ -773,10 +773,10 @@ nav {
   position: absolute;
   top: 95%;
   transform: translateY(-50%);
-  background: linear-gradient(135deg, #00e5ff, #00bcd4);
+   background: var(--accent);
   color: #151414;
   border: none;
-  border-radius: 20px;
+  border-radius:18px;
   padding: 12px 14px;
   font-size: 1.2rem;
   cursor: pointer;
@@ -967,10 +967,10 @@ nav {
   position: absolute;
   top: 95%;
   transform: translateY(-50%);
-  background: linear-gradient(135deg, #00e5ff, #00bcd4);
+  background: var(--accent);
   color: #151414;
   border: none;
-  border-radius: 20px;
+  border-radius: 18px;
   padding: 12px 14px;
   font-size: 1.2rem;
   cursor: pointer;
@@ -980,7 +980,7 @@ nav {
   transition: all 0.3s ease;
 }
 .gallery-btn:hover {
-  background: linear-gradient(135deg, #00bcd4, #0097a7);
+   background: var(--accent);;
   transform: translateY(-50%) scale(1.1);
   color: #fff;
 }
@@ -1042,12 +1042,93 @@ nav {
     font-size: 0.9rem;
   }
 }
-      /* ---------- DOWNLOAD ---------- */
-#Download{
-  background: linear-gradient(135deg, #b8a5b3, #f6eff3, #f1f9f9);
-  
+
+#Downloadsoftcopy, #Library, #photogallery, #achievements, #Editorial-board, #dept-glimpse {
+  background: linear-gradient(135deg, #f6bbe5, #f6eff3, #c4f1f1);
+}/* Container sizing */
+.library-section {
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+/* Responsive Grid Layout */
+.library-grid {
+  display: grid;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  /* 1 column by default (mobile) */
+  grid-template-columns: 1fr; 
+}
+
+/* Tablet and Desktop: Switch to 2 columns */
+@media (min-width: 768px) {
+  .library-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Card Styling */
+.library-cardl {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.library-cardl:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.cardl-content {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.index {
+  background: #2c3e50;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin-right: 15px;
+}
+
+.item-name {
+  font-weight: 600;
+  margin: 0;
+  color: #2c3e50;
+}
+
+/* Button Styling (Touch-friendly size) */
+.view-btn {
+  border: 2px solid #0a0a0a;
+  display: inline-block;
+   background: var(--accent);;
+  color: #070707;
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
 
 }
+
+.view-btn:hover {
+  background-color: #34495e;
+}
+      /* ---------- DOWNLOAD ---------- */
+
+  
+
 .Download-btn { background: var(--accent); color: black; padding: 12px 28px; 
   margin-top: 10px;
   margin-bottom: 10px;
@@ -1232,6 +1313,9 @@ nav {
         <li>
           <a href="article.html"><i class="bx bxs-pen"></i> Articles</a>
         </li>
+          <li>
+          <a href="#Library"><i class="bx bxs-book-reader"></i> Library</a>
+        </li>
         <li>
           <a href="#Downloadsoftcopy"
             ><i class="bx bxs-download"></i> Download softcopy</a
@@ -1248,7 +1332,8 @@ nav {
     <h2 class="sub-title">2025–26</h2>
    
     <p class="description">
-   <strong>Department of Physics, Pandu College</strong><br><br>
+   <strong>Department of Physics,
+    <br> Pandu College</strong><br><br>
       Exploring the wonders of the universe, from quantum mysteries to cosmic phenomena.
     </p>
     <a href="article.html" class="btn1">
@@ -1322,12 +1407,12 @@ nav {
       </p>
     
     </div>
-   
+   <!----Glimps---->
   </div>
  <section class="dept-glimpse" id="dept-glimpse">
   <div class="glimpse-container">
     <div class="glimpse-text" data-aos="fade-right">
-      <h2>Department at a Glance</h2>
+      <h2><i class='bx  bxs-camera'></i> Department at a Glance</h2>
       <p>The Department of Physics at Pandu College is a hub of scientific inquiry...</p>
       
       <div class="stats-grid">
@@ -1353,7 +1438,7 @@ nav {
       </div>
     </div>
     <div class="glimpse-image" data-aos="fade-left">
-      <img src="dept-main.jpg" alt="Physics Laboratory" />
+      <img src="Physics by sal71.jpeg" alt="dpt.physics" />
     </div>
   </div>
 </section>
@@ -1378,7 +1463,7 @@ nav {
         </div>
         
         <div class="profile-card-1" data-aos="zoom-in">
-          <div class="image1"><img src="ChatGPT Image Dec 23, 2025, 10_45_09 AM.png" alt="Jitu Moni Kalita" /></div>
+          <div class="image1"><img src="IMG-20260101-WA0015.jpg" alt="Jitu Moni Kalita" /></div>
           <h3>Jitu Moni Kalita</h3>
           <p><i class="bx bxs-briefcase"></i> Website Developer</p>
           <p><i class="bx bxl-gmail"></i><a href="mailto:jitumoni2005@gmail.com"> jitumoni2005@gmail.com</a></p>
@@ -1522,7 +1607,34 @@ nav {
     </button>
   </div>
 </section>
+<!---Library-->
+ <section id="Library" class="library-section">
+  <div class="container">
+    <h2 class="section-title"><i class="bx bxs-book-reader"></i> Library</h2>
+    
+    <div class="library-grid">
+      <div class="library-cardl">
+        <div class="cardl-content">
+          <span class="index">01</span>
+          <p class="item-name">Previous Year Spectrum Volume-18</p>
+        </div>
+        <a href="https://sites.google.com/view/spectrum18/articles?authuser=0" class="view-btn" target="_blank">
+          <i class="bx bxs-book-reader"></i> View Now
+        </a>
+      </div>
 
+      <div class="library-cardl">
+        <div class="cardl-content">
+          <span class="index">02</span>
+          <p class="item-name">Previous Year Wall Magazine 2025-26</p>
+        </div>
+        <a href="#" class="view-btn" target="_blank">
+          <i class="bx bxs-book-reader"></i> View Now
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
     <!--=====Download=================-->
     <section id="Downloadsoftcopy">
   <h2><i class="bx bxs-download"></i> Download Soft Copy</h2>
