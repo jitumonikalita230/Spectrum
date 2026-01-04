@@ -22,9 +22,9 @@
         --text-dark: #111;
         --section-bg: #fff;
        --primary-gradient: linear-gradient(135deg, #f6bbe5, #f6eff3, #c4f1f1);
-  --glass-bg: rgba(255, 255, 255, 0.25);
-  --accent-blue: #007bff;
-  --text-dark: #2d3436;
+       --glass-bg: rgba(255, 255, 255, 0.25);
+       --accent-blue: #007bff;
+      --text-dark: #2d3436;
       }
 
       /* ---------- GENERAL ---------- */
@@ -1400,31 +1400,34 @@ input, select, textarea {
   }
 }
       /* ---------- FOOTER ---------- */
-      footer {
-        background: #000;
-        color: var(--text-light);
-        text-align: center;
-        padding: 20px 10px;
-        box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.2);
-      }
+   /* Ensure the footer background and text contrast */
+.footer {
+  background-color: #222; /* Dark background */
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #ffffff !important; /* Force text to white */
+}
 
-      .footer-socials {
-        margin-top: 10px;
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-      }
+/* Specifically target the paragraphs and strong tags */
+.footer p, 
+.footer strong {
+  color: #ffffff; 
+  margin: 5px 0;
+}
 
-      .footer-socials a {
-        color: var(--accent);
-        font-size: 1.5rem;
-        transition: transform 0.3s ease, color 0.3s ease;
-      }
+/* Style the social icons so they are also visible */
+.footer-socials a {
+color: var(--accent);
+  font-size: 1.5rem;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
 
-      .footer-socials a:hover {
-        color: #fff;
-        transform: scale(1.2);
-      }
+.footer-socials a:hover {
+  opacity: 0.7; /* Soft hover effect */
+  color: #007bff; /* Optional: change color on hover */
+}
     </style>
   </head>
 
@@ -1870,7 +1873,6 @@ input, select, textarea {
     <section id="Downloadsoftcopy">
   <h2><i class="bx bxs-download"></i> Download Soft Copy</h2>
   <p>The soft copy of Spectrum Volume 19 is available for download.</p>
-
   <!-- Download button -->
   <a href="my-art.pdf" 
      class="Download-btn" 
@@ -1878,7 +1880,6 @@ input, select, textarea {
      download>
       <i class="bx bxs-download"></i> Download Now
   </a>
-
   <p>Thanks for visiting our website 😊!</p>
   <div id="downloadOverlay">
     <div class="anim-box">
@@ -1890,12 +1891,8 @@ input, select, textarea {
         <p class="anim-text"> Download is starting…</p>
     </div>
 </div>
-
 </section>
-
-
-
-</section>
+    <!-- ========== CONTACT & FEEDBACK ========== -->
 <section class="contact-page-wrapper" id="contact-page-wrapper">
   <div class="main-contact-container">
     
@@ -1949,25 +1946,11 @@ input, select, textarea {
 
   </div>
 </section>
-  
-</div>
-</section>
 
   <!-- Fullscreen centered animation overlay -->
  
 
-<div id="offline-box" class="offline">
-  <lottie-player
-    src="https://assets10.lottiefiles.com/packages/lf20_qpsnmykx.json"
-    background="transparent"
-    speed="1"
-    style="width: 200px; height: 200px;"
-    loop
-    autoplay>
-  </lottie-player>
 
-  <p>No Internet Connection</p>
-</div>
     <footer class="footer">
       <div class="footer-container">
         <p>&copy; <strong>2025 Spectrum |👨‍💻 Developed by</strong> 
