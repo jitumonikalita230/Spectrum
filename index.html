@@ -1288,6 +1288,53 @@ nav {
   margin-top: 10px;
   font-weight: 600;
 }
+.feedback-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  font-family: sans-serif;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+button {
+  width: 100%;
+  padding: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
 
       /* ---------- FOOTER ---------- */
       footer {
@@ -1369,6 +1416,11 @@ nav {
         <li>
           <a href="#Downloadsoftcopy"
             ><i class="bx bxs-download"></i> Download softcopy</a
+          >
+        </li>
+         <li>
+          <a href="#feedback-container"
+            ><i class="bx bxs-download"></i>Feedback</a
           >
         </li>
 
@@ -1765,6 +1817,41 @@ nav {
   </a>
 
   <p>Thanks for visiting our website 😊!</p>
+
+  <div class="feedback-container">
+  <h2>We value your feedback</h2>
+  <p>Please let us know how we can improve your experience.</p>
+  
+  <form action="https://formspree.io/f/mkogkwwk" method="POST">
+    <div class="form-group">
+      <label for="full-name">Name</label>
+      <input type="text" name="name" id="full-name" placeholder="Enter your name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email-address">Email Address</label>
+      <input type="email" name="_replyto" id="email-address" placeholder="email@domain.com" required>
+    </div>
+
+    <div class="form-group">
+      <label for="rating">Rating</label>
+      <select name="rating" id="rating">
+        <option value="5">Excellent ★★★★★</option>
+        <option value="4">Great ★★★★☆</option>
+        <option value="3">Average ★★★☆☆</option>
+        <option value="2">Poor ★★☆☆☆</option>
+        <option value="1">Bad ★☆☆☆☆</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="message">Your Comments</label>
+      <textarea rows="5" name="message" id="message" placeholder="Tell us what's on your mind..." required></textarea>
+    </div>
+
+    <button type="submit">Submit Feedback</button>
+  </form>
+</div>
 
   <!-- Fullscreen centered animation overlay -->
  <div id="downloadOverlay">
