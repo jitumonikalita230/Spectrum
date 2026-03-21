@@ -320,7 +320,146 @@ nav {
   transform: scale(1.05);
   box-shadow: 0 0 30px var(--accent), 0 0 40px var(--pink);
 }
+/* ---------- MEMORIAL SECTION ---------- */
+/* ---------- COMPLETE MEMORIAL SECTION ---------- */
+.memorial-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #0f0f0f, #1a1a1a); /* Deep, respectful dark */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
 
+.memorial-container {
+    max-width: 850px;
+    margin: 0 auto;
+    background: rgba(20, 20, 20, 0.7); /* Darker semi-transparent base */
+    backdrop-filter: blur(12px); /* Blurs any background movement for focus */
+    -webkit-backdrop-filter: blur(12px);
+    padding: 60px 40px;
+    border-radius: 24px;
+    border: 1px solid rgba(212, 175, 55, 0.3); /* Subtle Gold border */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease;
+}
+
+.memorial-container:hover {
+    transform: translateY(-5px);
+    border-color: rgba(212, 175, 55, 0.6);
+}
+
+.memorial-image {
+    width: 220px;
+    height: 280px;
+    margin: 0 auto 30px;
+    border-radius: 12px;
+    overflow: hidden;
+    filter: grayscale(100%);
+    transition: all 0.6s ease;
+    border: 2px solid #d4af37;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.memorial-container:hover .memorial-image {
+    filter: grayscale(0%);
+    transform: scale(1.03);
+    box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
+}
+
+.memorial-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.memorial-name {
+    font-size: 2.4rem;
+    color: #d4af37; /* Tribute Gold */
+    margin-bottom: 8px;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.memorial-dates {
+    font-size: 1.2rem;
+    color: #a0a0a0;
+    margin-bottom: 35px;
+    letter-spacing: 3px;
+    font-weight: 300;
+}
+
+/* --- HIGH VISIBILITY QUOTE STYLE --- */
+.memorial-quote {
+    position: relative;
+    padding: 20px 60px;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+.memorial-quote p {
+    font-style: italic;
+    font-size: 1.3rem;
+    line-height: 1.9;
+    color: #ffffff; /* Pure white for contrast */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 10px rgba(0,0,0,0.5);
+    font-family: 'Cambria', serif;
+    margin: 0;
+}
+
+/* Elegant Quote Marks */
+.memorial-quote::before, 
+.memorial-quote::after {
+    font-family: 'Georgia', serif;
+    font-size: 5.5rem;
+    position: absolute;
+    color: rgba(212, 175, 55, 0.25); /* Muted gold for the icons */
+    line-height: 1;
+}
+
+.memorial-quote::before {
+    content: '“';
+    left: 0;
+    top: -20px;
+}
+
+.memorial-quote::after {
+    content: '”';
+    right: 0;
+    bottom: -50px;
+}
+
+.candle-animation {
+    margin-top: 50px;
+    font-size: 2.2rem;
+    filter: drop-shadow(0 0 10px rgba(255, 165, 0, 0.6));
+    animation: flicker 2.5s infinite ease-in-out;
+    cursor: default;
+}
+
+@keyframes flicker {
+    0%, 100% { 
+        opacity: 0.7; 
+        transform: scale(1) rotate(-1deg); 
+    }
+    50% { 
+        opacity: 1; 
+        transform: scale(1.1) rotate(1deg); 
+        text-shadow: 0 0 20px #ffa500, 0 0 40px #ff4500; 
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .memorial-container {
+        padding: 40px 20px;
+        width: 95%;
+    }
+    .memorial-name { font-size: 1.8rem; }
+    .memorial-quote p { font-size: 1.1rem; }
+    .memorial-quote { padding: 15px 30px; }
+    .memorial-quote::before, .memorial-quote::after { font-size: 4rem; }
+}
 /* ---------- MESSAGE SECTION ---------- */
 .messages-section {
  background: linear-gradient(145deg, #000b0b6c, #ffe6fa);
@@ -1509,6 +1648,29 @@ color: var(--accent);
     </a>
   </div>
 </section>
+<section class="memorial-section" id="InMemoriam">
+  <div class="memorial-container">
+    <div class="memorial-image">
+      <img src="late-professor.jpg" alt="In Loving Memory" />
+    </div>
+    
+    <h2 class="memorial-name">In Loving Memory of <br> Late Prof. D.K.C Sir</h2>
+    <p class="memorial-dates">19XX — 20XX</p>
+    
+    <div class="memorial-quote">
+      <p>
+        "A great teacher is like a candle—it consumes itself to light the way for others."
+        <br><br>
+        We dedicate this 19th volume of Spectrum to the memory of our beloved teacher, 
+        whose passion for Physics and dedication to the department continue to inspire 
+        generations of students. Your wisdom remains our guiding star.
+      </p>
+    </div>
+
+    <div class="candle-animation">🕯️</div>
+    <p style="color: #d4af37; margin-top: 10px; font-weight: bold;">"A legacy of knowledge that continues to inspire."</p>
+  </div>
+</section>
 
 <section class="messages-section" id="Home">
   <div class="message">
@@ -1659,6 +1821,24 @@ I extend my wholehearted encouragement for this endeavor and believe it will ser
 
     <div class="slider-track">
       <div class="acard">
+        <img src="romanchita ba.jpeg" alt="position" class="acard-img" />
+        <div class="acard-content">
+          <h3>Rank Holder</h3>
+          <p>
+            <strong>Romanchita Choudhury</strong> secured <strong>1st class 1st position</strong> in <strong>B.Sc. Physics (Honours)</strong> under <strong>Gauhati University</strong> for the year 2025.
+          </p>
+        </div>
+      </div>
+      <div class="acard">
+        <img src="anjanda.jpeg" alt="position" class="acard-img" />
+        <div class="acard-content">
+          <h3>Rank Holder</h3>
+          <p>
+            <strong>Anjan Bhowmik</strong> secured <strong>1st class 4th position</strong> in <strong>B.Sc. Physics (Honours)</strong> under <strong>Gauhati University</strong> for the year 2025.
+          </p>
+        </div>
+      </div>
+      <div class="acard">
         <img src="iit.jpg" alt="IIT Event" class="acard-img" />
         <div class="acard-content">
           <h3>IIT-Event</h3>
@@ -1707,6 +1887,18 @@ I extend my wholehearted encouragement for this endeavor and believe it will ser
         </div>
       </div>
 
+       <div class="acard">
+        <img src="workshop A&A.jpeg" alt="Pandu competition" class="acard-img" />
+        <div class="acard-content">
+            <h3>Succsessfully Atain Workshop</h3>
+    <p>
+      <strong>Jitu Moni Kalita</strong> (6th Semester student) successfully attained an <strong>Introductory Workshop on "Astronomy and Astrophysics"</strong> sponcered by <strong>IUCAA,Pune </strong>jointly organized by <strong>Bhawanipur Anchalik College, Barpeta</strong> & <strong>Bhattadev University Bajali</strong>.
+   
+   
+    </p>
+        </div>
+      </div>
+
       <div class="acard">
         <img src="q.jpg" alt="Quiz Competition" class="acard-img" />
         <div class="acard-content">
@@ -1719,6 +1911,8 @@ I extend my wholehearted encouragement for this endeavor and believe it will ser
         </div>
       </div>
     </div>
+
+    
 
     <button class="slider-btn" id="next">Next <i class="bx bx-chevron-right"></i></button>
   </div>
