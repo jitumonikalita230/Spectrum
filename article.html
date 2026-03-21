@@ -431,8 +431,87 @@
   
 }
 
+/* ---------- IMPROVED TABLE ---------- */
+/* ---------- HORIZONTAL TABLE FOR ALL DEVICES ---------- */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin: 30px 0;
 
+  /* smooth scrolling */
+  scroll-behavior: smooth;
+}
 
+/* Optional: custom scrollbar */
+.table-container::-webkit-scrollbar {
+  height: 8px;
+}
+.table-container::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 10px;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  min-width: 700px; /* forces horizontal scroll on small screens */
+  border-collapse: collapse;
+
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  overflow: hidden;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.2),
+    0 0 15px rgba(0,255,255,0.15);
+}
+
+/* Header */
+thead {
+  background: linear-gradient(90deg, #000, #0a0a0a);
+}
+
+th {
+  color: var(--accent);
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1px;
+  padding: 14px;
+  white-space: nowrap;
+}
+
+/* Cells */
+td {
+  padding: 14px;
+  color: #111;
+  font-size: 0.95rem;
+}
+
+/* Rows */
+tbody tr {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+}
+
+tbody tr:nth-child(even) {
+  background: rgba(255,255,255,0.4);
+}
+
+tbody tr:hover {
+  background: rgba(0,255,255,0.08);
+}
+
+/* Prevent text breaking badly */
+td, th {
+  white-space: nowrap;
+}
+
+/* Allow description column to wrap nicely */
+td:last-child {
+  white-space: normal;
+  min-width: 300px;
+}
   
 .article-body .notation h1{
 font-size:15px;
@@ -754,38 +833,47 @@ Long before the professional observatories and space agencies, ordinary people t
 
 <div class="Heading"><h1>Table 1: Timeline of Astronomy:</h1></div>
 
-<table border="1" cellpadding="10" cellspacing="0">
-<tr>
-<th>Civilization</th>
-<th>Approximate Start</th>
-<th>Primary Early Achievement</th>
-</tr>
-
-<tr>
-<td>Mesopotamia</td>
-<td>c. 3200 BCE</td>
-<td>Development of the first writing (cuneiform wedges) used to track Moon phases.</td>
-</tr>
-
-<tr>
-<td>Ancient Egypt</td>
-<td>c. 3000 BCE</td>
-<td>Alignment of the Pyramids to the North Star and the "Star of Isis" (Sirius).</td>
-</tr>
-
-<tr>
-<td>India (Vedic)</td>
-<td>c. 1500–1200 BCE</td>
-<td>The Rig Veda mentions a 360-day year and the Nakshatras (lunar mansions).</td>
-</tr>
-
-<tr>
-<td>Mesoamerica</td>
-<td>c. 1100 BCE</td>
-<td>Olmec "Long Count" calendar foundations and early alignment of ceremonial sites.</td>
-</tr>
-</table>
-
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Civilization</th>
+        <th>Approximate Start</th>
+        <th>Primary Early Achievement</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="Civilization">Mesopotamia</td>
+        <td data-label="Approximate Start">c. 3200 BCE</td>
+        <td data-label="Primary Early Achievement">
+          Development of the first writing (cuneiform wedges) used to track Moon phases.
+        </td>
+      </tr>
+      <tr>
+        <td data-label="Civilization">Ancient Egypt</td>
+        <td data-label="Approximate Start">c. 3000 BCE</td>
+        <td data-label="Primary Early Achievement">
+          Alignment of the Pyramids to the North Star and Sirius ("Star of Isis").
+        </td>
+      </tr>
+      <tr>
+        <td data-label="Civilization">India (Vedic)</td>
+        <td data-label="Approximate Start">c. 1500–1200 BCE</td>
+        <td data-label="Primary Early Achievement">
+          The Rig Veda mentions a 360-day year and the Nakshatras (lunar mansions).
+        </td>
+      </tr>
+      <tr>
+        <td data-label="Civilization">Mesoamerica</td>
+        <td data-label="Approximate Start">c. 1100 BCE</td>
+        <td data-label="Primary Early Achievement">
+          Olmec "Long Count" calendar foundations and early alignment of ceremonial sites.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 
 <div class="Heading"><h1>The Historical Continuum:</h1></div>
