@@ -25,6 +25,10 @@
        --glass-bg: rgba(9, 1, 1, 0);
        --accent-blue: #007bff;
       --text-dark: #000405;
+      --primary-gold: #c5a059;
+    --deep-charcoal: #2c3e50;
+    --accent-maroon: #7b1d1d;
+    --soft-bg: #fdfbf7;
       }
 
       /* ---------- GENERAL ---------- */
@@ -262,7 +266,6 @@ nav {
 .home-content {
   position: relative;
   text-align: center;
-  padding: 6rem 1rem;
   background: url("spectrum.png") no-repeat center center/cover;
   overflow: hidden;
   font-family: "Poppins", sans-serif;
@@ -320,169 +323,136 @@ nav {
   transform: scale(1.05);
   box-shadow: 0 0 30px var(--accent), 0 0 40px var(--pink);
 }
-/* ---------- MEMORIAL SECTION ---------- */
-/* ---------- COMPLETE MEMORIAL SECTION ---------- */
-/* ---------- MEMORIAL SECTION ---------- */
-.memorial-section {
-    padding: clamp(60px, 10vw, 100px) 20px;
-    /* Richer gradient with a 'light from above' feel */
-    background: radial-gradient(circle at top, #252525 0%, #0f0f0f 100%);
-    text-align: center;
+.memorial-card {
+    max-width: 1100px;
+    
+    background: black;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.08);
+    font-family: 'Garamond', 'Georgia', serif;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* Desktop View */
+  @media (min-width: 850px) {
+    .memorial-card { flex-direction: row; align-items: stretch; min-height: 550px; }
+    .memorial-image { flex: 1.1; overflow: hidden; }
+    .memorial-content { flex: 1.4; padding: 50px 40px; } /* Reduced internal padding for faster readability */
+  }
+
+  /* Improved Image Presentation */
+  .memorial-image {
+    background: #000;
     position: relative;
-    overflow: hidden;
-    color: #fff;
-}
-
-/* Subtle light beam effect in the background */
-.memorial-section::before {
-    content: '';
-    position: absolute;
-    top: -10%;
-    left: 50%;
-    width: 200%;
-    height: 100%;
-    background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
-    transform: translateX(-50%);
-    pointer-events: none;
-}
-
-.memorial-container {
-    max-width: 850px;
-    margin: 0 auto;
-    background: rgba(15, 15, 15, 0.8);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    padding: clamp(40px, 8vw, 80px) clamp(20px, 5vw, 60px);
-    border-radius: 32px;
-    /* Double border for a more 'framed' look */
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 
-                inset 0 0 20px rgba(212, 175, 55, 0.05);
-    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.memorial-container:hover {
-    transform: translateY(-8px);
-    border-color: rgba(212, 175, 55, 0.5);
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.9);
-}
-
-/* ---------- IMAGE BOX ---------- */
-.memorial-image {
-    width: 240px;
-    height: 300px;
-    margin: 0 auto 40px;
-    border-radius: 160px 160px 20px 20px; /* Arched top for classic memorial feel */
-    overflow: hidden;
-    filter: grayscale(100%) sepia(20%); /* Softens the cold grey */
-    transition: all 0.8s ease;
-    border: 3px solid #d4af37;
-    outline: 8px solid rgba(212, 175, 55, 0.05);
-}
-
-.memorial-container:hover .memorial-image {
-    filter: grayscale(0%) sepia(0%);
-    transform: scale(1.02);
-    outline-color: rgba(212, 175, 55, 0.15);
-}
-
-.memorial-image img {
+    border-right: 1px solid rgba(197, 160, 89, 0.15);
+  }
+  
+  .memorial-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-/* ---------- TEXT STYLES ---------- */
-.memorial-name {
-    font-size: clamp(1.5rem, 5vw, 1.5rem);
-    color: #d4af37;
-    margin-bottom: 12px;
-    font-family: 'Playfair Display', 'Georgia', serif;
-    letter-spacing: 2px;
-    /* Shimmer Effect */
-    background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fcf6ba, #aa771c);
-    -webkit-background-clip: text;
-    background-clip: text;
-    /* Fallback color if background-clip isn't supported */
-    -webkit-text-fill-color: transparent; 
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
-}
-
-.memorial-dates {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.5);
-    margin-bottom: 45px;
-    letter-spacing: 5px;
-    font-weight: 300;
-    text-transform: uppercase;
-}
-
-/* ---------- QUOTE STYLE ---------- */
-.memorial-quote {
-    position: relative;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px 0;
-}
-
-.memorial-quote p {
-    font-style: italic;
-    font-size: clamp(1.1rem, 3vw, 1.4rem);
-    line-height: 2;
-    color: rgba(255, 255, 255, 0.95);
-    font-family: 'Lora', 'Cambria', serif;
-    z-index: 2;
-    position: relative;
-}
-
-/* Elegant Floating Quote Marks */
-.memorial-quote::before {
-    content: '“';
-    font-family: 'Georgia', serif;
-    font-size: 8rem;
-    position: absolute;
-    color: rgba(212, 175, 55, 0.15);
-    top: -50px;
-    left: -40px;
-}
-
-.candle-animation {
-    margin-top: 60px;
-    font-size: 2.5rem;
-    display: inline-block;
-}
-
-.candle-flame {
-    filter: drop-shadow(0 0 15px rgba(255, 165, 0, 0.8));
-    animation: flicker 3s infinite ease-in-out;
-}
-
-@keyframes flicker {
-    0%, 100% { transform: scale(1) rotate(-1deg); opacity: 0.8; }
-    20% { transform: scale(1.1, 0.9) rotate(2deg); opacity: 1; }
-    40% { transform: scale(0.9, 1.1) rotate(-2deg); opacity: 0.9; }
-    60% { transform: scale(1.05) rotate(1deg); opacity: 1; }
-    80% { transform: scale(0.95) rotate(-1deg); opacity: 0.8; }
-}
-
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 768px) {
-    .memorial-container {
-        padding: 50px 25px;
-        border-radius: 20px;
-    }
+    display: block;
     
-    .memorial-image {
-        width: 180px;
-        height: 230px;
-    }
+    /* Improved Shape: Use pixels for a consistent 'rounded card' look */
 
-    .memorial-quote::before {
-        font-size: 5rem;
-        top: -30px;
-        left: -10px;
-    }
-}
+    
+    /* Elegant Border: Using a subtle gradient for a 'metallic' gold feel */
+    border: 3px solid;
+    border-image: linear-gradient(to bottom, #d4af37, #fcf6ba, #d4af37) 1;
+    
+    /* Atmosphere */
+    opacity: 0.9;
+    filter: contrast(1.1) sepia(15%) grayscale(5%); /* Slightly warmer */
+    
+    /* Shadow: Adds depth so the image 'pops' off the black background */
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+    
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  /* Hover State: The image 'glows' and expands slightly */
+  .memorial-card:hover .memorial-image img {
+    opacity: 1;
+    transform: scale(1.03);
+    filter: contrast(1.1) sepia(0%) grayscale(0%); /* Returns to full color */
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+    border-radius: 12px; /* Smoother transition of shape */
+  }
+  .memorial-content {
+    padding: 30px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .candle-icon { font-size: 1.8rem; margin-bottom: 10px; display: block; }
+
+  .memorial-name {
+    font-size: clamp(1.8rem, 5vw, 2.4rem); /* Dynamic resizing for all devices */
+    color:gold;
+    margin: 0;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .memorial-dates {
+    font-size: 1.1rem;
+    color:#00ffff;
+    font-weight: bold;
+    margin: 10px 0 20px 0;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  .custom-quote {
+    font-style: italic;
+    font-size: 1.2rem;
+    color:white;
+    margin-bottom: 30px;
+    padding: 10px 25px;
+    line-height: 1.6;
+    border-left: 2px solid rgba(243, 195, 107, 0.93);
+    border-right: 2px solid rgba(243, 195, 107, 0.93);
+    background: rgba(197, 160, 89, 0.05); /* Subtle highlight */
+    border-radius: 4px;
+  }
+
+  .memorial-bio {
+    text-align: justify;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color:white;
+
+    margin-bottom: 30px;
+  }
+
+  .achievement-tag {
+    display: inline-block;
+    background: #f1ede1;
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin: 4px;
+    color: var(--deep-charcoal);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+  }
+  .achievement-tag:hover { background: #fff; border-color: var(--primary-gold); }
+
+  .footer-dedication {
+    font-weight: bold;
+    color: var(--primary-gold);
+    letter-spacing: 2px;
+    border-top: 1px solid #e0d8c3;
+    padding-top: 20px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+  }
 /* ---------- MESSAGE SECTION ---------- */
 .messages-section {
  background: linear-gradient(145deg, #000b0b6c, #ffe6fa);
@@ -1671,27 +1641,33 @@ color: var(--accent);
     </a>
   </div>
 </section>
-<section class="memorial-section" id="InMemoriam">
-  <div class="memorial-container">
-    <div class="memorial-image">
-      <img src="lo.jpeg" alt="In Loving Memory" />
-    </div>
-    
-    <h2 class="memorial-name">In Loving Memory of <br> Late Prof. D.K.C Sir</h2>
-    <p class="memorial-dates">19XX — 20XX</p>
-    
-    <div class="memorial-quote">
-      <p>
-        "A great teacher is like a candle—it consumes itself to light the way for others."
-        <br><br>
-        We dedicate this 19th volume of Spectrum to the memory of our beloved teacher, 
-        whose passion for Physics and dedication to the department continue to inspire 
-        generations of students. Your wisdom remains our guiding star.
-      </p>
+<section class="memorial-card">
+  <div class="memorial-image">
+    <img src="dkc sir.jpg" alt="Prof. Dilip Kumar Choudhury">
+  </div>
+  
+  <div class="memorial-content">
+    <span class="candle-icon">🕯️</span>
+    <h1 class="memorial-name">Prof. Dilip Kumar Choudhury</h1>
+    <div class="memorial-dates">1946 — 2024</div>
+
+    <div class="custom-quote">
+      "From the soil of Pokowa to the spires of Oxford, he proved that the laws of the universe belong to those who dare to seek them."
     </div>
 
-    <div class="candle-animation">🕯️</div>
-    <p style="color: #d4af37; margin-top: 10px; font-weight: bold;">"A legacy of knowledge that continues to inspire."</p>
+    <div class="memorial-bio">
+      A titan of High-Energy Physics, Dr. Choudhury’s brilliance was recognized globally, notably appearing in the Nobel Lecture of Richter Burton. After pioneering research at Oxford, he returned to nurture the minds at Gauhati University. Beyond the equations, he was a champion of science in the Assamese language, ensuring knowledge reached every corner of his homeland.
+    </div>
+
+    <div class="achievements">
+      <span class="achievement-tag">Royal Commission Fellow</span>
+      <span class="achievement-tag">Oxford Visitor</span>
+      <span class="achievement-tag">UGC National Associate</span>
+    </div>
+
+    <p class="footer-dedication">
+      DEDICATING THE 19th VOLUME OF SPECTRUM TO A GUIDING LIGHT
+    </p>
   </div>
 </section>
 
