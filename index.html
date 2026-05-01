@@ -325,116 +325,204 @@ nav {
   box-shadow: 0 0 30px var(--accent), 0 0 40px var(--pink);
 }
 
-
-
-/* 1. The Main Card: Added Centering and White Background */
-.memorial-card {
-  max-width: 1100px;
-  margin: px auto; /* Centers the card horizontally with spacing top/bottom */
-  background:linear-gradient(rgb(247, 247, 248),rgb(39, 148, 195)
-  ,rgb(81, 193, 238)
-); /* Clean white background */
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
-  font-family: 'Times New Roman', Times, serif; /* Uses your body's Cambria/Georgia font */
+.bhabha-page {
+  padding: 80px 40px;
+  text-align: center;
+  /* Matching the exact warm parchment/aged-paper background from the image */
+  background: radial-gradient(circle, #fdfdfb 0%, #f2eee3 100%);
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-   /* Smoother, more modern corners */
+  align-items: center;
+  color: #1a1a1a;
+  font-family: 'Times New Roman', Times, serif;
 }
 
-/* Desktop View Layout */
-@media (min-width: 850px) {
-  .memorial-card { 
-    flex-direction: row; 
-    align-items: stretch; 
-    min-height: 580px; 
-  }
-  .memorial-image { flex: 1.1; }
-  .memorial-content { flex: 1.4; padding: 60px 50px; }
+.dedication-header {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 6px;
+  margin-bottom: 35px;
+  text-transform: uppercase;
 }
 
-/* 2. Enhanced Image Presentation */
-.memorial-image {
-  background: #f0f0f0;
-  position: relative;
-  overflow: hidden;
-  border-radius: 50px 50px ; /* Unique top-rounded shape */
-  border-style: solid;
-  border-width: 4px;
-  border-top-color: rgb(227, 194, 5);
-  border-left-color: rgb(227, 194, 5);
-  border-right-color: rgb(227, 194, 5);
-  border-bottom-color: rgb(227, 194, 5);
-  border-radius: 20px;
+.bhabha-frame {
+  width: 240px;
+  height: 300px;
+  border: 1px solid #1a1a1a;
+  padding: 2px;
+  margin-bottom: 40px;
+  background: #fff;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.05);
 }
 
-.memorial-image img {
+.bhabha-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.script-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.2rem;
+  margin: 0 0 10px 0;
+  color: #222;
+}
+
+.name-heading {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+  letter-spacing: 1px;
+}
+
+.specialty-subtitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 35px;
+  color: #444;
+}
+
+.tagline-block {
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.tagline-top {
   display: block;
-  
-  /* Gold Frame Detail */
-  border: 5px;
-  
-  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-style: italic;
+  margin-bottom: 15px;
 }
 
-.memorial-card:hover .memorial-image img {
-  transform: scale(1.05); /* Subtle zoom on hover */
+.tagline-mid {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 500;
+  text-align: justify;
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}
+/* 1. The Main Card: Added Centering and White Background */
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+
+.memorial-card {
+  max-width: 1000px;
+  margin: 40px auto;
+  background: radial-gradient(circle, #fdfdfb 0%, #f2eee3 100%); /* Warm parchment feel */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  font-family: 'Times New Roman', Times, serif;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
-/* 3. Content Section: Pure Black & Gold Theme */
 .memorial-content {
-  padding: 40px 30px;
+  padding: 60px 40px;
   text-align: center;
   display: flex;
-  margin-top: 10px;
   flex-direction: column;
-  justify-content: center;
-  background:linear-gradient(rgb(247, 247, 248),rgb(39, 148, 195)
-  ,rgb(81, 193, 238));
-  border-radius: 15px;
+  align-items: center;
+}
+
+.footer-dedication {
+  font-weight: 800;
+  color: #444;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #d4af37;
+  padding-bottom: 10px;
+}
+
+.candle-icon {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.script-preamble {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.8rem;
+  color: #222;
+  margin: 0;
 }
 
 .memorial-name {
-  font-size: clamp(2rem, 5vw, 2.8rem);
-  color: #131212; /* Rich Black */
-  margin: 0;
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  color: #131212;
+  margin: 10px 0;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .memorial-dates {
-  font-size: 1rem;
-  color: #020207; /* Gold for the timeline */
+  font-size: 1.2rem;
+  color: #c89635; /* Muted Gold */
   font-weight: bold;
-  margin: 10px 0 25px 0;
-  letter-spacing: 4px;
+  margin-bottom: 30px;
+  letter-spacing: 5px;
+}
+
+.memorial-image {
+  width: 260px;
+  height: 320px;
+  border: 1px solid #1a1a1a;
+  padding: 3px;
+  background: #fff;
+  margin-bottom: 40px;
+  transition: transform 0.6s ease;
+}
+
+.memorial-card:hover .memorial-image {
+  transform: scale(1.02);
+}
+
+.memorial-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .custom-quote {
   font-style: italic;
-  font-size: 1.1rem;
-  color: #100e0e; /* Dark gray for the quote */
-  margin-bottom: 30px;
-  padding: 20px 30px;
+  font-size: 1.2rem;
+  color: #1a1a1a;
+  max-width: 700px;
+  margin-bottom: 35px;
+  padding: 25px;
   line-height: 1.6;
-  border-left: 5px solid #d4af37; /* Gold accent bar */
-  background: #d6c094; /* Very light parchment tint */
-  border-radius: 9px;
+  border-left: 4px solid #d4af37;
+  background: rgba(212, 175, 55, 0.1); /* Subtle gold tint */
+  border-radius: 4px;
 }
 
 .memorial-bio {
+  max-width: 750px;
   text-align: justify;
-  line-height: 1.8;
-  color: #151414; /* Soft black for readability */
-  margin-bottom: 35px;
-  font-family:sans-serif;
-  font-weight: 600;
+  line-height: 1.9;
+  color: #222;
+  margin-bottom: 40px;
+  font-size: 1.05rem;
+  font-weight: 500;
 }
 
+.achievement-tag {
+  display: inline-block;
+  border: 1px solid #1a1a1a;
+  color: #1a1a1a;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin: 5px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
 /* 4. Tags and Footer */
 .achievement-tag {
   display: inline-block;
@@ -1644,19 +1732,55 @@ color: var(--accent);
     </a>
   </div>
 </section>
-<section class="memorial-card">
-  <div class="memorial-image">
+
+
+
+<!-- Import Google Fonts for the script style -->
+<!-- Import for the script font -->
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+
+<section class="bhabha-page">
+  <!-- Top Text -->
+  <h2 class="dedication-header">DEDICATION</h2>
+
+  <!-- Photo Reference -->
+  <div class="bhabha-frame">
     <img src="dkc sir.jpg" alt="Prof. Dilip Kumar Choudhury">
   </div>
-  
+
+  <!-- Fond Memory Line -->
+  <p class="script-text">In the fond memory of</p>
+
+  <!-- Name and Academic Title -->
+  <h1 class="name-heading">Prof. Dilip Kumar Choudhury</h1>
+  <p class="specialty-subtitle">High-Energy Physicist</p>
+
+  <!-- Bottom Visionary Block -->
+  <div class="tagline-block">
+    <span class="tagline-top">A pioneering scholar and guiding light</span>
+    
+    <p class="tagline-mid">
+      A visionary who placed Assam on the global scientific map through his groundbreaking research 
+      at Oxford and Gauhati University. He brought the laws of the universe closer to the people 
+      through his lifelong dedication to education, research, and the popularization of science.
+    </p>
+  </div>
+</section>
+<section class="memorial-card">
   <div class="memorial-content">
     <p class="footer-dedication">
       DEDICATING THE 19th VOLUME OF SPECTRUM TO A GUIDING LIGHT
     </p>
+    
     <span class="candle-icon">🕯️</span>
+    
+    <p class="script-preamble">In the fond memory of</p>
     <h1 class="memorial-name">Prof. Dilip Kumar Choudhury</h1>
     <div class="memorial-dates">1946 — 2025</div>
-    
+
+    <div class="memorial-image">
+      <img src="dkc.jpeg" alt="Prof. Dilip Kumar Choudhury">
+    </div>
 
     <div class="custom-quote">
       "From the soil of Pokowa to the spires of Oxford, he proved that the laws of the universe belong to those who dare to seek them."
@@ -1671,11 +1795,8 @@ color: var(--accent);
       <span class="achievement-tag">Oxford Visitor</span>
       <span class="achievement-tag">UGC National Associate</span>
     </div>
-
-    
   </div>
 </section>
-
 <section class="messages-section" id="Home">
   <div class="message">
        
